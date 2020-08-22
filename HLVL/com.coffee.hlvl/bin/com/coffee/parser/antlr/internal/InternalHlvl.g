@@ -229,7 +229,7 @@ ruleListOfModelRef returns [EObject current=null]
 				}
 				otherlv_1=RULE_ID
 				{
-					newLeafNode(otherlv_1, grammarAccess.getListOfModelRefAccess().getIdsModelCrossReference_1_0());
+					newLeafNode(otherlv_1, grammarAccess.getListOfModelRefAccess().getIdsModelRefCrossReference_1_0());
 				}
 			)
 		)
@@ -249,7 +249,7 @@ ruleListOfModelRef returns [EObject current=null]
 					}
 					otherlv_3=RULE_ID
 					{
-						newLeafNode(otherlv_3, grammarAccess.getListOfModelRefAccess().getIdsModelCrossReference_2_1_0());
+						newLeafNode(otherlv_3, grammarAccess.getListOfModelRefAccess().getIdsModelRefCrossReference_2_1_0());
 					}
 				)
 			)
@@ -892,9 +892,9 @@ ruleCommon returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getCommonAccess().getElementsListOfIDsParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getCommonAccess().getElementsMixedListOfIDsParserRuleCall_3_0());
 				}
-				lv_elements_3_0=ruleListOfIDs
+				lv_elements_3_0=ruleMixedListOfIDs
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getCommonRule());
@@ -903,7 +903,7 @@ ruleCommon returns [EObject current=null]
 						$current,
 						"elements",
 						lv_elements_3_0,
-						"com.coffee.Hlvl.ListOfIDs");
+						"com.coffee.Hlvl.MixedListOfIDs");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -969,9 +969,12 @@ rulePair returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getPairRule());
 					}
 				}
-				otherlv_2=RULE_ID
 				{
-					newLeafNode(otherlv_2, grammarAccess.getPairAccess().getVar1ElmDeclarationCrossReference_2_0());
+					newCompositeNode(grammarAccess.getPairAccess().getVar1ElmDeclarationCrossReference_2_0());
+				}
+				ruleExternalElement
+				{
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -986,9 +989,12 @@ rulePair returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getPairRule());
 					}
 				}
-				otherlv_4=RULE_ID
 				{
-					newLeafNode(otherlv_4, grammarAccess.getPairAccess().getVar2ElmDeclarationCrossReference_4_0());
+					newCompositeNode(grammarAccess.getPairAccess().getVar2ElmDeclarationCrossReference_4_0());
+				}
+				ruleExternalElement
+				{
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -1061,9 +1067,9 @@ ruleComplexImplies returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getComplexImpliesAccess().getElementsListOfIDsParserRuleCall_7_0());
+					newCompositeNode(grammarAccess.getComplexImpliesAccess().getElementsMixedListOfIDsParserRuleCall_7_0());
 				}
-				lv_elements_7_0=ruleListOfIDs
+				lv_elements_7_0=ruleMixedListOfIDs
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getComplexImpliesRule());
@@ -1072,7 +1078,7 @@ ruleComplexImplies returns [EObject current=null]
 						$current,
 						"elements",
 						lv_elements_7_0,
-						"com.coffee.Hlvl.ListOfIDs");
+						"com.coffee.Hlvl.MixedListOfIDs");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -1150,9 +1156,9 @@ ruleComplexMutex returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getComplexMutexAccess().getElementsListOfIDsParserRuleCall_7_0());
+					newCompositeNode(grammarAccess.getComplexMutexAccess().getElementsMixedListOfIDsParserRuleCall_7_0());
 				}
-				lv_elements_7_0=ruleListOfIDs
+				lv_elements_7_0=ruleMixedListOfIDs
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getComplexMutexRule());
@@ -1161,7 +1167,7 @@ ruleComplexMutex returns [EObject current=null]
 						$current,
 						"elements",
 						lv_elements_7_0,
-						"com.coffee.Hlvl.ListOfIDs");
+						"com.coffee.Hlvl.MixedListOfIDs");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -1231,9 +1237,12 @@ ruleVarList returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getVarListRule());
 					}
 				}
-				otherlv_2=RULE_ID
 				{
-					newLeafNode(otherlv_2, grammarAccess.getVarListAccess().getVar1ElmDeclarationCrossReference_2_0());
+					newCompositeNode(grammarAccess.getVarListAccess().getVar1ElmDeclarationCrossReference_2_0());
+				}
+				ruleExternalElement
+				{
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -1248,9 +1257,9 @@ ruleVarList returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getVarListAccess().getListListOfIDsParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getVarListAccess().getListMixedListOfIDsParserRuleCall_5_0());
 				}
-				lv_list_5_0=ruleListOfIDs
+				lv_list_5_0=ruleMixedListOfIDs
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getVarListRule());
@@ -1259,7 +1268,7 @@ ruleVarList returns [EObject current=null]
 						$current,
 						"list",
 						lv_list_5_0,
-						"com.coffee.Hlvl.ListOfIDs");
+						"com.coffee.Hlvl.MixedListOfIDs");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -3047,6 +3056,46 @@ ruleQualifiedName returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleExternalElement
+entryRuleExternalElement returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getExternalElementRule()); }
+	iv_ruleExternalElement=ruleExternalElement
+	{ $current=$iv_ruleExternalElement.current.getText(); }
+	EOF;
+
+// Rule ExternalElement
+ruleExternalElement returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		this_ID_0=RULE_ID
+		{
+			$current.merge(this_ID_0);
+		}
+		{
+			newLeafNode(this_ID_0, grammarAccess.getExternalElementAccess().getIDTerminalRuleCall_0());
+		}
+		(
+			kw='.'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getExternalElementAccess().getFullStopKeyword_1_0());
+			}
+			this_ID_2=RULE_ID
+			{
+				$current.merge(this_ID_2);
+			}
+			{
+				newLeafNode(this_ID_2, grammarAccess.getExternalElementAccess().getIDTerminalRuleCall_1_1());
+			}
+		)*
+	)
+;
+
 // Entry rule entryRuleOperations
 entryRuleOperations returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getOperationsRule()); }
@@ -3385,6 +3434,72 @@ ruleListOfIDs returns [EObject current=null]
 					otherlv_3=RULE_ID
 					{
 						newLeafNode(otherlv_3, grammarAccess.getListOfIDsAccess().getValuesElmDeclarationCrossReference_2_1_0());
+					}
+				)
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleMixedListOfIDs
+entryRuleMixedListOfIDs returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getMixedListOfIDsRule()); }
+	iv_ruleMixedListOfIDs=ruleMixedListOfIDs
+	{ $current=$iv_ruleMixedListOfIDs.current; }
+	EOF;
+
+// Rule MixedListOfIDs
+ruleMixedListOfIDs returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getMixedListOfIDsAccess().getMixedListOfIDsAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getMixedListOfIDsRule());
+					}
+				}
+				{
+					newCompositeNode(grammarAccess.getMixedListOfIDsAccess().getValuesElmDeclarationCrossReference_1_0());
+				}
+				ruleExternalElement
+				{
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				otherlv_2=','
+				{
+					newLeafNode(otherlv_2, grammarAccess.getMixedListOfIDsAccess().getCommaKeyword_2_0());
+				}
+			)+
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getMixedListOfIDsRule());
+						}
+					}
+					{
+						newCompositeNode(grammarAccess.getMixedListOfIDsAccess().getValuesElmDeclarationCrossReference_2_1_0());
+					}
+					ruleExternalElement
+					{
+						afterParserOrEnumRuleCall();
 					}
 				)
 			)

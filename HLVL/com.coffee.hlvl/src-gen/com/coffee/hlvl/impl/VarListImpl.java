@@ -5,7 +5,7 @@ package com.coffee.hlvl.impl;
 
 import com.coffee.hlvl.ElmDeclaration;
 import com.coffee.hlvl.HlvlPackage;
-import com.coffee.hlvl.ListOfIDs;
+import com.coffee.hlvl.MixedListOfIDs;
 import com.coffee.hlvl.VarList;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -71,7 +71,7 @@ public class VarListImpl extends RelationImpl implements VarList
    * @generated
    * @ordered
    */
-  protected ListOfIDs list;
+  protected MixedListOfIDs list;
 
   /**
    * <!-- begin-user-doc -->
@@ -170,7 +170,7 @@ public class VarListImpl extends RelationImpl implements VarList
    * @generated
    */
   @Override
-  public ListOfIDs getList()
+  public MixedListOfIDs getList()
   {
     return list;
   }
@@ -180,9 +180,9 @@ public class VarListImpl extends RelationImpl implements VarList
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetList(ListOfIDs newList, NotificationChain msgs)
+  public NotificationChain basicSetList(MixedListOfIDs newList, NotificationChain msgs)
   {
-    ListOfIDs oldList = list;
+    MixedListOfIDs oldList = list;
     list = newList;
     if (eNotificationRequired())
     {
@@ -198,7 +198,7 @@ public class VarListImpl extends RelationImpl implements VarList
    * @generated
    */
   @Override
-  public void setList(ListOfIDs newList)
+  public void setList(MixedListOfIDs newList)
   {
     if (newList != list)
     {
@@ -268,7 +268,7 @@ public class VarListImpl extends RelationImpl implements VarList
         setVar1((ElmDeclaration)newValue);
         return;
       case HlvlPackage.VAR_LIST__LIST:
-        setList((ListOfIDs)newValue);
+        setList((MixedListOfIDs)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -291,7 +291,7 @@ public class VarListImpl extends RelationImpl implements VarList
         setVar1((ElmDeclaration)null);
         return;
       case HlvlPackage.VAR_LIST__LIST:
-        setList((ListOfIDs)null);
+        setList((MixedListOfIDs)null);
         return;
     }
     super.eUnset(featureID);

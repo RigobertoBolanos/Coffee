@@ -67,6 +67,7 @@ public class HlvlFactoryImpl extends EFactoryImpl implements HlvlFactory
     {
       case HlvlPackage.MODEL: return createModel();
       case HlvlPackage.LIST_OF_MODEL_REF: return createListOfModelRef();
+      case HlvlPackage.MODEL_REF: return createModelRef();
       case HlvlPackage.ELM_DECLARATION: return createElmDeclaration();
       case HlvlPackage.DECLARATION: return createDeclaration();
       case HlvlPackage.CONSTANT_DECL: return createConstantDecl();
@@ -93,6 +94,7 @@ public class HlvlFactoryImpl extends EFactoryImpl implements HlvlFactory
       case HlvlPackage.OPERATION: return createOperation();
       case HlvlPackage.LIST_OF_VALUES: return createListOfValues();
       case HlvlPackage.LIST_OF_IDS: return createListOfIDs();
+      case HlvlPackage.MIXED_LIST_OF_IDS: return createMixedListOfIDs();
       case HlvlPackage.LIST_OF_REL_REFS: return createListOfRelRefs();
       case HlvlPackage.MIXED_LIST: return createMixedList();
       case HlvlPackage.NAMED_ITEM: return createNamedItem();
@@ -147,6 +149,18 @@ public class HlvlFactoryImpl extends EFactoryImpl implements HlvlFactory
   {
     ListOfModelRefImpl listOfModelRef = new ListOfModelRefImpl();
     return listOfModelRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ModelRef createModelRef()
+  {
+    ModelRefImpl modelRef = new ModelRefImpl();
+    return modelRef;
   }
 
   /**
@@ -459,6 +473,18 @@ public class HlvlFactoryImpl extends EFactoryImpl implements HlvlFactory
   {
     ListOfIDsImpl listOfIDs = new ListOfIDsImpl();
     return listOfIDs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public MixedListOfIDs createMixedListOfIDs()
+  {
+    MixedListOfIDsImpl mixedListOfIDs = new MixedListOfIDsImpl();
+    return mixedListOfIDs;
   }
 
   /**

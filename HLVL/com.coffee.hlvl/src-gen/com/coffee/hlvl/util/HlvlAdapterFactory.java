@@ -86,6 +86,11 @@ public class HlvlAdapterFactory extends AdapterFactoryImpl
         return createListOfModelRefAdapter();
       }
       @Override
+      public Adapter caseModelRef(ModelRef object)
+      {
+        return createModelRefAdapter();
+      }
+      @Override
       public Adapter caseElmDeclaration(ElmDeclaration object)
       {
         return createElmDeclarationAdapter();
@@ -214,6 +219,11 @@ public class HlvlAdapterFactory extends AdapterFactoryImpl
       public Adapter caseListOfIDs(ListOfIDs object)
       {
         return createListOfIDsAdapter();
+      }
+      @Override
+      public Adapter caseMixedListOfIDs(MixedListOfIDs object)
+      {
+        return createMixedListOfIDsAdapter();
       }
       @Override
       public Adapter caseListOfRelRefs(ListOfRelRefs object)
@@ -398,6 +408,21 @@ public class HlvlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createListOfModelRefAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.coffee.hlvl.ModelRef <em>Model Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.coffee.hlvl.ModelRef
+   * @generated
+   */
+  public Adapter createModelRefAdapter()
   {
     return null;
   }
@@ -788,6 +813,21 @@ public class HlvlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createListOfIDsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.coffee.hlvl.MixedListOfIDs <em>Mixed List Of IDs</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.coffee.hlvl.MixedListOfIDs
+   * @generated
+   */
+  public Adapter createMixedListOfIDsAdapter()
   {
     return null;
   }

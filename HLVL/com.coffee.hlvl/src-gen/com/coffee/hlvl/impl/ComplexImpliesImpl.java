@@ -5,7 +5,7 @@ package com.coffee.hlvl.impl;
 
 import com.coffee.hlvl.ComplexImplies;
 import com.coffee.hlvl.HlvlPackage;
-import com.coffee.hlvl.ListOfIDs;
+import com.coffee.hlvl.MixedListOfIDs;
 import com.coffee.hlvl.Relational;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -50,7 +50,7 @@ public class ComplexImpliesImpl extends RelationImpl implements ComplexImplies
    * @generated
    * @ordered
    */
-  protected ListOfIDs elements;
+  protected MixedListOfIDs elements;
 
   /**
    * <!-- begin-user-doc -->
@@ -129,7 +129,7 @@ public class ComplexImpliesImpl extends RelationImpl implements ComplexImplies
    * @generated
    */
   @Override
-  public ListOfIDs getElements()
+  public MixedListOfIDs getElements()
   {
     return elements;
   }
@@ -139,9 +139,9 @@ public class ComplexImpliesImpl extends RelationImpl implements ComplexImplies
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetElements(ListOfIDs newElements, NotificationChain msgs)
+  public NotificationChain basicSetElements(MixedListOfIDs newElements, NotificationChain msgs)
   {
-    ListOfIDs oldElements = elements;
+    MixedListOfIDs oldElements = elements;
     elements = newElements;
     if (eNotificationRequired())
     {
@@ -157,7 +157,7 @@ public class ComplexImpliesImpl extends RelationImpl implements ComplexImplies
    * @generated
    */
   @Override
-  public void setElements(ListOfIDs newElements)
+  public void setElements(MixedListOfIDs newElements)
   {
     if (newElements != elements)
     {
@@ -223,7 +223,7 @@ public class ComplexImpliesImpl extends RelationImpl implements ComplexImplies
         setExp((Relational)newValue);
         return;
       case HlvlPackage.COMPLEX_IMPLIES__ELEMENTS:
-        setElements((ListOfIDs)newValue);
+        setElements((MixedListOfIDs)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -243,7 +243,7 @@ public class ComplexImpliesImpl extends RelationImpl implements ComplexImplies
         setExp((Relational)null);
         return;
       case HlvlPackage.COMPLEX_IMPLIES__ELEMENTS:
-        setElements((ListOfIDs)null);
+        setElements((MixedListOfIDs)null);
         return;
     }
     super.eUnset(featureID);

@@ -107,6 +107,8 @@ public class HlvlParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAtomicAccess().getGroup_3(), "rule__Atomic__Group_3__0");
 			builder.put(grammarAccess.getAtomicAccess().getGroup_4(), "rule__Atomic__Group_4__0");
 			builder.put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
+			builder.put(grammarAccess.getExternalElementAccess().getGroup(), "rule__ExternalElement__Group__0");
+			builder.put(grammarAccess.getExternalElementAccess().getGroup_1(), "rule__ExternalElement__Group_1__0");
 			builder.put(grammarAccess.getOperationsAccess().getGroup(), "rule__Operations__Group__0");
 			builder.put(grammarAccess.getOperationsAccess().getGroup_1(), "rule__Operations__Group_1__0");
 			builder.put(grammarAccess.getSampleAccess().getGroup_0(), "rule__Sample__Group_0__0");
@@ -115,6 +117,8 @@ public class HlvlParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getListOfValuesAccess().getGroup_1(), "rule__ListOfValues__Group_1__0");
 			builder.put(grammarAccess.getListOfIDsAccess().getGroup(), "rule__ListOfIDs__Group__0");
 			builder.put(grammarAccess.getListOfIDsAccess().getGroup_2(), "rule__ListOfIDs__Group_2__0");
+			builder.put(grammarAccess.getMixedListOfIDsAccess().getGroup(), "rule__MixedListOfIDs__Group__0");
+			builder.put(grammarAccess.getMixedListOfIDsAccess().getGroup_2(), "rule__MixedListOfIDs__Group_2__0");
 			builder.put(grammarAccess.getListOfRelRefsAccess().getGroup(), "rule__ListOfRelRefs__Group__0");
 			builder.put(grammarAccess.getListOfRelRefsAccess().getGroup_2(), "rule__ListOfRelRefs__Group_2__0");
 			builder.put(grammarAccess.getMixedListAccess().getGroup(), "rule__MixedList__Group__0");
@@ -129,6 +133,7 @@ public class HlvlParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getModelAccess().getOperationsAssignment_7_1(), "rule__Model__OperationsAssignment_7_1");
 			builder.put(grammarAccess.getListOfModelRefAccess().getIdsAssignment_1(), "rule__ListOfModelRef__IdsAssignment_1");
 			builder.put(grammarAccess.getListOfModelRefAccess().getIdsAssignment_2_1(), "rule__ListOfModelRef__IdsAssignment_2_1");
+			builder.put(grammarAccess.getModelRefAccess().getImportURIAssignment(), "rule__ModelRef__ImportURIAssignment");
 			builder.put(grammarAccess.getElmDeclarationAccess().getAttAssignment_1(), "rule__ElmDeclaration__AttAssignment_1");
 			builder.put(grammarAccess.getElmDeclarationAccess().getDataTypeAssignment_2(), "rule__ElmDeclaration__DataTypeAssignment_2");
 			builder.put(grammarAccess.getElmDeclarationAccess().getNameAssignment_3(), "rule__ElmDeclaration__NameAssignment_3");
@@ -203,6 +208,8 @@ public class HlvlParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getListOfValuesAccess().getValuesAssignment_1_1(), "rule__ListOfValues__ValuesAssignment_1_1");
 			builder.put(grammarAccess.getListOfIDsAccess().getValuesAssignment_1(), "rule__ListOfIDs__ValuesAssignment_1");
 			builder.put(grammarAccess.getListOfIDsAccess().getValuesAssignment_2_1(), "rule__ListOfIDs__ValuesAssignment_2_1");
+			builder.put(grammarAccess.getMixedListOfIDsAccess().getValuesAssignment_1(), "rule__MixedListOfIDs__ValuesAssignment_1");
+			builder.put(grammarAccess.getMixedListOfIDsAccess().getValuesAssignment_2_1(), "rule__MixedListOfIDs__ValuesAssignment_2_1");
 			builder.put(grammarAccess.getListOfRelRefsAccess().getIdsAssignment_1(), "rule__ListOfRelRefs__IdsAssignment_1");
 			builder.put(grammarAccess.getListOfRelRefsAccess().getIdsAssignment_2_1(), "rule__ListOfRelRefs__IdsAssignment_2_1");
 			builder.put(grammarAccess.getMixedListAccess().getIdsAssignment_1(), "rule__MixedList__IdsAssignment_1");

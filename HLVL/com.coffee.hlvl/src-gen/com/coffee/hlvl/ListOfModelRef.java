@@ -27,7 +27,7 @@ public interface ListOfModelRef extends EObject
 {
   /**
    * Returns the value of the '<em><b>Ids</b></em>' reference list.
-   * The list contents are of type {@link com.coffee.hlvl.Model}.
+   * The list contents are of type {@link com.coffee.hlvl.ModelRef}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Ids</em>' reference list.
@@ -35,6 +35,6 @@ public interface ListOfModelRef extends EObject
    * @model
    * @generated
    */
-  EList<Model> getIds();
+  EList<ModelRef> getIds();
 
 } // ListOfModelRef

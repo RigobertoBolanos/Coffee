@@ -14,7 +14,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ListOfModelRef">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ids" unique="false" upperBound="-1"
-        eType="#//Model"/>
+        eType="#//ModelRef"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelRef">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="importURI" eType="#//Model"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ElmDeclaration" eSuperTypes="#//NamedItem">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="att" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -47,7 +50,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Relation"/>
   <eClassifiers xsi:type="ecore:EClass" name="Common" eSuperTypes="#//Relation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" eType="#//ListOfIDs"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" eType="#//MixedListOfIDs"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Pair" eSuperTypes="#//Relation">
@@ -58,19 +61,19 @@
   <eClassifiers xsi:type="ecore:EClass" name="ComplexImplies" eSuperTypes="#//Relation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Relational"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" eType="#//ListOfIDs"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" eType="#//MixedListOfIDs"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComplexMutex" eSuperTypes="#//Relation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Relational"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" eType="#//ListOfIDs"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" eType="#//MixedListOfIDs"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VarList" eSuperTypes="#//Relation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="var1" eType="#//ElmDeclaration"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="list" eType="#//ListOfIDs"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="list" eType="#//MixedListOfIDs"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Decomposition" eSuperTypes="#//Relation">
@@ -121,6 +124,10 @@
         eType="#//Relational" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ListOfIDs">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="values" unique="false"
+        upperBound="-1" eType="#//ElmDeclaration"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MixedListOfIDs">
     <eStructuralFeatures xsi:type="ecore:EReference" name="values" unique="false"
         upperBound="-1" eType="#//ElmDeclaration"/>
   </eClassifiers>

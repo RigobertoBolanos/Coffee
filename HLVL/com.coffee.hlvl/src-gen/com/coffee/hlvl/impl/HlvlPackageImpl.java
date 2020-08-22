@@ -34,7 +34,9 @@ import com.coffee.hlvl.ListOfValuation;
 import com.coffee.hlvl.ListOfValues;
 import com.coffee.hlvl.Minus;
 import com.coffee.hlvl.MixedList;
+import com.coffee.hlvl.MixedListOfIDs;
 import com.coffee.hlvl.Model;
+import com.coffee.hlvl.ModelRef;
 import com.coffee.hlvl.MulOrDiv;
 import com.coffee.hlvl.NamedItem;
 import com.coffee.hlvl.Negation;
@@ -89,6 +91,13 @@ public class HlvlPackageImpl extends EPackageImpl implements HlvlPackage
    * @generated
    */
   private EClass listOfModelRefEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass modelRefEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -271,6 +280,13 @@ public class HlvlPackageImpl extends EPackageImpl implements HlvlPackage
    * @generated
    */
   private EClass listOfIDsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass mixedListOfIDsEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -610,6 +626,28 @@ public class HlvlPackageImpl extends EPackageImpl implements HlvlPackage
   public EReference getListOfModelRef_Ids()
   {
     return (EReference)listOfModelRefEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getModelRef()
+  {
+    return modelRefEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getModelRef_ImportURI()
+  {
+    return (EReference)modelRefEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1347,6 +1385,28 @@ public class HlvlPackageImpl extends EPackageImpl implements HlvlPackage
   public EReference getListOfIDs_Values()
   {
     return (EReference)listOfIDsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getMixedListOfIDs()
+  {
+    return mixedListOfIDsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getMixedListOfIDs_Values()
+  {
+    return (EReference)mixedListOfIDsEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2171,6 +2231,9 @@ public class HlvlPackageImpl extends EPackageImpl implements HlvlPackage
     listOfModelRefEClass = createEClass(LIST_OF_MODEL_REF);
     createEReference(listOfModelRefEClass, LIST_OF_MODEL_REF__IDS);
 
+    modelRefEClass = createEClass(MODEL_REF);
+    createEReference(modelRefEClass, MODEL_REF__IMPORT_URI);
+
     elmDeclarationEClass = createEClass(ELM_DECLARATION);
     createEAttribute(elmDeclarationEClass, ELM_DECLARATION__ATT);
     createEAttribute(elmDeclarationEClass, ELM_DECLARATION__DATA_TYPE);
@@ -2263,6 +2326,9 @@ public class HlvlPackageImpl extends EPackageImpl implements HlvlPackage
 
     listOfIDsEClass = createEClass(LIST_OF_IDS);
     createEReference(listOfIDsEClass, LIST_OF_IDS__VALUES);
+
+    mixedListOfIDsEClass = createEClass(MIXED_LIST_OF_IDS);
+    createEReference(mixedListOfIDsEClass, MIXED_LIST_OF_IDS__VALUES);
 
     listOfRelRefsEClass = createEClass(LIST_OF_REL_REFS);
     createEReference(listOfRelRefsEClass, LIST_OF_REL_REFS__IDS);
@@ -2440,7 +2506,10 @@ public class HlvlPackageImpl extends EPackageImpl implements HlvlPackage
     initEReference(getModel_Operations(), this.getOperations(), null, "operations", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(listOfModelRefEClass, ListOfModelRef.class, "ListOfModelRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getListOfModelRef_Ids(), this.getModel(), null, "ids", null, 0, -1, ListOfModelRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getListOfModelRef_Ids(), this.getModelRef(), null, "ids", null, 0, -1, ListOfModelRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(modelRefEClass, ModelRef.class, "ModelRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getModelRef_ImportURI(), this.getModel(), null, "importURI", null, 0, 1, ModelRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(elmDeclarationEClass, ElmDeclaration.class, "ElmDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getElmDeclaration_Att(), ecorePackage.getEString(), "att", null, 0, 1, ElmDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2471,7 +2540,7 @@ public class HlvlPackageImpl extends EPackageImpl implements HlvlPackage
     initEClass(relationEClass, Relation.class, "Relation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(commonEClass, Common.class, "Common", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCommon_Elements(), this.getListOfIDs(), null, "elements", null, 0, 1, Common.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCommon_Elements(), this.getMixedListOfIDs(), null, "elements", null, 0, 1, Common.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pairEClass, Pair.class, "Pair", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPair_Operator(), ecorePackage.getEString(), "operator", null, 0, 1, Pair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2480,16 +2549,16 @@ public class HlvlPackageImpl extends EPackageImpl implements HlvlPackage
 
     initEClass(complexImpliesEClass, ComplexImplies.class, "ComplexImplies", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getComplexImplies_Exp(), this.getRelational(), null, "exp", null, 0, 1, ComplexImplies.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getComplexImplies_Elements(), this.getListOfIDs(), null, "elements", null, 0, 1, ComplexImplies.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComplexImplies_Elements(), this.getMixedListOfIDs(), null, "elements", null, 0, 1, ComplexImplies.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(complexMutexEClass, ComplexMutex.class, "ComplexMutex", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getComplexMutex_Exp(), this.getRelational(), null, "exp", null, 0, 1, ComplexMutex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getComplexMutex_Elements(), this.getListOfIDs(), null, "elements", null, 0, 1, ComplexMutex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComplexMutex_Elements(), this.getMixedListOfIDs(), null, "elements", null, 0, 1, ComplexMutex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(varListEClass, VarList.class, "VarList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getVarList_Operator(), ecorePackage.getEString(), "operator", null, 0, 1, VarList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getVarList_Var1(), this.getElmDeclaration(), null, "var1", null, 0, 1, VarList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getVarList_List(), this.getListOfIDs(), null, "list", null, 0, 1, VarList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVarList_List(), this.getMixedListOfIDs(), null, "list", null, 0, 1, VarList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(decompositionEClass, Decomposition.class, "Decomposition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDecomposition_Parent(), this.getElmDeclaration(), null, "parent", null, 0, 1, Decomposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2534,6 +2603,9 @@ public class HlvlPackageImpl extends EPackageImpl implements HlvlPackage
 
     initEClass(listOfIDsEClass, ListOfIDs.class, "ListOfIDs", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getListOfIDs_Values(), this.getElmDeclaration(), null, "values", null, 0, -1, ListOfIDs.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(mixedListOfIDsEClass, MixedListOfIDs.class, "MixedListOfIDs", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMixedListOfIDs_Values(), this.getElmDeclaration(), null, "values", null, 0, -1, MixedListOfIDs.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(listOfRelRefsEClass, ListOfRelRefs.class, "ListOfRelRefs", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getListOfRelRefs_Ids(), this.getRelDeclaration(), null, "ids", null, 0, -1, ListOfRelRefs.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -42,6 +42,15 @@ public interface HlvlFactory extends EFactory
   ListOfModelRef createListOfModelRef();
 
   /**
+   * Returns a new object of class '<em>Model Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Model Ref</em>'.
+   * @generated
+   */
+  ModelRef createModelRef();
+
+  /**
    * Returns a new object of class '<em>Elm Declaration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -274,6 +283,15 @@ public interface HlvlFactory extends EFactory
    * @generated
    */
   ListOfIDs createListOfIDs();
+
+  /**
+   * Returns a new object of class '<em>Mixed List Of IDs</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mixed List Of IDs</em>'.
+   * @generated
+   */
+  MixedListOfIDs createMixedListOfIDs();
 
   /**
    * Returns a new object of class '<em>List Of Rel Refs</em>'.

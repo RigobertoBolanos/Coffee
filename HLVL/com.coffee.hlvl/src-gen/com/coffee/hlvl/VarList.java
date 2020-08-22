@@ -73,12 +73,12 @@ public interface VarList extends Relation
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>List</em>' containment reference.
-   * @see #setList(ListOfIDs)
+   * @see #setList(MixedListOfIDs)
    * @see com.coffee.hlvl.HlvlPackage#getVarList_List()
    * @model containment="true"
    * @generated
    */
-  ListOfIDs getList();
+  MixedListOfIDs getList();
 
   /**
    * Sets the value of the '{@link com.coffee.hlvl.VarList#getList <em>List</em>}' containment reference.
@@ -88,6 +88,6 @@ public interface VarList extends Relation
    * @see #getList()
    * @generated
    */
-  void setList(ListOfIDs value);
+  void setList(MixedListOfIDs value);
 
 } // VarList

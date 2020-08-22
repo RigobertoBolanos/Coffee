@@ -13,19 +13,21 @@ generate hlvl "http://www.coffee.com/Hlvl"
  * Modified on January 2019 to include conditional and quantified implies
  * Modified on April 2019
  * Modified July 2019 to adjust the syntax with the MODEVAR paper syntax
- * Modified on July 15 to refine the constantvalues (eliminated the production Value)
- * Modified on 
+ * Modified on July 15 to refine the constantvalues (eliminated the production Value)}
+ * INHERITANCE:
+ * 		Modified on August 14th to define 'extends' declaration
+ * 		Modified on August 19th, 22nd to define element's referenciation
  */
 Model:
 	'model' name=ID 
-	('extends' extendedModels+=(ListOfModelRef))?// Coffee Junior 
+	('extends' extendedModels+=(ListOfModelRef))?// HLVL-E
 	'elements:' elements+=(ElmDeclaration)*  
 	'relations:'relations+=(RelDeclaration)*
 	('operations:' operations = Operations )?
 	;
 	
 ListOfModelRef:
-	{ListOfModelRef} ids+= ([Model]) (',' + ids+= [Model])* //Coffee Junior (Como excluir el modelo propio de las referencias?)
+	{ListOfModelRef} ids+= ([Model]) (',' + ids+= [Model])* //HLVL-E (Como excluir el modelo propio de las referencias?)
 ;
 
 // modified by avillota to comply with the modevar paper syntax	
@@ -80,7 +82,7 @@ Relation:
 ;
 
 Common:
-	{Common}'common' '(' elements=ListOfIDs')'
+	{Common}'common' '(' elements=MixedListOfIDs')' // HLVL-E
 ;
 
 
@@ -90,15 +92,15 @@ Common:
 
 //FIXME separate the simple implies and mutex
 Pair:
-	operator=('implies'|'mutex') '(' var1=[ElmDeclaration] ',' var2=[ElmDeclaration]')'
+	operator=('implies'|'mutex') '(' var1=[ElmDeclaration | ExternalElement] ',' var2=[ElmDeclaration | ExternalElement]')' // HLVL-E
 ;
 
 ComplexImplies:
-	'implies''(' '('exp=Relational')' ',' '['elements=ListOfIDs']'')'
+	'implies''(' '('exp=Relational')' ',' '['elements=MixedListOfIDs']'')' // HLVL-E
 ;
 
 ComplexMutex:
-	'mutex' '(' '('exp=Relational')' ',' '['elements=ListOfIDs']'')'
+	'mutex' '(' '('exp=Relational')' ',' '['elements=MixedListOfIDs']'')' // HLVL-E
 ;
 
 //FIXME commented to be redefined with a different syntax
@@ -107,7 +109,7 @@ ComplexMutex:
 //;
 
 VarList:
-	operator=('implies'|'mutex') '(' var1=[ElmDeclaration] ',' '[' list=ListOfIDs ']' ')'
+	operator=('implies'|'mutex') '(' var1=[ElmDeclaration | ExternalElement] ',' '[' list=MixedListOfIDs ']' ')' // HLVL-E
 ;
 //Hierarchy:
 //	Decomposition|Group
@@ -144,6 +146,7 @@ Wildcard:
 	INT |'*'
 ;
 
+// HLVL-E ????????
 Visibility:
 	'visibility' '(' condition= Relational ',' '['list= MixedList ']' ')'
 ;
@@ -212,8 +215,7 @@ Primary returns Relational:
 Atomic returns Relational: 
 	{BoolConstant} value=('true'|'false') | 
 	{VariableRef} variable=[ElmDeclaration]|
-// Coffee Junior
-//	{AttributeRef} attribute= [ElmDeclaration | QualifiedName] |
+//	{AttributeRef} attribute= [ElmDeclaration | QualifiedName] | // HLVL-E
 	{AttributeRef} attribute= QualifiedName |
 	{SymbolConstant} value=STRING |
 	{IntConstant} value=INT 
@@ -224,10 +226,10 @@ QualifiedName:
 	element= [ElmDeclaration] '.'  att= [ElmDeclaration]
 ;
 
-// Coffee Junior
-// QualifiedName:
-// ID ("." ID)* 
-// ;
+ //HLVL-E
+ ExternalElement:
+ ID ("." ID)* 
+ ;
 
 Operations:
 	op+= Operation (',' + op+= Operation)*
@@ -279,11 +281,18 @@ ListOfValues:
 ;
 
 ListOfIDs:
-	{ListOfIDs} values+= ([ElmDeclaration]) (',' + values+= [ElmDeclaration])*
+	{ListOfIDs} values+= [ElmDeclaration] (',' + values+= [ElmDeclaration])*
 ;
 
+
+// HLVL-E: List used to reference elements in the same and extended models
+MixedListOfIDs:
+	{MixedListOfIDs} values+= [ElmDeclaration | ExternalElement] (',' + values+= [ElmDeclaration | ExternalElement])*
+;
+
+
 ListOfRelRefs:
-	{ListOfRelRefs} ids+= ([RelDeclaration]) (',' + ids+= [RelDeclaration])*
+	{ListOfRelRefs} ids+= ([RelDeclaration]) (',' + ids+= [RelDeclaration])* 
 ;
 
 
@@ -292,7 +301,7 @@ MixedList:
 ;
 
 NamedItem:
-	ElmDeclaration |RelDeclaration
+	ElmDeclaration| RelDeclaration
 ;
 
 

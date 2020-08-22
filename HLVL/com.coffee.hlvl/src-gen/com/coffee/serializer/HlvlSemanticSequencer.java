@@ -32,7 +32,9 @@ import com.coffee.hlvl.ListOfValuation;
 import com.coffee.hlvl.ListOfValues;
 import com.coffee.hlvl.Minus;
 import com.coffee.hlvl.MixedList;
+import com.coffee.hlvl.MixedListOfIDs;
 import com.coffee.hlvl.Model;
+import com.coffee.hlvl.ModelRef;
 import com.coffee.hlvl.MulOrDiv;
 import com.coffee.hlvl.Negation;
 import com.coffee.hlvl.Operations;
@@ -164,8 +166,14 @@ public class HlvlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case HlvlPackage.MIXED_LIST:
 				sequence_MixedList(context, (MixedList) semanticObject); 
 				return; 
+			case HlvlPackage.MIXED_LIST_OF_IDS:
+				sequence_MixedListOfIDs(context, (MixedListOfIDs) semanticObject); 
+				return; 
 			case HlvlPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
+				return; 
+			case HlvlPackage.MODEL_REF:
+				sequence_ModelRef(context, (ModelRef) semanticObject); 
 				return; 
 			case HlvlPackage.MUL_OR_DIV:
 				sequence_MulOrDiv(context, (MulOrDiv) semanticObject); 
@@ -456,7 +464,7 @@ public class HlvlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Common returns Common
 	 *
 	 * Constraint:
-	 *     elements=ListOfIDs
+	 *     elements=MixedListOfIDs
 	 */
 	protected void sequence_Common(ISerializationContext context, Common semanticObject) {
 		if (errorAcceptor != null) {
@@ -464,7 +472,7 @@ public class HlvlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HlvlPackage.Literals.COMMON__ELEMENTS));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCommonAccess().getElementsListOfIDsParserRuleCall_3_0(), semanticObject.getElements());
+		feeder.accept(grammarAccess.getCommonAccess().getElementsMixedListOfIDsParserRuleCall_3_0(), semanticObject.getElements());
 		feeder.finish();
 	}
 	
@@ -505,7 +513,7 @@ public class HlvlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ComplexImplies returns ComplexImplies
 	 *
 	 * Constraint:
-	 *     (exp=Relational elements=ListOfIDs)
+	 *     (exp=Relational elements=MixedListOfIDs)
 	 */
 	protected void sequence_ComplexImplies(ISerializationContext context, ComplexImplies semanticObject) {
 		if (errorAcceptor != null) {
@@ -516,7 +524,7 @@ public class HlvlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getComplexImpliesAccess().getExpRelationalParserRuleCall_3_0(), semanticObject.getExp());
-		feeder.accept(grammarAccess.getComplexImpliesAccess().getElementsListOfIDsParserRuleCall_7_0(), semanticObject.getElements());
+		feeder.accept(grammarAccess.getComplexImpliesAccess().getElementsMixedListOfIDsParserRuleCall_7_0(), semanticObject.getElements());
 		feeder.finish();
 	}
 	
@@ -527,7 +535,7 @@ public class HlvlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ComplexMutex returns ComplexMutex
 	 *
 	 * Constraint:
-	 *     (exp=Relational elements=ListOfIDs)
+	 *     (exp=Relational elements=MixedListOfIDs)
 	 */
 	protected void sequence_ComplexMutex(ISerializationContext context, ComplexMutex semanticObject) {
 		if (errorAcceptor != null) {
@@ -538,7 +546,7 @@ public class HlvlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getComplexMutexAccess().getExpRelationalParserRuleCall_3_0(), semanticObject.getExp());
-		feeder.accept(grammarAccess.getComplexMutexAccess().getElementsListOfIDsParserRuleCall_7_0(), semanticObject.getElements());
+		feeder.accept(grammarAccess.getComplexMutexAccess().getElementsMixedListOfIDsParserRuleCall_7_0(), semanticObject.getElements());
 		feeder.finish();
 	}
 	
@@ -810,7 +818,7 @@ public class HlvlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ListOfModelRef returns ListOfModelRef
 	 *
 	 * Constraint:
-	 *     (ids+=[Model|ID] ids+=[Model|ID]*)
+	 *     (ids+=[ModelRef|ID] ids+=[ModelRef|ID]*)
 	 */
 	protected void sequence_ListOfModelRef(ISerializationContext context, ListOfModelRef semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -855,6 +863,18 @@ public class HlvlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     MixedListOfIDs returns MixedListOfIDs
+	 *
+	 * Constraint:
+	 *     (values+=[ElmDeclaration|ExternalElement] values+=[ElmDeclaration|ExternalElement]*)
+	 */
+	protected void sequence_MixedListOfIDs(ISerializationContext context, MixedListOfIDs semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     MixedList returns MixedList
 	 *
 	 * Constraint:
@@ -862,6 +882,24 @@ public class HlvlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_MixedList(ISerializationContext context, MixedList semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ModelRef returns ModelRef
+	 *
+	 * Constraint:
+	 *     importURI=[Model|ExternalElement]
+	 */
+	protected void sequence_ModelRef(ISerializationContext context, ModelRef semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, HlvlPackage.Literals.MODEL_REF__IMPORT_URI) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HlvlPackage.Literals.MODEL_REF__IMPORT_URI));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getModelRefAccess().getImportURIModelExternalElementParserRuleCall_0_1(), semanticObject.eGet(HlvlPackage.Literals.MODEL_REF__IMPORT_URI, false));
+		feeder.finish();
 	}
 	
 	
@@ -977,7 +1015,7 @@ public class HlvlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Pair returns Pair
 	 *
 	 * Constraint:
-	 *     ((operator='implies' | operator='mutex') var1=[ElmDeclaration|ID] var2=[ElmDeclaration|ID])
+	 *     ((operator='implies' | operator='mutex') var1=[ElmDeclaration|ExternalElement] var2=[ElmDeclaration|ExternalElement])
 	 */
 	protected void sequence_Pair(ISerializationContext context, Pair semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1395,7 +1433,7 @@ public class HlvlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     VarList returns VarList
 	 *
 	 * Constraint:
-	 *     ((operator='implies' | operator='mutex') var1=[ElmDeclaration|ID] list=ListOfIDs)
+	 *     ((operator='implies' | operator='mutex') var1=[ElmDeclaration|ExternalElement] list=MixedListOfIDs)
 	 */
 	protected void sequence_VarList(ISerializationContext context, VarList semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

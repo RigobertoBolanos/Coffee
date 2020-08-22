@@ -50,12 +50,12 @@ public interface ComplexImplies extends Relation
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Elements</em>' containment reference.
-   * @see #setElements(ListOfIDs)
+   * @see #setElements(MixedListOfIDs)
    * @see com.coffee.hlvl.HlvlPackage#getComplexImplies_Elements()
    * @model containment="true"
    * @generated
    */
-  ListOfIDs getElements();
+  MixedListOfIDs getElements();
 
   /**
    * Sets the value of the '{@link com.coffee.hlvl.ComplexImplies#getElements <em>Elements</em>}' containment reference.
@@ -65,6 +65,6 @@ public interface ComplexImplies extends Relation
    * @see #getElements()
    * @generated
    */
-  void setElements(ListOfIDs value);
+  void setElements(MixedListOfIDs value);
 
 } // ComplexImplies

@@ -87,6 +87,13 @@ public class HlvlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case HlvlPackage.MODEL_REF:
+      {
+        ModelRef modelRef = (ModelRef)theEObject;
+        T result = caseModelRef(modelRef);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case HlvlPackage.ELM_DECLARATION:
       {
         ElmDeclaration elmDeclaration = (ElmDeclaration)theEObject;
@@ -282,6 +289,13 @@ public class HlvlSwitch<T> extends Switch<T>
       {
         ListOfIDs listOfIDs = (ListOfIDs)theEObject;
         T result = caseListOfIDs(listOfIDs);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HlvlPackage.MIXED_LIST_OF_IDS:
+      {
+        MixedListOfIDs mixedListOfIDs = (MixedListOfIDs)theEObject;
+        T result = caseMixedListOfIDs(mixedListOfIDs);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -528,6 +542,22 @@ public class HlvlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseListOfModelRef(ListOfModelRef object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Model Ref</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Model Ref</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseModelRef(ModelRef object)
   {
     return null;
   }
@@ -944,6 +974,22 @@ public class HlvlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseListOfIDs(ListOfIDs object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Mixed List Of IDs</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Mixed List Of IDs</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMixedListOfIDs(MixedListOfIDs object)
   {
     return null;
   }

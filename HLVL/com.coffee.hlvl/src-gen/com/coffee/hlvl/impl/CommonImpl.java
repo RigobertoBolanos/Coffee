@@ -5,7 +5,7 @@ package com.coffee.hlvl.impl;
 
 import com.coffee.hlvl.Common;
 import com.coffee.hlvl.HlvlPackage;
-import com.coffee.hlvl.ListOfIDs;
+import com.coffee.hlvl.MixedListOfIDs;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -38,7 +38,7 @@ public class CommonImpl extends RelationImpl implements Common
    * @generated
    * @ordered
    */
-  protected ListOfIDs elements;
+  protected MixedListOfIDs elements;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,7 +67,7 @@ public class CommonImpl extends RelationImpl implements Common
    * @generated
    */
   @Override
-  public ListOfIDs getElements()
+  public MixedListOfIDs getElements()
   {
     return elements;
   }
@@ -77,9 +77,9 @@ public class CommonImpl extends RelationImpl implements Common
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetElements(ListOfIDs newElements, NotificationChain msgs)
+  public NotificationChain basicSetElements(MixedListOfIDs newElements, NotificationChain msgs)
   {
-    ListOfIDs oldElements = elements;
+    MixedListOfIDs oldElements = elements;
     elements = newElements;
     if (eNotificationRequired())
     {
@@ -95,7 +95,7 @@ public class CommonImpl extends RelationImpl implements Common
    * @generated
    */
   @Override
-  public void setElements(ListOfIDs newElements)
+  public void setElements(MixedListOfIDs newElements)
   {
     if (newElements != elements)
     {
@@ -154,7 +154,7 @@ public class CommonImpl extends RelationImpl implements Common
     switch (featureID)
     {
       case HlvlPackage.COMMON__ELEMENTS:
-        setElements((ListOfIDs)newValue);
+        setElements((MixedListOfIDs)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -171,7 +171,7 @@ public class CommonImpl extends RelationImpl implements Common
     switch (featureID)
     {
       case HlvlPackage.COMMON__ELEMENTS:
-        setElements((ListOfIDs)null);
+        setElements((MixedListOfIDs)null);
         return;
     }
     super.eUnset(featureID);

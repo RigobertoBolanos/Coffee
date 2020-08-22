@@ -3,9 +3,9 @@
  */
 package com.coffee.hlvl.impl;
 
+import com.coffee.hlvl.ElmDeclaration;
 import com.coffee.hlvl.HlvlPackage;
-import com.coffee.hlvl.ListOfModelRef;
-import com.coffee.hlvl.ModelRef;
+import com.coffee.hlvl.MixedListOfIDs;
 
 import java.util.Collection;
 
@@ -19,35 +19,35 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>List Of Model Ref</b></em>'.
+ * An implementation of the model object '<em><b>Mixed List Of IDs</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.coffee.hlvl.impl.ListOfModelRefImpl#getIds <em>Ids</em>}</li>
+ *   <li>{@link com.coffee.hlvl.impl.MixedListOfIDsImpl#getValues <em>Values</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ListOfModelRefImpl extends MinimalEObjectImpl.Container implements ListOfModelRef
+public class MixedListOfIDsImpl extends MinimalEObjectImpl.Container implements MixedListOfIDs
 {
   /**
-   * The cached value of the '{@link #getIds() <em>Ids</em>}' reference list.
+   * The cached value of the '{@link #getValues() <em>Values</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getIds()
+   * @see #getValues()
    * @generated
    * @ordered
    */
-  protected EList<ModelRef> ids;
+  protected EList<ElmDeclaration> values;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ListOfModelRefImpl()
+  protected MixedListOfIDsImpl()
   {
     super();
   }
@@ -60,7 +60,7 @@ public class ListOfModelRefImpl extends MinimalEObjectImpl.Container implements 
   @Override
   protected EClass eStaticClass()
   {
-    return HlvlPackage.Literals.LIST_OF_MODEL_REF;
+    return HlvlPackage.Literals.MIXED_LIST_OF_IDS;
   }
 
   /**
@@ -69,13 +69,13 @@ public class ListOfModelRefImpl extends MinimalEObjectImpl.Container implements 
    * @generated
    */
   @Override
-  public EList<ModelRef> getIds()
+  public EList<ElmDeclaration> getValues()
   {
-    if (ids == null)
+    if (values == null)
     {
-      ids = new EObjectResolvingEList<ModelRef>(ModelRef.class, this, HlvlPackage.LIST_OF_MODEL_REF__IDS);
+      values = new EObjectResolvingEList<ElmDeclaration>(ElmDeclaration.class, this, HlvlPackage.MIXED_LIST_OF_IDS__VALUES);
     }
-    return ids;
+    return values;
   }
 
   /**
@@ -88,8 +88,8 @@ public class ListOfModelRefImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case HlvlPackage.LIST_OF_MODEL_REF__IDS:
-        return getIds();
+      case HlvlPackage.MIXED_LIST_OF_IDS__VALUES:
+        return getValues();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -105,9 +105,9 @@ public class ListOfModelRefImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case HlvlPackage.LIST_OF_MODEL_REF__IDS:
-        getIds().clear();
-        getIds().addAll((Collection<? extends ModelRef>)newValue);
+      case HlvlPackage.MIXED_LIST_OF_IDS__VALUES:
+        getValues().clear();
+        getValues().addAll((Collection<? extends ElmDeclaration>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -123,8 +123,8 @@ public class ListOfModelRefImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case HlvlPackage.LIST_OF_MODEL_REF__IDS:
-        getIds().clear();
+      case HlvlPackage.MIXED_LIST_OF_IDS__VALUES:
+        getValues().clear();
         return;
     }
     super.eUnset(featureID);
@@ -140,10 +140,10 @@ public class ListOfModelRefImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case HlvlPackage.LIST_OF_MODEL_REF__IDS:
-        return ids != null && !ids.isEmpty();
+      case HlvlPackage.MIXED_LIST_OF_IDS__VALUES:
+        return values != null && !values.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //ListOfModelRefImpl
+} //MixedListOfIDsImpl

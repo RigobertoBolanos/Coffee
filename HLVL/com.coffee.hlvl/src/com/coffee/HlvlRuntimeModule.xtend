@@ -3,9 +3,18 @@
  */
 package com.coffee
 
+import org.eclipse.xtext.scoping.IGlobalScopeProvider;
+import org.eclipse.xtext.scoping.impl.ImportUriGlobalScopeProvider
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 class HlvlRuntimeModule extends AbstractHlvlRuntimeModule {
+
+// HLVL-E: This allows us to change the global scope provider deffault behaviour to restraint the visibility of external 
+// files, using ImportUriGlobalScopeProvider. 
+
+	override Class<? extends IGlobalScopeProvider> bindIGlobalScopeProvider() {
+		return typeof(ImportUriGlobalScopeProvider);
+	}
 }

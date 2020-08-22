@@ -25,6 +25,7 @@ public class HlvlSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_ListOfRelRefs_CommaKeyword_2_0_p;
 	protected AbstractElementAlias match_ListOfValuation_CommaKeyword_1_0_p;
 	protected AbstractElementAlias match_ListOfValues_CommaKeyword_1_0_p;
+	protected AbstractElementAlias match_MixedListOfIDs_CommaKeyword_2_0_p;
 	protected AbstractElementAlias match_MixedList_CommaKeyword_2_0_p;
 	protected AbstractElementAlias match_Operations_CommaKeyword_1_0_p;
 	protected AbstractElementAlias match_Primary_LeftParenthesisKeyword_0_0_a;
@@ -38,6 +39,7 @@ public class HlvlSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_ListOfRelRefs_CommaKeyword_2_0_p = new TokenAlias(true, false, grammarAccess.getListOfRelRefsAccess().getCommaKeyword_2_0());
 		match_ListOfValuation_CommaKeyword_1_0_p = new TokenAlias(true, false, grammarAccess.getListOfValuationAccess().getCommaKeyword_1_0());
 		match_ListOfValues_CommaKeyword_1_0_p = new TokenAlias(true, false, grammarAccess.getListOfValuesAccess().getCommaKeyword_1_0());
+		match_MixedListOfIDs_CommaKeyword_2_0_p = new TokenAlias(true, false, grammarAccess.getMixedListOfIDsAccess().getCommaKeyword_2_0());
 		match_MixedList_CommaKeyword_2_0_p = new TokenAlias(true, false, grammarAccess.getMixedListAccess().getCommaKeyword_2_0());
 		match_Operations_CommaKeyword_1_0_p = new TokenAlias(true, false, grammarAccess.getOperationsAccess().getCommaKeyword_1_0());
 		match_Primary_LeftParenthesisKeyword_0_0_a = new TokenAlias(true, true, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_0_0());
@@ -66,6 +68,8 @@ public class HlvlSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_ListOfValuation_CommaKeyword_1_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ListOfValues_CommaKeyword_1_0_p.equals(syntax))
 				emit_ListOfValues_CommaKeyword_1_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_MixedListOfIDs_CommaKeyword_2_0_p.equals(syntax))
+				emit_MixedListOfIDs_CommaKeyword_2_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_MixedList_CommaKeyword_2_0_p.equals(syntax))
 				emit_MixedList_CommaKeyword_2_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Operations_CommaKeyword_1_0_p.equals(syntax))
@@ -94,7 +98,7 @@ public class HlvlSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ','+
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     ids+=[Model|ID] (ambiguity) ids+=[Model|ID]
+	 *     ids+=[ModelRef|ID] (ambiguity) ids+=[ModelRef|ID]
 	 */
 	protected void emit_ListOfModelRef_CommaKeyword_2_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -130,6 +134,17 @@ public class HlvlSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     values+=Relational (ambiguity) values+=Relational
 	 */
 	protected void emit_ListOfValues_CommaKeyword_1_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ','+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     values+=[ElmDeclaration|ExternalElement] (ambiguity) values+=[ElmDeclaration|ExternalElement]
+	 */
+	protected void emit_MixedListOfIDs_CommaKeyword_2_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
