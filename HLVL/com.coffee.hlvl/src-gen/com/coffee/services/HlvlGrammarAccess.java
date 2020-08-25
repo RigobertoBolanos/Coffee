@@ -60,6 +60,7 @@ public class HlvlGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		// * INHERITANCE:
 		// * 		Modified on August 14th to define 'extends' declaration
 		// * 		Modified on August 19th, 22nd to define element's referenciation
+		// * 		Modified on August 25th
 		// */ Model:
 		//	'model' name=ID ('extends' extendedModels+=ListOfModelRef)? // HLVL-E
 		//	'elements:' elements+=ElmDeclaration*
@@ -127,68 +128,55 @@ public class HlvlGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cListOfModelRefAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cIdsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cIdsModelRefCrossReference_1_0 = (CrossReference)cIdsAssignment_1.eContents().get(0);
-		private final RuleCall cIdsModelRefIDTerminalRuleCall_1_0_1 = (RuleCall)cIdsModelRefCrossReference_1_0.eContents().get(1);
+		private final RuleCall cIdsModelRefParserRuleCall_1_0 = (RuleCall)cIdsAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cCommaKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Assignment cIdsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cIdsModelRefCrossReference_2_1_0 = (CrossReference)cIdsAssignment_2_1.eContents().get(0);
-		private final RuleCall cIdsModelRefIDTerminalRuleCall_2_1_0_1 = (RuleCall)cIdsModelRefCrossReference_2_1_0.eContents().get(1);
+		private final RuleCall cIdsModelRefParserRuleCall_2_1_0 = (RuleCall)cIdsAssignment_2_1.eContents().get(0);
 		
 		//ListOfModelRef:
-		//	{ListOfModelRef} ids+=[ModelRef] (','+ ids+=[ModelRef])* //HLVL-E (Como excluir el modelo propio de las referencias?)
+		//	{ListOfModelRef} ids+=ModelRef (','+ ids+=ModelRef)* //HLVL-E (Como excluir el modelo propio de las referencias?)
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ListOfModelRef} ids+=[ModelRef] (','+ ids+=[ModelRef])*
+		//{ListOfModelRef} ids+=ModelRef (','+ ids+=ModelRef)*
 		public Group getGroup() { return cGroup; }
 		
 		//{ListOfModelRef}
 		public Action getListOfModelRefAction_0() { return cListOfModelRefAction_0; }
 		
-		//ids+=[ModelRef]
+		//ids+=ModelRef
 		public Assignment getIdsAssignment_1() { return cIdsAssignment_1; }
 		
-		//[ModelRef]
-		public CrossReference getIdsModelRefCrossReference_1_0() { return cIdsModelRefCrossReference_1_0; }
+		//ModelRef
+		public RuleCall getIdsModelRefParserRuleCall_1_0() { return cIdsModelRefParserRuleCall_1_0; }
 		
-		//ID
-		public RuleCall getIdsModelRefIDTerminalRuleCall_1_0_1() { return cIdsModelRefIDTerminalRuleCall_1_0_1; }
-		
-		//(','+ ids+=[ModelRef])*
+		//(','+ ids+=ModelRef)*
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//','+
 		public Keyword getCommaKeyword_2_0() { return cCommaKeyword_2_0; }
 		
-		//ids+=[ModelRef]
+		//ids+=ModelRef
 		public Assignment getIdsAssignment_2_1() { return cIdsAssignment_2_1; }
 		
-		//[ModelRef]
-		public CrossReference getIdsModelRefCrossReference_2_1_0() { return cIdsModelRefCrossReference_2_1_0; }
-		
-		//ID
-		public RuleCall getIdsModelRefIDTerminalRuleCall_2_1_0_1() { return cIdsModelRefIDTerminalRuleCall_2_1_0_1; }
+		//ModelRef
+		public RuleCall getIdsModelRefParserRuleCall_2_1_0() { return cIdsModelRefParserRuleCall_2_1_0; }
 	}
 	public class ModelRefElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.coffee.Hlvl.ModelRef");
 		private final Assignment cImportURIAssignment = (Assignment)rule.eContents().get(1);
-		private final CrossReference cImportURIModelCrossReference_0 = (CrossReference)cImportURIAssignment.eContents().get(0);
-		private final RuleCall cImportURIModelExternalElementParserRuleCall_0_1 = (RuleCall)cImportURIModelCrossReference_0.eContents().get(1);
+		private final RuleCall cImportURISTRINGTerminalRuleCall_0 = (RuleCall)cImportURIAssignment.eContents().get(0);
 		
-		//// HLVL-E
 		//ModelRef:
-		//	importURI=[Model|ExternalElement];
+		//	importURI=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//importURI=[Model|ExternalElement]
+		//importURI=STRING
 		public Assignment getImportURIAssignment() { return cImportURIAssignment; }
 		
-		//[Model|ExternalElement]
-		public CrossReference getImportURIModelCrossReference_0() { return cImportURIModelCrossReference_0; }
-		
-		//ExternalElement
-		public RuleCall getImportURIModelExternalElementParserRuleCall_0_1() { return cImportURIModelExternalElementParserRuleCall_0_1; }
+		//STRING
+		public RuleCall getImportURISTRINGTerminalRuleCall_0() { return cImportURISTRINGTerminalRuleCall_0; }
 	}
 	public class ElmDeclarationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.coffee.Hlvl.ElmDeclaration");
@@ -2639,6 +2627,7 @@ public class HlvlGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	// * INHERITANCE:
 	// * 		Modified on August 14th to define 'extends' declaration
 	// * 		Modified on August 19th, 22nd to define element's referenciation
+	// * 		Modified on August 25th
 	// */ Model:
 	//	'model' name=ID ('extends' extendedModels+=ListOfModelRef)? // HLVL-E
 	//	'elements:' elements+=ElmDeclaration*
@@ -2652,7 +2641,7 @@ public class HlvlGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//ListOfModelRef:
-	//	{ListOfModelRef} ids+=[ModelRef] (','+ ids+=[ModelRef])* //HLVL-E (Como excluir el modelo propio de las referencias?)
+	//	{ListOfModelRef} ids+=ModelRef (','+ ids+=ModelRef)* //HLVL-E (Como excluir el modelo propio de las referencias?)
 	//;
 	public ListOfModelRefElements getListOfModelRefAccess() {
 		return pListOfModelRef;
@@ -2662,9 +2651,8 @@ public class HlvlGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		return getListOfModelRefAccess().getRule();
 	}
 	
-	//// HLVL-E
 	//ModelRef:
-	//	importURI=[Model|ExternalElement];
+	//	importURI=STRING;
 	public ModelRefElements getModelRefAccess() {
 		return pModelRef;
 	}

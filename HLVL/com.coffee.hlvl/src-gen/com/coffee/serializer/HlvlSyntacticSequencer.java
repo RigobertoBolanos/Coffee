@@ -98,7 +98,7 @@ public class HlvlSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ','+
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     ids+=[ModelRef|ID] (ambiguity) ids+=[ModelRef|ID]
+	 *     ids+=ModelRef (ambiguity) ids+=ModelRef
 	 */
 	protected void emit_ListOfModelRef_CommaKeyword_2_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

@@ -4,13 +4,11 @@
 package com.coffee.hlvl.impl;
 
 import com.coffee.hlvl.HlvlPackage;
-import com.coffee.hlvl.Model;
 import com.coffee.hlvl.ModelRef;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -31,14 +29,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class ModelRefImpl extends MinimalEObjectImpl.Container implements ModelRef
 {
   /**
-   * The cached value of the '{@link #getImportURI() <em>Import URI</em>}' reference.
+   * The default value of the '{@link #getImportURI() <em>Import URI</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getImportURI()
    * @generated
    * @ordered
    */
-  protected Model importURI;
+  protected static final String IMPORT_URI_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getImportURI() <em>Import URI</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getImportURI()
+   * @generated
+   * @ordered
+   */
+  protected String importURI = IMPORT_URI_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,27 +75,7 @@ public class ModelRefImpl extends MinimalEObjectImpl.Container implements ModelR
    * @generated
    */
   @Override
-  public Model getImportURI()
-  {
-    if (importURI != null && importURI.eIsProxy())
-    {
-      InternalEObject oldImportURI = (InternalEObject)importURI;
-      importURI = (Model)eResolveProxy(oldImportURI);
-      if (importURI != oldImportURI)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, HlvlPackage.MODEL_REF__IMPORT_URI, oldImportURI, importURI));
-      }
-    }
-    return importURI;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Model basicGetImportURI()
+  public String getImportURI()
   {
     return importURI;
   }
@@ -98,9 +86,9 @@ public class ModelRefImpl extends MinimalEObjectImpl.Container implements ModelR
    * @generated
    */
   @Override
-  public void setImportURI(Model newImportURI)
+  public void setImportURI(String newImportURI)
   {
-    Model oldImportURI = importURI;
+    String oldImportURI = importURI;
     importURI = newImportURI;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, HlvlPackage.MODEL_REF__IMPORT_URI, oldImportURI, importURI));
@@ -117,8 +105,7 @@ public class ModelRefImpl extends MinimalEObjectImpl.Container implements ModelR
     switch (featureID)
     {
       case HlvlPackage.MODEL_REF__IMPORT_URI:
-        if (resolve) return getImportURI();
-        return basicGetImportURI();
+        return getImportURI();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -134,7 +121,7 @@ public class ModelRefImpl extends MinimalEObjectImpl.Container implements ModelR
     switch (featureID)
     {
       case HlvlPackage.MODEL_REF__IMPORT_URI:
-        setImportURI((Model)newValue);
+        setImportURI((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -151,7 +138,7 @@ public class ModelRefImpl extends MinimalEObjectImpl.Container implements ModelR
     switch (featureID)
     {
       case HlvlPackage.MODEL_REF__IMPORT_URI:
-        setImportURI((Model)null);
+        setImportURI(IMPORT_URI_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -168,9 +155,26 @@ public class ModelRefImpl extends MinimalEObjectImpl.Container implements ModelR
     switch (featureID)
     {
       case HlvlPackage.MODEL_REF__IMPORT_URI:
-        return importURI != null;
+        return IMPORT_URI_EDEFAULT == null ? importURI != null : !IMPORT_URI_EDEFAULT.equals(importURI);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (importURI: ");
+    result.append(importURI);
+    result.append(')');
+    return result.toString();
   }
 
 } //ModelRefImpl

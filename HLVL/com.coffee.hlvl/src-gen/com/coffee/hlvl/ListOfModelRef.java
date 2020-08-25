@@ -26,13 +26,13 @@ import org.eclipse.emf.ecore.EObject;
 public interface ListOfModelRef extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Ids</b></em>' reference list.
+   * Returns the value of the '<em><b>Ids</b></em>' containment reference list.
    * The list contents are of type {@link com.coffee.hlvl.ModelRef}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Ids</em>' reference list.
+   * @return the value of the '<em>Ids</em>' containment reference list.
    * @see com.coffee.hlvl.HlvlPackage#getListOfModelRef_Ids()
-   * @model
+   * @model containment="true"
    * @generated
    */
   EList<ModelRef> getIds();

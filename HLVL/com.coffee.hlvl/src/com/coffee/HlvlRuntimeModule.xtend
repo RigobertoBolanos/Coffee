@@ -13,8 +13,8 @@ class HlvlRuntimeModule extends AbstractHlvlRuntimeModule {
 
 // HLVL-E: This allows us to change the global scope provider deffault behaviour to restraint the visibility of external 
 // files, using ImportUriGlobalScopeProvider. 
-
 	override Class<? extends IGlobalScopeProvider> bindIGlobalScopeProvider() {
 		return typeof(ImportUriGlobalScopeProvider);
 	}
+
 }

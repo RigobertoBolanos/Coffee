@@ -645,9 +645,9 @@ public class HlvlPackageImpl extends EPackageImpl implements HlvlPackage
    * @generated
    */
   @Override
-  public EReference getModelRef_ImportURI()
+  public EAttribute getModelRef_ImportURI()
   {
-    return (EReference)modelRefEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)modelRefEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2232,7 +2232,7 @@ public class HlvlPackageImpl extends EPackageImpl implements HlvlPackage
     createEReference(listOfModelRefEClass, LIST_OF_MODEL_REF__IDS);
 
     modelRefEClass = createEClass(MODEL_REF);
-    createEReference(modelRefEClass, MODEL_REF__IMPORT_URI);
+    createEAttribute(modelRefEClass, MODEL_REF__IMPORT_URI);
 
     elmDeclarationEClass = createEClass(ELM_DECLARATION);
     createEAttribute(elmDeclarationEClass, ELM_DECLARATION__ATT);
@@ -2506,10 +2506,10 @@ public class HlvlPackageImpl extends EPackageImpl implements HlvlPackage
     initEReference(getModel_Operations(), this.getOperations(), null, "operations", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(listOfModelRefEClass, ListOfModelRef.class, "ListOfModelRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getListOfModelRef_Ids(), this.getModelRef(), null, "ids", null, 0, -1, ListOfModelRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getListOfModelRef_Ids(), this.getModelRef(), null, "ids", null, 0, -1, ListOfModelRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(modelRefEClass, ModelRef.class, "ModelRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModelRef_ImportURI(), this.getModel(), null, "importURI", null, 0, 1, ModelRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getModelRef_ImportURI(), ecorePackage.getEString(), "importURI", null, 0, 1, ModelRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(elmDeclarationEClass, ElmDeclaration.class, "ElmDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getElmDeclaration_Att(), ecorePackage.getEString(), "att", null, 0, 1, ElmDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

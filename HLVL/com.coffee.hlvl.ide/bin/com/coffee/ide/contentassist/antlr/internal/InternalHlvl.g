@@ -99,6 +99,31 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRuleModelRef
+entryRuleModelRef
+:
+{ before(grammarAccess.getModelRefRule()); }
+	 ruleModelRef
+{ after(grammarAccess.getModelRefRule()); } 
+	 EOF 
+;
+
+// Rule ModelRef
+ruleModelRef 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getModelRefAccess().getImportURIAssignment()); }
+		(rule__ModelRef__ImportURIAssignment)
+		{ after(grammarAccess.getModelRefAccess().getImportURIAssignment()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 // Entry rule entryRuleElmDeclaration
 entryRuleElmDeclaration
 :
@@ -9066,13 +9091,9 @@ rule__ListOfModelRef__IdsAssignment_1
 	}
 :
 	(
-		{ before(grammarAccess.getListOfModelRefAccess().getIdsModelRefCrossReference_1_0()); }
-		(
-			{ before(grammarAccess.getListOfModelRefAccess().getIdsModelRefIDTerminalRuleCall_1_0_1()); }
-			RULE_ID
-			{ after(grammarAccess.getListOfModelRefAccess().getIdsModelRefIDTerminalRuleCall_1_0_1()); }
-		)
-		{ after(grammarAccess.getListOfModelRefAccess().getIdsModelRefCrossReference_1_0()); }
+		{ before(grammarAccess.getListOfModelRefAccess().getIdsModelRefParserRuleCall_1_0()); }
+		ruleModelRef
+		{ after(grammarAccess.getListOfModelRefAccess().getIdsModelRefParserRuleCall_1_0()); }
 	)
 ;
 finally {
@@ -9085,13 +9106,24 @@ rule__ListOfModelRef__IdsAssignment_2_1
 	}
 :
 	(
-		{ before(grammarAccess.getListOfModelRefAccess().getIdsModelRefCrossReference_2_1_0()); }
-		(
-			{ before(grammarAccess.getListOfModelRefAccess().getIdsModelRefIDTerminalRuleCall_2_1_0_1()); }
-			RULE_ID
-			{ after(grammarAccess.getListOfModelRefAccess().getIdsModelRefIDTerminalRuleCall_2_1_0_1()); }
-		)
-		{ after(grammarAccess.getListOfModelRefAccess().getIdsModelRefCrossReference_2_1_0()); }
+		{ before(grammarAccess.getListOfModelRefAccess().getIdsModelRefParserRuleCall_2_1_0()); }
+		ruleModelRef
+		{ after(grammarAccess.getListOfModelRefAccess().getIdsModelRefParserRuleCall_2_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ModelRef__ImportURIAssignment
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getModelRefAccess().getImportURISTRINGTerminalRuleCall_0()); }
+		RULE_STRING
+		{ after(grammarAccess.getModelRefAccess().getImportURISTRINGTerminalRuleCall_0()); }
 	)
 ;
 finally {

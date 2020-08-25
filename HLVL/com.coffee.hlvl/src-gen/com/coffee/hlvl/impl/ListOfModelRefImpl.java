@@ -9,13 +9,17 @@ import com.coffee.hlvl.ModelRef;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,7 +37,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 public class ListOfModelRefImpl extends MinimalEObjectImpl.Container implements ListOfModelRef
 {
   /**
-   * The cached value of the '{@link #getIds() <em>Ids</em>}' reference list.
+   * The cached value of the '{@link #getIds() <em>Ids</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getIds()
@@ -73,9 +77,25 @@ public class ListOfModelRefImpl extends MinimalEObjectImpl.Container implements 
   {
     if (ids == null)
     {
-      ids = new EObjectResolvingEList<ModelRef>(ModelRef.class, this, HlvlPackage.LIST_OF_MODEL_REF__IDS);
+      ids = new EObjectContainmentEList<ModelRef>(ModelRef.class, this, HlvlPackage.LIST_OF_MODEL_REF__IDS);
     }
     return ids;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case HlvlPackage.LIST_OF_MODEL_REF__IDS:
+        return ((InternalEList<?>)getIds()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**

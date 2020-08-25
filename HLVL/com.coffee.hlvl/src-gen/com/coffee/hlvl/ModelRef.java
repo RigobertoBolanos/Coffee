@@ -24,25 +24,25 @@ import org.eclipse.emf.ecore.EObject;
 public interface ModelRef extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Import URI</b></em>' reference.
+   * Returns the value of the '<em><b>Import URI</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Import URI</em>' reference.
-   * @see #setImportURI(Model)
+   * @return the value of the '<em>Import URI</em>' attribute.
+   * @see #setImportURI(String)
    * @see com.coffee.hlvl.HlvlPackage#getModelRef_ImportURI()
    * @model
    * @generated
    */
-  Model getImportURI();
+  String getImportURI();
 
   /**
-   * Sets the value of the '{@link com.coffee.hlvl.ModelRef#getImportURI <em>Import URI</em>}' reference.
+   * Sets the value of the '{@link com.coffee.hlvl.ModelRef#getImportURI <em>Import URI</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Import URI</em>' reference.
+   * @param value the new value of the '<em>Import URI</em>' attribute.
    * @see #getImportURI()
    * @generated
    */
-  void setImportURI(Model value);
+  void setImportURI(String value);
 
 } // ModelRef

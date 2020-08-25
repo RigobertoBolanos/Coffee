@@ -13,11 +13,11 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ListOfModelRef">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ids" unique="false" upperBound="-1"
-        eType="#//ModelRef"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ids" upperBound="-1" eType="#//ModelRef"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelRef">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="importURI" eType="#//Model"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ElmDeclaration" eSuperTypes="#//NamedItem">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="att" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

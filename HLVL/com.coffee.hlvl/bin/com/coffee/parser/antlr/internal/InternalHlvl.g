@@ -223,13 +223,19 @@ ruleListOfModelRef returns [EObject current=null]
 		(
 			(
 				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getListOfModelRefRule());
-					}
+					newCompositeNode(grammarAccess.getListOfModelRefAccess().getIdsModelRefParserRuleCall_1_0());
 				}
-				otherlv_1=RULE_ID
+				lv_ids_1_0=ruleModelRef
 				{
-					newLeafNode(otherlv_1, grammarAccess.getListOfModelRefAccess().getIdsModelRefCrossReference_1_0());
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getListOfModelRefRule());
+					}
+					add(
+						$current,
+						"ids",
+						lv_ids_1_0,
+						"com.coffee.Hlvl.ModelRef");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -243,17 +249,58 @@ ruleListOfModelRef returns [EObject current=null]
 			(
 				(
 					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getListOfModelRefRule());
-						}
+						newCompositeNode(grammarAccess.getListOfModelRefAccess().getIdsModelRefParserRuleCall_2_1_0());
 					}
-					otherlv_3=RULE_ID
+					lv_ids_3_0=ruleModelRef
 					{
-						newLeafNode(otherlv_3, grammarAccess.getListOfModelRefAccess().getIdsModelRefCrossReference_2_1_0());
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getListOfModelRefRule());
+						}
+						add(
+							$current,
+							"ids",
+							lv_ids_3_0,
+							"com.coffee.Hlvl.ModelRef");
+						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)*
+	)
+;
+
+// Entry rule entryRuleModelRef
+entryRuleModelRef returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getModelRefRule()); }
+	iv_ruleModelRef=ruleModelRef
+	{ $current=$iv_ruleModelRef.current; }
+	EOF;
+
+// Rule ModelRef
+ruleModelRef returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			lv_importURI_0_0=RULE_STRING
+			{
+				newLeafNode(lv_importURI_0_0, grammarAccess.getModelRefAccess().getImportURISTRINGTerminalRuleCall_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getModelRefRule());
+				}
+				setWithLastConsumed(
+					$current,
+					"importURI",
+					lv_importURI_0_0,
+					"org.eclipse.xtext.common.Terminals.STRING");
+			}
+		)
 	)
 ;
 

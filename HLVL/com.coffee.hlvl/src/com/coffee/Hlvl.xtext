@@ -17,6 +17,7 @@ generate hlvl "http://www.coffee.com/Hlvl"
  * INHERITANCE:
  * 		Modified on August 14th to define 'extends' declaration
  * 		Modified on August 19th, 22nd to define element's referenciation
+ * 		Modified on August 25th, working inheritance v1
  */
 Model:
 	'model' name=ID 
@@ -27,7 +28,11 @@ Model:
 	;
 	
 ListOfModelRef:
-	{ListOfModelRef} ids+= ([Model]) (',' + ids+= [Model])* //HLVL-E (Como excluir el modelo propio de las referencias?)
+	{ListOfModelRef} ids+= (ModelRef) (',' + ids+= ModelRef)* //HLVL-E (Como excluir el modelo propio de las referencias?)
+;
+
+ModelRef:
+	importURI= STRING
 ;
 
 // modified by avillota to comply with the modevar paper syntax	
