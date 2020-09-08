@@ -1,5 +1,9 @@
 package com.coffee.generator;
 
+import com.coffe.generator.hlvlExtended.HlvlExtendedBooleanRules;
+import com.coffe.generator.hlvlExtended.HlvlExtendedIntegerRules;
+import com.coffe.generator.hlvlExtended.HlvlExtendedParser;
+import com.coffe.generator.hlvlExtended.HlvlExtendedRules;
 import com.coffee.generator.boolParser.BasicBoolParser;
 import com.coffee.generator.boolParser.ComplexBoolParser;
 import com.coffee.generator.integerParser.AttributesParser;
@@ -12,6 +16,7 @@ import com.coffee.generator.integerParser.ComplexIntegerParser;
  * @author Angela Villota
  * @version HLVL 1.4
  * May 2019  
+ * Modify on september 2nd, Case for hlvl extended added
  */
 
 public class ParserFactory {
@@ -29,6 +34,13 @@ public class ParserFactory {
 			break;
 		case COMPLEX_INT:
 			generator= new ComplexIntegerParser(modelName, dialect);
+			break;
+		//HLVL-E: Case for hlvl extended added
+		case HLVL_EXTENDED_BOOLEAN:
+			generator= new HlvlExtendedParser(modelName, dialect, new HlvlExtendedBooleanRules(dialect));
+			break;
+		case HLVL_EXTENDED_INTEGER:
+			generator= new HlvlExtendedParser(modelName, dialect, new HlvlExtendedIntegerRules(dialect));
 			break;
 		default:
 			generator= new AttributesParser(modelName, dialect);	

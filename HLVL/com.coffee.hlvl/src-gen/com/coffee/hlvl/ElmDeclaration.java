@@ -23,7 +23,7 @@ package com.coffee.hlvl;
  * @model
  * @generated
  */
-public interface ElmDeclaration extends NamedItem
+public interface ElmDeclaration extends ReferencedElement, NamedItem
 {
   /**
    * Returns the value of the '<em><b>Att</b></em>' attribute.

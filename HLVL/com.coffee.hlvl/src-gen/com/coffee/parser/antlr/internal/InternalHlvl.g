@@ -1012,15 +1012,18 @@ rulePair returns [EObject current=null]
 		(
 			(
 				{
+					newCompositeNode(grammarAccess.getPairAccess().getVar1ReferencedElementParserRuleCall_2_0());
+				}
+				lv_var1_2_0=ruleReferencedElement
+				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getPairRule());
+						$current = createModelElementForParent(grammarAccess.getPairRule());
 					}
-				}
-				{
-					newCompositeNode(grammarAccess.getPairAccess().getVar1ElmDeclarationCrossReference_2_0());
-				}
-				ruleExternalElement
-				{
+					set(
+						$current,
+						"var1",
+						lv_var1_2_0,
+						"com.coffee.Hlvl.ReferencedElement");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -1032,15 +1035,18 @@ rulePair returns [EObject current=null]
 		(
 			(
 				{
+					newCompositeNode(grammarAccess.getPairAccess().getVar2ReferencedElementParserRuleCall_4_0());
+				}
+				lv_var2_4_0=ruleReferencedElement
+				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getPairRule());
+						$current = createModelElementForParent(grammarAccess.getPairRule());
 					}
-				}
-				{
-					newCompositeNode(grammarAccess.getPairAccess().getVar2ElmDeclarationCrossReference_4_0());
-				}
-				ruleExternalElement
-				{
+					set(
+						$current,
+						"var2",
+						lv_var2_4_0,
+						"com.coffee.Hlvl.ReferencedElement");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -1280,15 +1286,18 @@ ruleVarList returns [EObject current=null]
 		(
 			(
 				{
+					newCompositeNode(grammarAccess.getVarListAccess().getVar1ReferencedElementParserRuleCall_2_0());
+				}
+				lv_var1_2_0=ruleReferencedElement
+				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getVarListRule());
+						$current = createModelElementForParent(grammarAccess.getVarListRule());
 					}
-				}
-				{
-					newCompositeNode(grammarAccess.getVarListAccess().getVar1ElmDeclarationCrossReference_2_0());
-				}
-				ruleExternalElement
-				{
+					set(
+						$current,
+						"var1",
+						lv_var1_2_0,
+						"com.coffee.Hlvl.ReferencedElement");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -3104,14 +3113,14 @@ ruleQualifiedName returns [EObject current=null]
 ;
 
 // Entry rule entryRuleExternalElement
-entryRuleExternalElement returns [String current=null]:
+entryRuleExternalElement returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getExternalElementRule()); }
 	iv_ruleExternalElement=ruleExternalElement
-	{ $current=$iv_ruleExternalElement.current.getText(); }
+	{ $current=$iv_ruleExternalElement.current; }
 	EOF;
 
 // Rule ExternalElement
-ruleExternalElement returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+ruleExternalElement returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -3119,27 +3128,53 @@ ruleExternalElement returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRul
 	leaveRule();
 }:
 	(
-		this_ID_0=RULE_ID
-		{
-			$current.merge(this_ID_0);
-		}
-		{
-			newLeafNode(this_ID_0, grammarAccess.getExternalElementAccess().getIDTerminalRuleCall_0());
-		}
 		(
-			kw='.'
 			{
-				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getExternalElementAccess().getFullStopKeyword_1_0());
+				$current = forceCreateModelElement(
+					grammarAccess.getExternalElementAccess().getExternalElementAction_0(),
+					$current);
 			}
-			this_ID_2=RULE_ID
-			{
-				$current.merge(this_ID_2);
-			}
-			{
-				newLeafNode(this_ID_2, grammarAccess.getExternalElementAccess().getIDTerminalRuleCall_1_1());
-			}
-		)*
+		)
+		otherlv_1='holi'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getExternalElementAccess().getHoliKeyword_1());
+		}
+	)
+;
+
+// Entry rule entryRuleReferencedElement
+entryRuleReferencedElement returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getReferencedElementRule()); }
+	iv_ruleReferencedElement=ruleReferencedElement
+	{ $current=$iv_ruleReferencedElement.current; }
+	EOF;
+
+// Rule ReferencedElement
+ruleReferencedElement returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getReferencedElementAccess().getExternalElementParserRuleCall_0());
+		}
+		this_ExternalElement_0=ruleExternalElement
+		{
+			$current = $this_ExternalElement_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getReferencedElementAccess().getElmDeclarationParserRuleCall_1());
+		}
+		this_ElmDeclaration_1=ruleElmDeclaration
+		{
+			$current = $this_ElmDeclaration_1.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -3514,15 +3549,18 @@ ruleMixedListOfIDs returns [EObject current=null]
 		(
 			(
 				{
+					newCompositeNode(grammarAccess.getMixedListOfIDsAccess().getValuesReferencedElementParserRuleCall_1_0());
+				}
+				lv_values_1_0=ruleReferencedElement
+				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getMixedListOfIDsRule());
+						$current = createModelElementForParent(grammarAccess.getMixedListOfIDsRule());
 					}
-				}
-				{
-					newCompositeNode(grammarAccess.getMixedListOfIDsAccess().getValuesElmDeclarationCrossReference_1_0());
-				}
-				ruleExternalElement
-				{
+					add(
+						$current,
+						"values",
+						lv_values_1_0,
+						"com.coffee.Hlvl.ReferencedElement");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -3537,15 +3575,18 @@ ruleMixedListOfIDs returns [EObject current=null]
 			(
 				(
 					{
+						newCompositeNode(grammarAccess.getMixedListOfIDsAccess().getValuesReferencedElementParserRuleCall_2_1_0());
+					}
+					lv_values_3_0=ruleReferencedElement
+					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getMixedListOfIDsRule());
+							$current = createModelElementForParent(grammarAccess.getMixedListOfIDsRule());
 						}
-					}
-					{
-						newCompositeNode(grammarAccess.getMixedListOfIDsAccess().getValuesElmDeclarationCrossReference_2_1_0());
-					}
-					ruleExternalElement
-					{
+						add(
+							$current,
+							"values",
+							lv_values_3_0,
+							"com.coffee.Hlvl.ReferencedElement");
 						afterParserOrEnumRuleCall();
 					}
 				)

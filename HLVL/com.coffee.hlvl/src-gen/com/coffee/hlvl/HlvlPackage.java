@@ -178,32 +178,23 @@ public interface HlvlPackage extends EPackage
   int MODEL_REF_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link com.coffee.hlvl.impl.NamedItemImpl <em>Named Item</em>}' class.
+   * The meta object id for the '{@link com.coffee.hlvl.impl.ReferencedElementImpl <em>Referenced Element</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see com.coffee.hlvl.impl.NamedItemImpl
-   * @see com.coffee.hlvl.impl.HlvlPackageImpl#getNamedItem()
+   * @see com.coffee.hlvl.impl.ReferencedElementImpl
+   * @see com.coffee.hlvl.impl.HlvlPackageImpl#getReferencedElement()
    * @generated
    */
-  int NAMED_ITEM = 32;
+  int REFERENCED_ELEMENT = 26;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The number of structural features of the '<em>Referenced Element</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NAMED_ITEM__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>Named Item</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NAMED_ITEM_FEATURE_COUNT = 1;
+  int REFERENCED_ELEMENT_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link com.coffee.hlvl.impl.ElmDeclarationImpl <em>Elm Declaration</em>}' class.
@@ -222,7 +213,7 @@ public interface HlvlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ELM_DECLARATION__NAME = NAMED_ITEM__NAME;
+  int ELM_DECLARATION__NAME = REFERENCED_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Att</b></em>' attribute.
@@ -231,7 +222,7 @@ public interface HlvlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ELM_DECLARATION__ATT = NAMED_ITEM_FEATURE_COUNT + 0;
+  int ELM_DECLARATION__ATT = REFERENCED_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Data Type</b></em>' attribute.
@@ -240,7 +231,7 @@ public interface HlvlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ELM_DECLARATION__DATA_TYPE = NAMED_ITEM_FEATURE_COUNT + 1;
+  int ELM_DECLARATION__DATA_TYPE = REFERENCED_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Declaration</b></em>' containment reference.
@@ -249,7 +240,7 @@ public interface HlvlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ELM_DECLARATION__DECLARATION = NAMED_ITEM_FEATURE_COUNT + 2;
+  int ELM_DECLARATION__DECLARATION = REFERENCED_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -258,7 +249,7 @@ public interface HlvlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ELM_DECLARATION__COMMENT = NAMED_ITEM_FEATURE_COUNT + 3;
+  int ELM_DECLARATION__COMMENT = REFERENCED_ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Elm Declaration</em>' class.
@@ -267,7 +258,7 @@ public interface HlvlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ELM_DECLARATION_FEATURE_COUNT = NAMED_ITEM_FEATURE_COUNT + 4;
+  int ELM_DECLARATION_FEATURE_COUNT = REFERENCED_ELEMENT_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link com.coffee.hlvl.impl.DeclarationImpl <em>Declaration</em>}' class.
@@ -429,6 +420,34 @@ public interface HlvlPackage extends EPackage
   int ENUMERATION_FEATURE_COUNT = OPTIONS_DECLARATION_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link com.coffee.hlvl.impl.NamedItemImpl <em>Named Item</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.coffee.hlvl.impl.NamedItemImpl
+   * @see com.coffee.hlvl.impl.HlvlPackageImpl#getNamedItem()
+   * @generated
+   */
+  int NAMED_ITEM = 34;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAMED_ITEM__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Named Item</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAMED_ITEM_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link com.coffee.hlvl.impl.RelDeclarationImpl <em>Rel Declaration</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -532,7 +551,7 @@ public interface HlvlPackage extends EPackage
   int PAIR__OPERATOR = RELATION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Var1</b></em>' reference.
+   * The feature id for the '<em><b>Var1</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -541,7 +560,7 @@ public interface HlvlPackage extends EPackage
   int PAIR__VAR1 = RELATION_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Var2</b></em>' reference.
+   * The feature id for the '<em><b>Var2</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -652,7 +671,7 @@ public interface HlvlPackage extends EPackage
   int VAR_LIST__OPERATOR = RELATION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Var1</b></em>' reference.
+   * The feature id for the '<em><b>Var1</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -984,6 +1003,25 @@ public interface HlvlPackage extends EPackage
   int QUALIFIED_NAME_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link com.coffee.hlvl.impl.ExternalElementImpl <em>External Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.coffee.hlvl.impl.ExternalElementImpl
+   * @see com.coffee.hlvl.impl.HlvlPackageImpl#getExternalElement()
+   * @generated
+   */
+  int EXTERNAL_ELEMENT = 25;
+
+  /**
+   * The number of structural features of the '<em>External Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTERNAL_ELEMENT_FEATURE_COUNT = REFERENCED_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link com.coffee.hlvl.impl.OperationsImpl <em>Operations</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -991,7 +1029,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getOperations()
    * @generated
    */
-  int OPERATIONS = 25;
+  int OPERATIONS = 27;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' containment reference list.
@@ -1019,7 +1057,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getOperation()
    * @generated
    */
-  int OPERATION = 26;
+  int OPERATION = 28;
 
   /**
    * The number of structural features of the '<em>Operation</em>' class.
@@ -1038,7 +1076,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getListOfValues()
    * @generated
    */
-  int LIST_OF_VALUES = 27;
+  int LIST_OF_VALUES = 29;
 
   /**
    * The feature id for the '<em><b>Values</b></em>' containment reference list.
@@ -1066,7 +1104,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getListOfIDs()
    * @generated
    */
-  int LIST_OF_IDS = 28;
+  int LIST_OF_IDS = 30;
 
   /**
    * The feature id for the '<em><b>Values</b></em>' reference list.
@@ -1094,10 +1132,10 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getMixedListOfIDs()
    * @generated
    */
-  int MIXED_LIST_OF_IDS = 29;
+  int MIXED_LIST_OF_IDS = 31;
 
   /**
-   * The feature id for the '<em><b>Values</b></em>' reference list.
+   * The feature id for the '<em><b>Values</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1122,7 +1160,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getListOfRelRefs()
    * @generated
    */
-  int LIST_OF_REL_REFS = 30;
+  int LIST_OF_REL_REFS = 32;
 
   /**
    * The feature id for the '<em><b>Ids</b></em>' reference list.
@@ -1150,7 +1188,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getMixedList()
    * @generated
    */
-  int MIXED_LIST = 31;
+  int MIXED_LIST = 33;
 
   /**
    * The feature id for the '<em><b>Ids</b></em>' reference list.
@@ -1178,7 +1216,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getValuation()
    * @generated
    */
-  int VALUATION = 33;
+  int VALUATION = 35;
 
   /**
    * The feature id for the '<em><b>Element</b></em>' reference.
@@ -1215,7 +1253,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getListOfValuation()
    * @generated
    */
-  int LIST_OF_VALUATION = 34;
+  int LIST_OF_VALUATION = 36;
 
   /**
    * The feature id for the '<em><b>Pairs</b></em>' containment reference list.
@@ -1243,7 +1281,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getIff()
    * @generated
    */
-  int IFF = 35;
+  int IFF = 37;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1280,7 +1318,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getImplies()
    * @generated
    */
-  int IMPLIES = 36;
+  int IMPLIES = 38;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1317,7 +1355,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getOr()
    * @generated
    */
-  int OR = 37;
+  int OR = 39;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1354,7 +1392,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getAnd()
    * @generated
    */
-  int AND = 38;
+  int AND = 40;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1391,7 +1429,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getEquality()
    * @generated
    */
-  int EQUALITY = 39;
+  int EQUALITY = 41;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1437,7 +1475,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getComparison()
    * @generated
    */
-  int COMPARISON = 40;
+  int COMPARISON = 42;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1483,7 +1521,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getPlus()
    * @generated
    */
-  int PLUS = 41;
+  int PLUS = 43;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1520,7 +1558,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getMinus()
    * @generated
    */
-  int MINUS = 42;
+  int MINUS = 44;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1557,7 +1595,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getMulOrDiv()
    * @generated
    */
-  int MUL_OR_DIV = 43;
+  int MUL_OR_DIV = 45;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1603,7 +1641,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getNegation()
    * @generated
    */
-  int NEGATION = 44;
+  int NEGATION = 46;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1631,7 +1669,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getUnaryFunction()
    * @generated
    */
-  int UNARY_FUNCTION = 45;
+  int UNARY_FUNCTION = 47;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1668,7 +1706,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getInstances()
    * @generated
    */
-  int INSTANCES = 46;
+  int INSTANCES = 48;
 
   /**
    * The feature id for the '<em><b>Element</b></em>' reference.
@@ -1705,7 +1743,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getEntailed()
    * @generated
    */
-  int ENTAILED = 47;
+  int ENTAILED = 49;
 
   /**
    * The feature id for the '<em><b>Element</b></em>' reference.
@@ -1733,7 +1771,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getSelected()
    * @generated
    */
-  int SELECTED = 48;
+  int SELECTED = 50;
 
   /**
    * The feature id for the '<em><b>Element</b></em>' reference.
@@ -1761,7 +1799,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getBinaryFunction()
    * @generated
    */
-  int BINARY_FUNCTION = 49;
+  int BINARY_FUNCTION = 51;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1807,7 +1845,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getBoolConstant()
    * @generated
    */
-  int BOOL_CONSTANT = 50;
+  int BOOL_CONSTANT = 52;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1835,7 +1873,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getVariableRef()
    * @generated
    */
-  int VARIABLE_REF = 51;
+  int VARIABLE_REF = 53;
 
   /**
    * The feature id for the '<em><b>Variable</b></em>' reference.
@@ -1863,7 +1901,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getAttributeRef()
    * @generated
    */
-  int ATTRIBUTE_REF = 52;
+  int ATTRIBUTE_REF = 54;
 
   /**
    * The feature id for the '<em><b>Attribute</b></em>' containment reference.
@@ -1891,7 +1929,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getSymbolConstant()
    * @generated
    */
-  int SYMBOL_CONSTANT = 53;
+  int SYMBOL_CONSTANT = 55;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1919,7 +1957,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getIntConstant()
    * @generated
    */
-  int INT_CONSTANT = 54;
+  int INT_CONSTANT = 56;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1947,7 +1985,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getSingleInstruction()
    * @generated
    */
-  int SINGLE_INSTRUCTION = 55;
+  int SINGLE_INSTRUCTION = 57;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1975,7 +2013,7 @@ public interface HlvlPackage extends EPackage
    * @see com.coffee.hlvl.impl.HlvlPackageImpl#getValidConf()
    * @generated
    */
-  int VALID_CONF = 56;
+  int VALID_CONF = 58;
 
   /**
    * The feature id for the '<em><b>Valuations</b></em>' containment reference.
@@ -2346,10 +2384,10 @@ public interface HlvlPackage extends EPackage
   EAttribute getPair_Operator();
 
   /**
-   * Returns the meta object for the reference '{@link com.coffee.hlvl.Pair#getVar1 <em>Var1</em>}'.
+   * Returns the meta object for the containment reference '{@link com.coffee.hlvl.Pair#getVar1 <em>Var1</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Var1</em>'.
+   * @return the meta object for the containment reference '<em>Var1</em>'.
    * @see com.coffee.hlvl.Pair#getVar1()
    * @see #getPair()
    * @generated
@@ -2357,10 +2395,10 @@ public interface HlvlPackage extends EPackage
   EReference getPair_Var1();
 
   /**
-   * Returns the meta object for the reference '{@link com.coffee.hlvl.Pair#getVar2 <em>Var2</em>}'.
+   * Returns the meta object for the containment reference '{@link com.coffee.hlvl.Pair#getVar2 <em>Var2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Var2</em>'.
+   * @return the meta object for the containment reference '<em>Var2</em>'.
    * @see com.coffee.hlvl.Pair#getVar2()
    * @see #getPair()
    * @generated
@@ -2453,10 +2491,10 @@ public interface HlvlPackage extends EPackage
   EAttribute getVarList_Operator();
 
   /**
-   * Returns the meta object for the reference '{@link com.coffee.hlvl.VarList#getVar1 <em>Var1</em>}'.
+   * Returns the meta object for the containment reference '{@link com.coffee.hlvl.VarList#getVar1 <em>Var1</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Var1</em>'.
+   * @return the meta object for the containment reference '<em>Var1</em>'.
    * @see com.coffee.hlvl.VarList#getVar1()
    * @see #getVarList()
    * @generated
@@ -2742,6 +2780,26 @@ public interface HlvlPackage extends EPackage
   EReference getQualifiedName_Att();
 
   /**
+   * Returns the meta object for class '{@link com.coffee.hlvl.ExternalElement <em>External Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>External Element</em>'.
+   * @see com.coffee.hlvl.ExternalElement
+   * @generated
+   */
+  EClass getExternalElement();
+
+  /**
+   * Returns the meta object for class '{@link com.coffee.hlvl.ReferencedElement <em>Referenced Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Referenced Element</em>'.
+   * @see com.coffee.hlvl.ReferencedElement
+   * @generated
+   */
+  EClass getReferencedElement();
+
+  /**
    * Returns the meta object for class '{@link com.coffee.hlvl.Operations <em>Operations</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2825,10 +2883,10 @@ public interface HlvlPackage extends EPackage
   EClass getMixedListOfIDs();
 
   /**
-   * Returns the meta object for the reference list '{@link com.coffee.hlvl.MixedListOfIDs#getValues <em>Values</em>}'.
+   * Returns the meta object for the containment reference list '{@link com.coffee.hlvl.MixedListOfIDs#getValues <em>Values</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Values</em>'.
+   * @return the meta object for the containment reference list '<em>Values</em>'.
    * @see com.coffee.hlvl.MixedListOfIDs#getValues()
    * @see #getMixedListOfIDs()
    * @generated
@@ -3905,7 +3963,7 @@ public interface HlvlPackage extends EPackage
     EAttribute PAIR__OPERATOR = eINSTANCE.getPair_Operator();
 
     /**
-     * The meta object literal for the '<em><b>Var1</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Var1</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -3913,7 +3971,7 @@ public interface HlvlPackage extends EPackage
     EReference PAIR__VAR1 = eINSTANCE.getPair_Var1();
 
     /**
-     * The meta object literal for the '<em><b>Var2</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Var2</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -3991,7 +4049,7 @@ public interface HlvlPackage extends EPackage
     EAttribute VAR_LIST__OPERATOR = eINSTANCE.getVarList_Operator();
 
     /**
-     * The meta object literal for the '<em><b>Var1</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Var1</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -4223,6 +4281,26 @@ public interface HlvlPackage extends EPackage
     EReference QUALIFIED_NAME__ATT = eINSTANCE.getQualifiedName_Att();
 
     /**
+     * The meta object literal for the '{@link com.coffee.hlvl.impl.ExternalElementImpl <em>External Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.coffee.hlvl.impl.ExternalElementImpl
+     * @see com.coffee.hlvl.impl.HlvlPackageImpl#getExternalElement()
+     * @generated
+     */
+    EClass EXTERNAL_ELEMENT = eINSTANCE.getExternalElement();
+
+    /**
+     * The meta object literal for the '{@link com.coffee.hlvl.impl.ReferencedElementImpl <em>Referenced Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.coffee.hlvl.impl.ReferencedElementImpl
+     * @see com.coffee.hlvl.impl.HlvlPackageImpl#getReferencedElement()
+     * @generated
+     */
+    EClass REFERENCED_ELEMENT = eINSTANCE.getReferencedElement();
+
+    /**
      * The meta object literal for the '{@link com.coffee.hlvl.impl.OperationsImpl <em>Operations</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4297,7 +4375,7 @@ public interface HlvlPackage extends EPackage
     EClass MIXED_LIST_OF_IDS = eINSTANCE.getMixedListOfIDs();
 
     /**
-     * The meta object literal for the '<em><b>Values</b></em>' reference list feature.
+     * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated

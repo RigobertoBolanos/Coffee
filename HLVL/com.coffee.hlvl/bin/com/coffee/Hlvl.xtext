@@ -48,7 +48,7 @@ ElmDeclaration://; returns NamedItem:
 ;
 
 Declaration:
-	ConstantDecl |VariableDecl 
+	ConstantDecl | VariableDecl 
 ;
 ConstantDecl:
 	{ConstantDecl}('is' value= Relational)?
@@ -97,7 +97,7 @@ Common:
 
 //FIXME separate the simple implies and mutex
 Pair:
-	operator=('implies'|'mutex') '(' var1=[ElmDeclaration | ExternalElement] ',' var2=[ElmDeclaration | ExternalElement]')' // HLVL-E
+	operator=('implies'|'mutex') '(' var1 = ReferencedElement ',' var2 = ReferencedElement')' // HLVL-E
 ;
 
 ComplexImplies:
@@ -114,7 +114,7 @@ ComplexMutex:
 //;
 
 VarList:
-	operator=('implies'|'mutex') '(' var1=[ElmDeclaration | ExternalElement] ',' '[' list=MixedListOfIDs ']' ')' // HLVL-E
+	operator=('implies'|'mutex') '(' var1= ReferencedElement ',' '[' list=MixedListOfIDs ']' ')' // HLVL-E
 ;
 //Hierarchy:
 //	Decomposition|Group
@@ -233,7 +233,13 @@ QualifiedName:
 
  //HLVL-E
  ExternalElement:
- ID ("." ID)* 
+ 	{ExternalElement}
+ 	ID ("." ID)* 
+ ;
+ 
+ 
+ ReferencedElement:
+ 	ExternalElement | ElmDeclaration
  ;
 
 Operations:
@@ -292,7 +298,7 @@ ListOfIDs:
 
 // HLVL-E: List used to reference elements in the same and extended models
 MixedListOfIDs:
-	{MixedListOfIDs} values+= [ElmDeclaration | ExternalElement] (',' + values+= [ElmDeclaration | ExternalElement])*
+	{MixedListOfIDs} values+= ReferencedElement (',' + values+= ReferencedElement)*
 ;
 
 

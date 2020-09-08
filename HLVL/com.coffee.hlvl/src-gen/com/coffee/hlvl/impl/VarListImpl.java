@@ -3,9 +3,9 @@
  */
 package com.coffee.hlvl.impl;
 
-import com.coffee.hlvl.ElmDeclaration;
 import com.coffee.hlvl.HlvlPackage;
 import com.coffee.hlvl.MixedListOfIDs;
+import com.coffee.hlvl.ReferencedElement;
 import com.coffee.hlvl.VarList;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -54,14 +54,14 @@ public class VarListImpl extends RelationImpl implements VarList
   protected String operator = OPERATOR_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getVar1() <em>Var1</em>}' reference.
+   * The cached value of the '{@link #getVar1() <em>Var1</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getVar1()
    * @generated
    * @ordered
    */
-  protected ElmDeclaration var1;
+  protected ReferencedElement var1;
 
   /**
    * The cached value of the '{@link #getList() <em>List</em>}' containment reference.
@@ -125,18 +125,8 @@ public class VarListImpl extends RelationImpl implements VarList
    * @generated
    */
   @Override
-  public ElmDeclaration getVar1()
+  public ReferencedElement getVar1()
   {
-    if (var1 != null && var1.eIsProxy())
-    {
-      InternalEObject oldVar1 = (InternalEObject)var1;
-      var1 = (ElmDeclaration)eResolveProxy(oldVar1);
-      if (var1 != oldVar1)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, HlvlPackage.VAR_LIST__VAR1, oldVar1, var1));
-      }
-    }
     return var1;
   }
 
@@ -145,9 +135,16 @@ public class VarListImpl extends RelationImpl implements VarList
    * <!-- end-user-doc -->
    * @generated
    */
-  public ElmDeclaration basicGetVar1()
+  public NotificationChain basicSetVar1(ReferencedElement newVar1, NotificationChain msgs)
   {
-    return var1;
+    ReferencedElement oldVar1 = var1;
+    var1 = newVar1;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HlvlPackage.VAR_LIST__VAR1, oldVar1, newVar1);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -156,12 +153,20 @@ public class VarListImpl extends RelationImpl implements VarList
    * @generated
    */
   @Override
-  public void setVar1(ElmDeclaration newVar1)
+  public void setVar1(ReferencedElement newVar1)
   {
-    ElmDeclaration oldVar1 = var1;
-    var1 = newVar1;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, HlvlPackage.VAR_LIST__VAR1, oldVar1, var1));
+    if (newVar1 != var1)
+    {
+      NotificationChain msgs = null;
+      if (var1 != null)
+        msgs = ((InternalEObject)var1).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - HlvlPackage.VAR_LIST__VAR1, null, msgs);
+      if (newVar1 != null)
+        msgs = ((InternalEObject)newVar1).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - HlvlPackage.VAR_LIST__VAR1, null, msgs);
+      msgs = basicSetVar1(newVar1, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, HlvlPackage.VAR_LIST__VAR1, newVar1, newVar1));
   }
 
   /**
@@ -224,6 +229,8 @@ public class VarListImpl extends RelationImpl implements VarList
   {
     switch (featureID)
     {
+      case HlvlPackage.VAR_LIST__VAR1:
+        return basicSetVar1(null, msgs);
       case HlvlPackage.VAR_LIST__LIST:
         return basicSetList(null, msgs);
     }
@@ -243,8 +250,7 @@ public class VarListImpl extends RelationImpl implements VarList
       case HlvlPackage.VAR_LIST__OPERATOR:
         return getOperator();
       case HlvlPackage.VAR_LIST__VAR1:
-        if (resolve) return getVar1();
-        return basicGetVar1();
+        return getVar1();
       case HlvlPackage.VAR_LIST__LIST:
         return getList();
     }
@@ -265,7 +271,7 @@ public class VarListImpl extends RelationImpl implements VarList
         setOperator((String)newValue);
         return;
       case HlvlPackage.VAR_LIST__VAR1:
-        setVar1((ElmDeclaration)newValue);
+        setVar1((ReferencedElement)newValue);
         return;
       case HlvlPackage.VAR_LIST__LIST:
         setList((MixedListOfIDs)newValue);
@@ -288,7 +294,7 @@ public class VarListImpl extends RelationImpl implements VarList
         setOperator(OPERATOR_EDEFAULT);
         return;
       case HlvlPackage.VAR_LIST__VAR1:
-        setVar1((ElmDeclaration)null);
+        setVar1((ReferencedElement)null);
         return;
       case HlvlPackage.VAR_LIST__LIST:
         setList((MixedListOfIDs)null);

@@ -18,6 +18,7 @@ import com.coffee.hlvl.ElmDeclaration;
 import com.coffee.hlvl.Entailed;
 import com.coffee.hlvl.Enumeration;
 import com.coffee.hlvl.Equality;
+import com.coffee.hlvl.ExternalElement;
 import com.coffee.hlvl.Group;
 import com.coffee.hlvl.HlvlPackage;
 import com.coffee.hlvl.Iff;
@@ -126,6 +127,9 @@ public class HlvlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case HlvlPackage.EQUALITY:
 				sequence_Equality(context, (Equality) semanticObject); 
+				return; 
+			case HlvlPackage.EXTERNAL_ELEMENT:
+				sequence_ExternalElement(context, (ExternalElement) semanticObject); 
 				return; 
 			case HlvlPackage.GROUP:
 				sequence_Group(context, (Group) semanticObject); 
@@ -614,6 +618,7 @@ public class HlvlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * Contexts:
 	 *     ElmDeclaration returns ElmDeclaration
+	 *     ReferencedElement returns ElmDeclaration
 	 *     NamedItem returns ElmDeclaration
 	 *
 	 * Constraint:
@@ -669,6 +674,19 @@ public class HlvlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (left=Equality_Equality_1_0 (op='=' | op='!=') right=Comparison)
 	 */
 	protected void sequence_Equality(ISerializationContext context, Equality semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ExternalElement returns ExternalElement
+	 *     ReferencedElement returns ExternalElement
+	 *
+	 * Constraint:
+	 *     {ExternalElement}
+	 */
+	protected void sequence_ExternalElement(ISerializationContext context, ExternalElement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -866,7 +884,7 @@ public class HlvlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     MixedListOfIDs returns MixedListOfIDs
 	 *
 	 * Constraint:
-	 *     (values+=[ElmDeclaration|ExternalElement] values+=[ElmDeclaration|ExternalElement]*)
+	 *     (values+=ReferencedElement values+=ReferencedElement*)
 	 */
 	protected void sequence_MixedListOfIDs(ISerializationContext context, MixedListOfIDs semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1015,7 +1033,7 @@ public class HlvlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Pair returns Pair
 	 *
 	 * Constraint:
-	 *     ((operator='implies' | operator='mutex') var1=[ElmDeclaration|ExternalElement] var2=[ElmDeclaration|ExternalElement])
+	 *     ((operator='implies' | operator='mutex') var1=ReferencedElement var2=ReferencedElement)
 	 */
 	protected void sequence_Pair(ISerializationContext context, Pair semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1433,7 +1451,7 @@ public class HlvlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     VarList returns VarList
 	 *
 	 * Constraint:
-	 *     ((operator='implies' | operator='mutex') var1=[ElmDeclaration|ExternalElement] list=MixedListOfIDs)
+	 *     ((operator='implies' | operator='mutex') var1=ReferencedElement list=MixedListOfIDs)
 	 */
 	protected void sequence_VarList(ISerializationContext context, VarList semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -3,8 +3,6 @@
  */
 package com.coffee.ui;
 
-import com.coffee.ui.AbstractHlvlUiModule;
-import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 
 /**
@@ -12,8 +10,5 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
  */
 @FinalFieldsConstructor
 @SuppressWarnings("all")
-public class HlvlUiModule extends AbstractHlvlUiModule {
-  public HlvlUiModule(final AbstractUIPlugin plugin) {
-    super(plugin);
-  }
+public class HlvlUiModule /* implements AbstractHlvlUiModule  */{
 }

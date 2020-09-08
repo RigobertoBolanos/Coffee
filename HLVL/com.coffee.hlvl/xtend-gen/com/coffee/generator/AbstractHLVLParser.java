@@ -3,19 +3,14 @@ package com.coffee.generator;
 import com.coffee.generator.Dialect;
 import com.coffee.generator.IHLVLParser;
 import com.coffee.generator.TransformationRules;
-import com.coffee.hlvl.Common;
 import com.coffee.hlvl.ConstantDecl;
-import com.coffee.hlvl.Constraint;
 import com.coffee.hlvl.Declaration;
 import com.coffee.hlvl.Decomposition;
 import com.coffee.hlvl.ElmDeclaration;
-import com.coffee.hlvl.Group;
 import com.coffee.hlvl.Model;
-import com.coffee.hlvl.Pair;
 import com.coffee.hlvl.RelDeclaration;
 import com.coffee.hlvl.Relation;
 import com.coffee.hlvl.Relational;
-import com.coffee.hlvl.VarList;
 import com.coffee.hlvl.VariableDecl;
 import com.google.common.base.Objects;
 import java.util.HashMap;
@@ -169,69 +164,11 @@ public abstract class AbstractHLVLParser implements IHLVLParser {
    */
   @Override
   public CharSequence parseRelation(final Relation rel) {
-    CharSequence _switchResult = null;
-    boolean _matched = false;
-    if (rel instanceof Common) {
-      _matched=true;
-      _switchResult = this.rules.getCore(((Common)rel));
-    }
-    if (!_matched) {
-      if (rel instanceof Decomposition) {
-        _matched=true;
-        _switchResult = this.rules.getDecomposition(((Decomposition)rel), this.parents);
-      }
-    }
-    if (!_matched) {
-      if (rel instanceof Group) {
-        _matched=true;
-        _switchResult = this.rules.getGroup(((Group)rel), this.parents);
-      }
-    }
-    if (!_matched) {
-      if (rel instanceof Pair) {
-        _matched=true;
-        CharSequence _xblockexpression = null;
-        {
-          final Pair pair = ((Pair) rel);
-          CharSequence _xifexpression = null;
-          String _operator = pair.getOperator();
-          boolean _equals = Objects.equal(_operator, "implies");
-          if (_equals) {
-            _xifexpression = this.rules.getImpliesPair(((Pair)rel).getVar1(), ((Pair)rel).getVar2());
-          } else {
-            _xifexpression = this.rules.getMutexPair(((Pair)rel).getVar1(), ((Pair)rel).getVar2());
-          }
-          _xblockexpression = _xifexpression;
-        }
-        _switchResult = _xblockexpression;
-      }
-    }
-    if (!_matched) {
-      if (rel instanceof VarList) {
-        _matched=true;
-        CharSequence _xblockexpression = null;
-        {
-          final VarList pair = ((VarList) rel);
-          CharSequence _xifexpression = null;
-          String _operator = pair.getOperator();
-          boolean _equals = Objects.equal(_operator, "implies");
-          if (_equals) {
-            _xifexpression = this.rules.getImpliesList(((VarList)rel));
-          } else {
-            _xifexpression = this.rules.getMutexList(((VarList)rel));
-          }
-          _xblockexpression = _xifexpression;
-        }
-        _switchResult = _xblockexpression;
-      }
-    }
-    if (!_matched) {
-      if (rel instanceof Constraint) {
-        _matched=true;
-        _switchResult = this.rules.getExpression(((Constraint)rel).getExp());
-      }
-    }
-    return _switchResult;
+    throw new Error("Unresolved compilation problems:"
+      + "\nType mismatch: cannot convert from ReferencedElement to ElmDeclaration"
+      + "\nType mismatch: cannot convert from ReferencedElement to ElmDeclaration"
+      + "\nType mismatch: cannot convert from ReferencedElement to ElmDeclaration"
+      + "\nType mismatch: cannot convert from ReferencedElement to ElmDeclaration");
   }
   
   public CharSequence parseOperations(final Model model) {

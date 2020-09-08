@@ -47,47 +47,47 @@ public interface Pair extends Relation
   void setOperator(String value);
 
   /**
-   * Returns the value of the '<em><b>Var1</b></em>' reference.
+   * Returns the value of the '<em><b>Var1</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Var1</em>' reference.
-   * @see #setVar1(ElmDeclaration)
+   * @return the value of the '<em>Var1</em>' containment reference.
+   * @see #setVar1(ReferencedElement)
    * @see com.coffee.hlvl.HlvlPackage#getPair_Var1()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  ElmDeclaration getVar1();
+  ReferencedElement getVar1();
 
   /**
-   * Sets the value of the '{@link com.coffee.hlvl.Pair#getVar1 <em>Var1</em>}' reference.
+   * Sets the value of the '{@link com.coffee.hlvl.Pair#getVar1 <em>Var1</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Var1</em>' reference.
+   * @param value the new value of the '<em>Var1</em>' containment reference.
    * @see #getVar1()
    * @generated
    */
-  void setVar1(ElmDeclaration value);
+  void setVar1(ReferencedElement value);
 
   /**
-   * Returns the value of the '<em><b>Var2</b></em>' reference.
+   * Returns the value of the '<em><b>Var2</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Var2</em>' reference.
-   * @see #setVar2(ElmDeclaration)
+   * @return the value of the '<em>Var2</em>' containment reference.
+   * @see #setVar2(ReferencedElement)
    * @see com.coffee.hlvl.HlvlPackage#getPair_Var2()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  ElmDeclaration getVar2();
+  ReferencedElement getVar2();
 
   /**
-   * Sets the value of the '{@link com.coffee.hlvl.Pair#getVar2 <em>Var2</em>}' reference.
+   * Sets the value of the '{@link com.coffee.hlvl.Pair#getVar2 <em>Var2</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Var2</em>' reference.
+   * @param value the new value of the '<em>Var2</em>' containment reference.
    * @see #getVar2()
    * @generated
    */
-  void setVar2(ElmDeclaration value);
+  void setVar2(ReferencedElement value);
 
 } // Pair

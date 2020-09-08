@@ -142,7 +142,7 @@ public class HlvlSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ','+
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     values+=[ElmDeclaration|ExternalElement] (ambiguity) values+=[ElmDeclaration|ExternalElement]
+	 *     values+=ReferencedElement (ambiguity) values+=ReferencedElement
 	 */
 	protected void emit_MixedListOfIDs_CommaKeyword_2_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

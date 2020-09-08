@@ -7,10 +7,8 @@ import com.coffee.generator.commons.IMiniZincConstants;
 import com.coffee.generator.expressionsParser.BooleanExpressionsParser;
 import com.coffee.hlvl.ComplexImplies;
 import com.coffee.hlvl.ComplexMutex;
-import com.coffee.hlvl.ElmDeclaration;
 import com.coffee.hlvl.Visibility;
 import java.util.List;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
 /**
@@ -78,56 +76,13 @@ public class ComplexBooleanRules extends BasicBooleanRules implements IMiniZincC
   
   @Override
   public CharSequence getComplexImplies(final ComplexImplies rel) {
-    String _xblockexpression = null;
-    {
-      StringBuilder out = new StringBuilder();
-      EList<ElmDeclaration> _values = rel.getElements().getValues();
-      for (final ElmDeclaration element : _values) {
-        StringConcatenation _builder = new StringConcatenation();
-        _builder.append(IMiniZincConstants.CONS_DEF);
-        _builder.append(" ");
-        CharSequence _parse = this.expressionsParser.parse(rel.getExp());
-        _builder.append(_parse);
-        _builder.append(" ");
-        _builder.append(IMiniZincConstants.IMPLIES_LR);
-        _builder.append(" ");
-        String _name = element.getName();
-        _builder.append(_name);
-        _builder.append(IMiniZincConstants.SEMICOLON);
-        _builder.newLineIfNotEmpty();
-        out.append(_builder);
-      }
-      _xblockexpression = out.toString();
-    }
-    return _xblockexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field name is undefined for the type ReferencedElement");
   }
   
   @Override
   public CharSequence getComplexMutex(final ComplexMutex rel) {
-    String _xblockexpression = null;
-    {
-      StringBuilder out = new StringBuilder();
-      EList<ElmDeclaration> _values = rel.getElements().getValues();
-      for (final ElmDeclaration element : _values) {
-        StringConcatenation _builder = new StringConcatenation();
-        _builder.append(IMiniZincConstants.CONS_DEF);
-        _builder.append(" ");
-        _builder.append(IMiniZincConstants.NOT);
-        _builder.append("(");
-        CharSequence _parse = this.expressionsParser.parse(rel.getExp());
-        _builder.append(_parse);
-        _builder.append(" ");
-        _builder.append(IMiniZincConstants.AND);
-        _builder.append(" ");
-        String _name = element.getName();
-        _builder.append(_name);
-        _builder.append(")");
-        _builder.append(IMiniZincConstants.SEMICOLON);
-        _builder.newLineIfNotEmpty();
-        out.append(_builder);
-      }
-      _xblockexpression = out.toString();
-    }
-    return _xblockexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field name is undefined for the type ReferencedElement");
   }
 }

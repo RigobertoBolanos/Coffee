@@ -98,6 +98,7 @@ public class HlvlSwitch<T> extends Switch<T>
       {
         ElmDeclaration elmDeclaration = (ElmDeclaration)theEObject;
         T result = caseElmDeclaration(elmDeclaration);
+        if (result == null) result = caseReferencedElement(elmDeclaration);
         if (result == null) result = caseNamedItem(elmDeclaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -261,6 +262,21 @@ public class HlvlSwitch<T> extends Switch<T>
       {
         QualifiedName qualifiedName = (QualifiedName)theEObject;
         T result = caseQualifiedName(qualifiedName);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HlvlPackage.EXTERNAL_ELEMENT:
+      {
+        ExternalElement externalElement = (ExternalElement)theEObject;
+        T result = caseExternalElement(externalElement);
+        if (result == null) result = caseReferencedElement(externalElement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HlvlPackage.REFERENCED_ELEMENT:
+      {
+        ReferencedElement referencedElement = (ReferencedElement)theEObject;
+        T result = caseReferencedElement(referencedElement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -910,6 +926,38 @@ public class HlvlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseQualifiedName(QualifiedName object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>External Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>External Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExternalElement(ExternalElement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Referenced Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Referenced Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReferencedElement(ReferencedElement object)
   {
     return null;
   }
