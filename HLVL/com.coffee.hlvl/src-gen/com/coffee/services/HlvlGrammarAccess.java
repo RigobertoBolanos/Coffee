@@ -166,21 +166,17 @@ public class HlvlGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	public class ModelRefElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.coffee.Hlvl.ModelRef");
 		private final Assignment cImportURIAssignment = (Assignment)rule.eContents().get(1);
-		private final CrossReference cImportURIModelCrossReference_0 = (CrossReference)cImportURIAssignment.eContents().get(0);
-		private final RuleCall cImportURIModelIDTerminalRuleCall_0_1 = (RuleCall)cImportURIModelCrossReference_0.eContents().get(1);
+		private final RuleCall cImportURISTRINGTerminalRuleCall_0 = (RuleCall)cImportURIAssignment.eContents().get(0);
 		
 		//ModelRef:
-		//	importURI=[Model];
+		//	importURI=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//importURI=[Model]
+		//importURI=STRING
 		public Assignment getImportURIAssignment() { return cImportURIAssignment; }
 		
-		//[Model]
-		public CrossReference getImportURIModelCrossReference_0() { return cImportURIModelCrossReference_0; }
-		
-		//ID
-		public RuleCall getImportURIModelIDTerminalRuleCall_0_1() { return cImportURIModelIDTerminalRuleCall_0_1; }
+		//STRING
+		public RuleCall getImportURISTRINGTerminalRuleCall_0() { return cImportURISTRINGTerminalRuleCall_0; }
 	}
 	public class ElmDeclarationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.coffee.Hlvl.ElmDeclaration");
@@ -567,11 +563,11 @@ public class HlvlGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cVar1Assignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final CrossReference cVar1ElmDeclarationCrossReference_2_0 = (CrossReference)cVar1Assignment_2.eContents().get(0);
-		private final RuleCall cVar1ElmDeclarationExternalElementParserRuleCall_2_0_1 = (RuleCall)cVar1ElmDeclarationCrossReference_2_0.eContents().get(1);
+		private final RuleCall cVar1ElmDeclarationGeneralQualifiedNameParserRuleCall_2_0_1 = (RuleCall)cVar1ElmDeclarationCrossReference_2_0.eContents().get(1);
 		private final Keyword cCommaKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cVar2Assignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final CrossReference cVar2ElmDeclarationCrossReference_4_0 = (CrossReference)cVar2Assignment_4.eContents().get(0);
-		private final RuleCall cVar2ElmDeclarationExternalElementParserRuleCall_4_0_1 = (RuleCall)cVar2ElmDeclarationCrossReference_4_0.eContents().get(1);
+		private final RuleCall cVar2ElmDeclarationGeneralQualifiedNameParserRuleCall_4_0_1 = (RuleCall)cVar2ElmDeclarationCrossReference_4_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		////MultInstantiation:
@@ -579,11 +575,13 @@ public class HlvlGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		////;
 		////FIXME separate the simple implies and mutex
 		//Pair:
-		//	operator=('implies' | 'mutex') '(' var1=[ElmDeclaration|ExternalElement] ',' var2=[ElmDeclaration|ExternalElement] ')' // HLVL-E
+		//	operator=('implies' | 'mutex') '(' var1=[ElmDeclaration|GeneralQualifiedName] ','
+		//	var2=[ElmDeclaration|GeneralQualifiedName] ')' // HLVL-E
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//operator=('implies' | 'mutex') '(' var1=[ElmDeclaration|ExternalElement] ',' var2=[ElmDeclaration|ExternalElement] ')'
+		//operator=('implies' | 'mutex') '(' var1=[ElmDeclaration|GeneralQualifiedName] ','
+		//var2=[ElmDeclaration|GeneralQualifiedName] ')'
 		public Group getGroup() { return cGroup; }
 		
 		//operator=('implies' | 'mutex')
@@ -601,26 +599,26 @@ public class HlvlGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
-		//var1=[ElmDeclaration|ExternalElement]
+		//var1=[ElmDeclaration|GeneralQualifiedName]
 		public Assignment getVar1Assignment_2() { return cVar1Assignment_2; }
 		
-		//[ElmDeclaration|ExternalElement]
+		//[ElmDeclaration|GeneralQualifiedName]
 		public CrossReference getVar1ElmDeclarationCrossReference_2_0() { return cVar1ElmDeclarationCrossReference_2_0; }
 		
-		//ExternalElement
-		public RuleCall getVar1ElmDeclarationExternalElementParserRuleCall_2_0_1() { return cVar1ElmDeclarationExternalElementParserRuleCall_2_0_1; }
+		//GeneralQualifiedName
+		public RuleCall getVar1ElmDeclarationGeneralQualifiedNameParserRuleCall_2_0_1() { return cVar1ElmDeclarationGeneralQualifiedNameParserRuleCall_2_0_1; }
 		
 		//','
 		public Keyword getCommaKeyword_3() { return cCommaKeyword_3; }
 		
-		//var2=[ElmDeclaration|ExternalElement]
+		//var2=[ElmDeclaration|GeneralQualifiedName]
 		public Assignment getVar2Assignment_4() { return cVar2Assignment_4; }
 		
-		//[ElmDeclaration|ExternalElement]
+		//[ElmDeclaration|GeneralQualifiedName]
 		public CrossReference getVar2ElmDeclarationCrossReference_4_0() { return cVar2ElmDeclarationCrossReference_4_0; }
 		
-		//ExternalElement
-		public RuleCall getVar2ElmDeclarationExternalElementParserRuleCall_4_0_1() { return cVar2ElmDeclarationExternalElementParserRuleCall_4_0_1; }
+		//GeneralQualifiedName
+		public RuleCall getVar2ElmDeclarationGeneralQualifiedNameParserRuleCall_4_0_1() { return cVar2ElmDeclarationGeneralQualifiedNameParserRuleCall_4_0_1; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
@@ -755,7 +753,7 @@ public class HlvlGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cVar1Assignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final CrossReference cVar1ElmDeclarationCrossReference_2_0 = (CrossReference)cVar1Assignment_2.eContents().get(0);
-		private final RuleCall cVar1ElmDeclarationExternalElementParserRuleCall_2_0_1 = (RuleCall)cVar1ElmDeclarationCrossReference_2_0.eContents().get(1);
+		private final RuleCall cVar1ElmDeclarationGeneralQualifiedNameParserRuleCall_2_0_1 = (RuleCall)cVar1ElmDeclarationCrossReference_2_0.eContents().get(1);
 		private final Keyword cCommaKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Keyword cLeftSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cListAssignment_5 = (Assignment)cGroup.eContents().get(5);
@@ -768,11 +766,11 @@ public class HlvlGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		////	'[' mina=INT ',' maxa=INT ']' var1=[ElmDeclaration] 'implies'  '[' minb=INT ',' maxb=INT']' var2=[ElmDeclaration] 
 		////;
 		//VarList:
-		//	operator=('implies' | 'mutex') '(' var1=[ElmDeclaration|ExternalElement] ',' '[' list=MixedListOfIDs ']' ')' // HLVL-E
+		//	operator=('implies' | 'mutex') '(' var1=[ElmDeclaration|GeneralQualifiedName] ',' '[' list=MixedListOfIDs ']' ')' // HLVL-E
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//operator=('implies' | 'mutex') '(' var1=[ElmDeclaration|ExternalElement] ',' '[' list=MixedListOfIDs ']' ')'
+		//operator=('implies' | 'mutex') '(' var1=[ElmDeclaration|GeneralQualifiedName] ',' '[' list=MixedListOfIDs ']' ')'
 		public Group getGroup() { return cGroup; }
 		
 		//operator=('implies' | 'mutex')
@@ -790,14 +788,14 @@ public class HlvlGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
-		//var1=[ElmDeclaration|ExternalElement]
+		//var1=[ElmDeclaration|GeneralQualifiedName]
 		public Assignment getVar1Assignment_2() { return cVar1Assignment_2; }
 		
-		//[ElmDeclaration|ExternalElement]
+		//[ElmDeclaration|GeneralQualifiedName]
 		public CrossReference getVar1ElmDeclarationCrossReference_2_0() { return cVar1ElmDeclarationCrossReference_2_0; }
 		
-		//ExternalElement
-		public RuleCall getVar1ElmDeclarationExternalElementParserRuleCall_2_0_1() { return cVar1ElmDeclarationExternalElementParserRuleCall_2_0_1; }
+		//GeneralQualifiedName
+		public RuleCall getVar1ElmDeclarationGeneralQualifiedNameParserRuleCall_2_0_1() { return cVar1ElmDeclarationGeneralQualifiedNameParserRuleCall_2_0_1; }
 		
 		//','
 		public Keyword getCommaKeyword_3() { return cCommaKeyword_3; }
@@ -1973,8 +1971,8 @@ public class HlvlGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//ID
 		public RuleCall getAttElmDeclarationIDTerminalRuleCall_2_0_1() { return cAttElmDeclarationIDTerminalRuleCall_2_0_1; }
 	}
-	public class ExternalElementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.coffee.Hlvl.ExternalElement");
+	public class GeneralQualifiedNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.coffee.Hlvl.GeneralQualifiedName");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
@@ -1982,7 +1980,7 @@ public class HlvlGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		
 		////HLVL-E
-		//ExternalElement:
+		//GeneralQualifiedName:
 		//	ID ("." ID)*;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -2240,47 +2238,47 @@ public class HlvlGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Action cMixedListOfIDsAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cValuesAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final CrossReference cValuesElmDeclarationCrossReference_1_0 = (CrossReference)cValuesAssignment_1.eContents().get(0);
-		private final RuleCall cValuesElmDeclarationExternalElementParserRuleCall_1_0_1 = (RuleCall)cValuesElmDeclarationCrossReference_1_0.eContents().get(1);
+		private final RuleCall cValuesElmDeclarationGeneralQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cValuesElmDeclarationCrossReference_1_0.eContents().get(1);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cCommaKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Assignment cValuesAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final CrossReference cValuesElmDeclarationCrossReference_2_1_0 = (CrossReference)cValuesAssignment_2_1.eContents().get(0);
-		private final RuleCall cValuesElmDeclarationExternalElementParserRuleCall_2_1_0_1 = (RuleCall)cValuesElmDeclarationCrossReference_2_1_0.eContents().get(1);
+		private final RuleCall cValuesElmDeclarationGeneralQualifiedNameParserRuleCall_2_1_0_1 = (RuleCall)cValuesElmDeclarationCrossReference_2_1_0.eContents().get(1);
 		
 		//// HLVL-E: List used to reference elements in the same and extended models
 		//MixedListOfIDs:
-		//	{MixedListOfIDs} values+=[ElmDeclaration|ExternalElement] (','+ values+=[ElmDeclaration|ExternalElement])*;
+		//	{MixedListOfIDs} values+=[ElmDeclaration|GeneralQualifiedName] (','+ values+=[ElmDeclaration|GeneralQualifiedName])*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{MixedListOfIDs} values+=[ElmDeclaration|ExternalElement] (','+ values+=[ElmDeclaration|ExternalElement])*
+		//{MixedListOfIDs} values+=[ElmDeclaration|GeneralQualifiedName] (','+ values+=[ElmDeclaration|GeneralQualifiedName])*
 		public Group getGroup() { return cGroup; }
 		
 		//{MixedListOfIDs}
 		public Action getMixedListOfIDsAction_0() { return cMixedListOfIDsAction_0; }
 		
-		//values+=[ElmDeclaration|ExternalElement]
+		//values+=[ElmDeclaration|GeneralQualifiedName]
 		public Assignment getValuesAssignment_1() { return cValuesAssignment_1; }
 		
-		//[ElmDeclaration|ExternalElement]
+		//[ElmDeclaration|GeneralQualifiedName]
 		public CrossReference getValuesElmDeclarationCrossReference_1_0() { return cValuesElmDeclarationCrossReference_1_0; }
 		
-		//ExternalElement
-		public RuleCall getValuesElmDeclarationExternalElementParserRuleCall_1_0_1() { return cValuesElmDeclarationExternalElementParserRuleCall_1_0_1; }
+		//GeneralQualifiedName
+		public RuleCall getValuesElmDeclarationGeneralQualifiedNameParserRuleCall_1_0_1() { return cValuesElmDeclarationGeneralQualifiedNameParserRuleCall_1_0_1; }
 		
-		//(','+ values+=[ElmDeclaration|ExternalElement])*
+		//(','+ values+=[ElmDeclaration|GeneralQualifiedName])*
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//','+
 		public Keyword getCommaKeyword_2_0() { return cCommaKeyword_2_0; }
 		
-		//values+=[ElmDeclaration|ExternalElement]
+		//values+=[ElmDeclaration|GeneralQualifiedName]
 		public Assignment getValuesAssignment_2_1() { return cValuesAssignment_2_1; }
 		
-		//[ElmDeclaration|ExternalElement]
+		//[ElmDeclaration|GeneralQualifiedName]
 		public CrossReference getValuesElmDeclarationCrossReference_2_1_0() { return cValuesElmDeclarationCrossReference_2_1_0; }
 		
-		//ExternalElement
-		public RuleCall getValuesElmDeclarationExternalElementParserRuleCall_2_1_0_1() { return cValuesElmDeclarationExternalElementParserRuleCall_2_1_0_1; }
+		//GeneralQualifiedName
+		public RuleCall getValuesElmDeclarationGeneralQualifiedNameParserRuleCall_2_1_0_1() { return cValuesElmDeclarationGeneralQualifiedNameParserRuleCall_2_1_0_1; }
 	}
 	public class ListOfRelRefsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.coffee.Hlvl.ListOfRelRefs");
@@ -2515,7 +2513,7 @@ public class HlvlGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	private final PrimaryElements pPrimary;
 	private final AtomicElements pAtomic;
 	private final QualifiedNameElements pQualifiedName;
-	private final ExternalElementElements pExternalElement;
+	private final GeneralQualifiedNameElements pGeneralQualifiedName;
 	private final OperationsElements pOperations;
 	private final OperationElements pOperation;
 	private final SampleElements pSample;
@@ -2574,7 +2572,7 @@ public class HlvlGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		this.pPrimary = new PrimaryElements();
 		this.pAtomic = new AtomicElements();
 		this.pQualifiedName = new QualifiedNameElements();
-		this.pExternalElement = new ExternalElementElements();
+		this.pGeneralQualifiedName = new GeneralQualifiedNameElements();
 		this.pOperations = new OperationsElements();
 		this.pOperation = new OperationElements();
 		this.pSample = new SampleElements();
@@ -2656,7 +2654,7 @@ public class HlvlGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//ModelRef:
-	//	importURI=[Model];
+	//	importURI=STRING;
 	public ModelRefElements getModelRefAccess() {
 		return pModelRef;
 	}
@@ -2778,7 +2776,8 @@ public class HlvlGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	////;
 	////FIXME separate the simple implies and mutex
 	//Pair:
-	//	operator=('implies' | 'mutex') '(' var1=[ElmDeclaration|ExternalElement] ',' var2=[ElmDeclaration|ExternalElement] ')' // HLVL-E
+	//	operator=('implies' | 'mutex') '(' var1=[ElmDeclaration|GeneralQualifiedName] ','
+	//	var2=[ElmDeclaration|GeneralQualifiedName] ')' // HLVL-E
 	//;
 	public PairElements getPairAccess() {
 		return pPair;
@@ -2815,7 +2814,7 @@ public class HlvlGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	////	'[' mina=INT ',' maxa=INT ']' var1=[ElmDeclaration] 'implies'  '[' minb=INT ',' maxb=INT']' var2=[ElmDeclaration] 
 	////;
 	//VarList:
-	//	operator=('implies' | 'mutex') '(' var1=[ElmDeclaration|ExternalElement] ',' '[' list=MixedListOfIDs ']' ')' // HLVL-E
+	//	operator=('implies' | 'mutex') '(' var1=[ElmDeclaration|GeneralQualifiedName] ',' '[' list=MixedListOfIDs ']' ')' // HLVL-E
 	//;
 	public VarListElements getVarListAccess() {
 		return pVarList;
@@ -3044,14 +3043,14 @@ public class HlvlGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	////HLVL-E
-	//ExternalElement:
+	//GeneralQualifiedName:
 	//	ID ("." ID)*;
-	public ExternalElementElements getExternalElementAccess() {
-		return pExternalElement;
+	public GeneralQualifiedNameElements getGeneralQualifiedNameAccess() {
+		return pGeneralQualifiedName;
 	}
 	
-	public ParserRule getExternalElementRule() {
-		return getExternalElementAccess().getRule();
+	public ParserRule getGeneralQualifiedNameRule() {
+		return getGeneralQualifiedNameAccess().getRule();
 	}
 	
 	//Operations:
@@ -3137,7 +3136,7 @@ public class HlvlGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	
 	//// HLVL-E: List used to reference elements in the same and extended models
 	//MixedListOfIDs:
-	//	{MixedListOfIDs} values+=[ElmDeclaration|ExternalElement] (','+ values+=[ElmDeclaration|ExternalElement])*;
+	//	{MixedListOfIDs} values+=[ElmDeclaration|GeneralQualifiedName] (','+ values+=[ElmDeclaration|GeneralQualifiedName])*;
 	public MixedListOfIDsElements getMixedListOfIDsAccess() {
 		return pMixedListOfIDs;
 	}

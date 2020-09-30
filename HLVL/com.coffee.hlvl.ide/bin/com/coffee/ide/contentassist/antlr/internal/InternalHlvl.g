@@ -949,25 +949,25 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleExternalElement
-entryRuleExternalElement
+// Entry rule entryRuleGeneralQualifiedName
+entryRuleGeneralQualifiedName
 :
-{ before(grammarAccess.getExternalElementRule()); }
-	 ruleExternalElement
-{ after(grammarAccess.getExternalElementRule()); } 
+{ before(grammarAccess.getGeneralQualifiedNameRule()); }
+	 ruleGeneralQualifiedName
+{ after(grammarAccess.getGeneralQualifiedNameRule()); } 
 	 EOF 
 ;
 
-// Rule ExternalElement
-ruleExternalElement 
+// Rule GeneralQualifiedName
+ruleGeneralQualifiedName 
 	@init {
 		int stackSize = keepStackSize();
 	}
 	:
 	(
-		{ before(grammarAccess.getExternalElementAccess().getGroup()); }
-		(rule__ExternalElement__Group__0)
-		{ after(grammarAccess.getExternalElementAccess().getGroup()); }
+		{ before(grammarAccess.getGeneralQualifiedNameAccess().getGroup()); }
+		(rule__GeneralQualifiedName__Group__0)
+		{ after(grammarAccess.getGeneralQualifiedNameAccess().getGroup()); }
 	)
 ;
 finally {
@@ -7807,53 +7807,53 @@ finally {
 }
 
 
-rule__ExternalElement__Group__0
+rule__GeneralQualifiedName__Group__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__ExternalElement__Group__0__Impl
-	rule__ExternalElement__Group__1
+	rule__GeneralQualifiedName__Group__0__Impl
+	rule__GeneralQualifiedName__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ExternalElement__Group__0__Impl
+rule__GeneralQualifiedName__Group__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getExternalElementAccess().getIDTerminalRuleCall_0()); }
+	{ before(grammarAccess.getGeneralQualifiedNameAccess().getIDTerminalRuleCall_0()); }
 	RULE_ID
-	{ after(grammarAccess.getExternalElementAccess().getIDTerminalRuleCall_0()); }
+	{ after(grammarAccess.getGeneralQualifiedNameAccess().getIDTerminalRuleCall_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ExternalElement__Group__1
+rule__GeneralQualifiedName__Group__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__ExternalElement__Group__1__Impl
+	rule__GeneralQualifiedName__Group__1__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ExternalElement__Group__1__Impl
+rule__GeneralQualifiedName__Group__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getExternalElementAccess().getGroup_1()); }
-	(rule__ExternalElement__Group_1__0)*
-	{ after(grammarAccess.getExternalElementAccess().getGroup_1()); }
+	{ before(grammarAccess.getGeneralQualifiedNameAccess().getGroup_1()); }
+	(rule__GeneralQualifiedName__Group_1__0)*
+	{ after(grammarAccess.getGeneralQualifiedNameAccess().getGroup_1()); }
 )
 ;
 finally {
@@ -7861,53 +7861,53 @@ finally {
 }
 
 
-rule__ExternalElement__Group_1__0
+rule__GeneralQualifiedName__Group_1__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__ExternalElement__Group_1__0__Impl
-	rule__ExternalElement__Group_1__1
+	rule__GeneralQualifiedName__Group_1__0__Impl
+	rule__GeneralQualifiedName__Group_1__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ExternalElement__Group_1__0__Impl
+rule__GeneralQualifiedName__Group_1__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getExternalElementAccess().getFullStopKeyword_1_0()); }
+	{ before(grammarAccess.getGeneralQualifiedNameAccess().getFullStopKeyword_1_0()); }
 	'.'
-	{ after(grammarAccess.getExternalElementAccess().getFullStopKeyword_1_0()); }
+	{ after(grammarAccess.getGeneralQualifiedNameAccess().getFullStopKeyword_1_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ExternalElement__Group_1__1
+rule__GeneralQualifiedName__Group_1__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__ExternalElement__Group_1__1__Impl
+	rule__GeneralQualifiedName__Group_1__1__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ExternalElement__Group_1__1__Impl
+rule__GeneralQualifiedName__Group_1__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getExternalElementAccess().getIDTerminalRuleCall_1_1()); }
+	{ before(grammarAccess.getGeneralQualifiedNameAccess().getIDTerminalRuleCall_1_1()); }
 	RULE_ID
-	{ after(grammarAccess.getExternalElementAccess().getIDTerminalRuleCall_1_1()); }
+	{ after(grammarAccess.getGeneralQualifiedNameAccess().getIDTerminalRuleCall_1_1()); }
 )
 ;
 finally {
@@ -9121,13 +9121,9 @@ rule__ModelRef__ImportURIAssignment
 	}
 :
 	(
-		{ before(grammarAccess.getModelRefAccess().getImportURIModelCrossReference_0()); }
-		(
-			{ before(grammarAccess.getModelRefAccess().getImportURIModelIDTerminalRuleCall_0_1()); }
-			RULE_ID
-			{ after(grammarAccess.getModelRefAccess().getImportURIModelIDTerminalRuleCall_0_1()); }
-		)
-		{ after(grammarAccess.getModelRefAccess().getImportURIModelCrossReference_0()); }
+		{ before(grammarAccess.getModelRefAccess().getImportURISTRINGTerminalRuleCall_0()); }
+		RULE_STRING
+		{ after(grammarAccess.getModelRefAccess().getImportURISTRINGTerminalRuleCall_0()); }
 	)
 ;
 finally {
@@ -9356,9 +9352,9 @@ rule__Pair__Var1Assignment_2
 	(
 		{ before(grammarAccess.getPairAccess().getVar1ElmDeclarationCrossReference_2_0()); }
 		(
-			{ before(grammarAccess.getPairAccess().getVar1ElmDeclarationExternalElementParserRuleCall_2_0_1()); }
-			ruleExternalElement
-			{ after(grammarAccess.getPairAccess().getVar1ElmDeclarationExternalElementParserRuleCall_2_0_1()); }
+			{ before(grammarAccess.getPairAccess().getVar1ElmDeclarationGeneralQualifiedNameParserRuleCall_2_0_1()); }
+			ruleGeneralQualifiedName
+			{ after(grammarAccess.getPairAccess().getVar1ElmDeclarationGeneralQualifiedNameParserRuleCall_2_0_1()); }
 		)
 		{ after(grammarAccess.getPairAccess().getVar1ElmDeclarationCrossReference_2_0()); }
 	)
@@ -9375,9 +9371,9 @@ rule__Pair__Var2Assignment_4
 	(
 		{ before(grammarAccess.getPairAccess().getVar2ElmDeclarationCrossReference_4_0()); }
 		(
-			{ before(grammarAccess.getPairAccess().getVar2ElmDeclarationExternalElementParserRuleCall_4_0_1()); }
-			ruleExternalElement
-			{ after(grammarAccess.getPairAccess().getVar2ElmDeclarationExternalElementParserRuleCall_4_0_1()); }
+			{ before(grammarAccess.getPairAccess().getVar2ElmDeclarationGeneralQualifiedNameParserRuleCall_4_0_1()); }
+			ruleGeneralQualifiedName
+			{ after(grammarAccess.getPairAccess().getVar2ElmDeclarationGeneralQualifiedNameParserRuleCall_4_0_1()); }
 		)
 		{ after(grammarAccess.getPairAccess().getVar2ElmDeclarationCrossReference_4_0()); }
 	)
@@ -9469,9 +9465,9 @@ rule__VarList__Var1Assignment_2
 	(
 		{ before(grammarAccess.getVarListAccess().getVar1ElmDeclarationCrossReference_2_0()); }
 		(
-			{ before(grammarAccess.getVarListAccess().getVar1ElmDeclarationExternalElementParserRuleCall_2_0_1()); }
-			ruleExternalElement
-			{ after(grammarAccess.getVarListAccess().getVar1ElmDeclarationExternalElementParserRuleCall_2_0_1()); }
+			{ before(grammarAccess.getVarListAccess().getVar1ElmDeclarationGeneralQualifiedNameParserRuleCall_2_0_1()); }
+			ruleGeneralQualifiedName
+			{ after(grammarAccess.getVarListAccess().getVar1ElmDeclarationGeneralQualifiedNameParserRuleCall_2_0_1()); }
 		)
 		{ after(grammarAccess.getVarListAccess().getVar1ElmDeclarationCrossReference_2_0()); }
 	)
@@ -10316,9 +10312,9 @@ rule__MixedListOfIDs__ValuesAssignment_1
 	(
 		{ before(grammarAccess.getMixedListOfIDsAccess().getValuesElmDeclarationCrossReference_1_0()); }
 		(
-			{ before(grammarAccess.getMixedListOfIDsAccess().getValuesElmDeclarationExternalElementParserRuleCall_1_0_1()); }
-			ruleExternalElement
-			{ after(grammarAccess.getMixedListOfIDsAccess().getValuesElmDeclarationExternalElementParserRuleCall_1_0_1()); }
+			{ before(grammarAccess.getMixedListOfIDsAccess().getValuesElmDeclarationGeneralQualifiedNameParserRuleCall_1_0_1()); }
+			ruleGeneralQualifiedName
+			{ after(grammarAccess.getMixedListOfIDsAccess().getValuesElmDeclarationGeneralQualifiedNameParserRuleCall_1_0_1()); }
 		)
 		{ after(grammarAccess.getMixedListOfIDsAccess().getValuesElmDeclarationCrossReference_1_0()); }
 	)
@@ -10335,9 +10331,9 @@ rule__MixedListOfIDs__ValuesAssignment_2_1
 	(
 		{ before(grammarAccess.getMixedListOfIDsAccess().getValuesElmDeclarationCrossReference_2_1_0()); }
 		(
-			{ before(grammarAccess.getMixedListOfIDsAccess().getValuesElmDeclarationExternalElementParserRuleCall_2_1_0_1()); }
-			ruleExternalElement
-			{ after(grammarAccess.getMixedListOfIDsAccess().getValuesElmDeclarationExternalElementParserRuleCall_2_1_0_1()); }
+			{ before(grammarAccess.getMixedListOfIDsAccess().getValuesElmDeclarationGeneralQualifiedNameParserRuleCall_2_1_0_1()); }
+			ruleGeneralQualifiedName
+			{ after(grammarAccess.getMixedListOfIDsAccess().getValuesElmDeclarationGeneralQualifiedNameParserRuleCall_2_1_0_1()); }
 		)
 		{ after(grammarAccess.getMixedListOfIDsAccess().getValuesElmDeclarationCrossReference_2_1_0()); }
 	)

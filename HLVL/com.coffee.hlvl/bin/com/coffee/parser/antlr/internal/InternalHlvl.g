@@ -286,14 +286,19 @@ ruleModelRef returns [EObject current=null]
 }:
 	(
 		(
+			lv_importURI_0_0=RULE_STRING
+			{
+				newLeafNode(lv_importURI_0_0, grammarAccess.getModelRefAccess().getImportURISTRINGTerminalRuleCall_0());
+			}
 			{
 				if ($current==null) {
 					$current = createModelElement(grammarAccess.getModelRefRule());
 				}
-			}
-			otherlv_0=RULE_ID
-			{
-				newLeafNode(otherlv_0, grammarAccess.getModelRefAccess().getImportURIModelCrossReference_0());
+				setWithLastConsumed(
+					$current,
+					"importURI",
+					lv_importURI_0_0,
+					"org.eclipse.xtext.common.Terminals.STRING");
 			}
 		)
 	)
@@ -1014,7 +1019,7 @@ rulePair returns [EObject current=null]
 				{
 					newCompositeNode(grammarAccess.getPairAccess().getVar1ElmDeclarationCrossReference_2_0());
 				}
-				ruleExternalElement
+				ruleGeneralQualifiedName
 				{
 					afterParserOrEnumRuleCall();
 				}
@@ -1034,7 +1039,7 @@ rulePair returns [EObject current=null]
 				{
 					newCompositeNode(grammarAccess.getPairAccess().getVar2ElmDeclarationCrossReference_4_0());
 				}
-				ruleExternalElement
+				ruleGeneralQualifiedName
 				{
 					afterParserOrEnumRuleCall();
 				}
@@ -1282,7 +1287,7 @@ ruleVarList returns [EObject current=null]
 				{
 					newCompositeNode(grammarAccess.getVarListAccess().getVar1ElmDeclarationCrossReference_2_0());
 				}
-				ruleExternalElement
+				ruleGeneralQualifiedName
 				{
 					afterParserOrEnumRuleCall();
 				}
@@ -3098,15 +3103,15 @@ ruleQualifiedName returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleExternalElement
-entryRuleExternalElement returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getExternalElementRule()); }
-	iv_ruleExternalElement=ruleExternalElement
-	{ $current=$iv_ruleExternalElement.current.getText(); }
+// Entry rule entryRuleGeneralQualifiedName
+entryRuleGeneralQualifiedName returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getGeneralQualifiedNameRule()); }
+	iv_ruleGeneralQualifiedName=ruleGeneralQualifiedName
+	{ $current=$iv_ruleGeneralQualifiedName.current.getText(); }
 	EOF;
 
-// Rule ExternalElement
-ruleExternalElement returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+// Rule GeneralQualifiedName
+ruleGeneralQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 @init {
 	enterRule();
 }
@@ -3119,20 +3124,20 @@ ruleExternalElement returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRul
 			$current.merge(this_ID_0);
 		}
 		{
-			newLeafNode(this_ID_0, grammarAccess.getExternalElementAccess().getIDTerminalRuleCall_0());
+			newLeafNode(this_ID_0, grammarAccess.getGeneralQualifiedNameAccess().getIDTerminalRuleCall_0());
 		}
 		(
 			kw='.'
 			{
 				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getExternalElementAccess().getFullStopKeyword_1_0());
+				newLeafNode(kw, grammarAccess.getGeneralQualifiedNameAccess().getFullStopKeyword_1_0());
 			}
 			this_ID_2=RULE_ID
 			{
 				$current.merge(this_ID_2);
 			}
 			{
-				newLeafNode(this_ID_2, grammarAccess.getExternalElementAccess().getIDTerminalRuleCall_1_1());
+				newLeafNode(this_ID_2, grammarAccess.getGeneralQualifiedNameAccess().getIDTerminalRuleCall_1_1());
 			}
 		)*
 	)
@@ -3516,7 +3521,7 @@ ruleMixedListOfIDs returns [EObject current=null]
 				{
 					newCompositeNode(grammarAccess.getMixedListOfIDsAccess().getValuesElmDeclarationCrossReference_1_0());
 				}
-				ruleExternalElement
+				ruleGeneralQualifiedName
 				{
 					afterParserOrEnumRuleCall();
 				}
@@ -3539,7 +3544,7 @@ ruleMixedListOfIDs returns [EObject current=null]
 					{
 						newCompositeNode(grammarAccess.getMixedListOfIDsAccess().getValuesElmDeclarationCrossReference_2_1_0());
 					}
-					ruleExternalElement
+					ruleGeneralQualifiedName
 					{
 						afterParserOrEnumRuleCall();
 					}

@@ -12,6 +12,7 @@ import com.coffee.generator.integerParser.ComplexIntegerParser;
  * @author Angela Villota
  * @version HLVL 1.4
  * May 2019  
+ * Modify on september 2nd, Case for hlvl extended added
  */
 
 public class ParserFactory {
@@ -30,6 +31,13 @@ public class ParserFactory {
 		case COMPLEX_INT:
 			generator= new ComplexIntegerParser(modelName, dialect);
 			break;
+		//HLVL-E: Case for hlvl extended added
+//		case HLVL_EXTENDED_BOOLEAN:
+//			generator= new HlvlExtendedParser(modelName, dialect);
+//			break;
+//		case HLVL_EXTENDED_INTEGER:
+//			generator= new HlvlExtendedParser(modelName, dialect);
+//			break;
 		default:
 			generator= new AttributesParser(modelName, dialect);	
 		}

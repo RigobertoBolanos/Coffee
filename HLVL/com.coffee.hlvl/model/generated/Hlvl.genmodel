@@ -17,7 +17,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hlvl.ecore#//ListOfModelRef/ids"/>
     </genClasses>
     <genClasses ecoreClass="Hlvl.ecore#//ModelRef">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hlvl.ecore#//ModelRef/importURI"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hlvl.ecore#//ModelRef/importURI"/>
     </genClasses>
     <genClasses ecoreClass="Hlvl.ecore#//ElmDeclaration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hlvl.ecore#//ElmDeclaration/att"/>

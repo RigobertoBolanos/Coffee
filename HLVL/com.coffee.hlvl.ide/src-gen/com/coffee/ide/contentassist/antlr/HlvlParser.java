@@ -107,8 +107,8 @@ public class HlvlParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAtomicAccess().getGroup_3(), "rule__Atomic__Group_3__0");
 			builder.put(grammarAccess.getAtomicAccess().getGroup_4(), "rule__Atomic__Group_4__0");
 			builder.put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
-			builder.put(grammarAccess.getExternalElementAccess().getGroup(), "rule__ExternalElement__Group__0");
-			builder.put(grammarAccess.getExternalElementAccess().getGroup_1(), "rule__ExternalElement__Group_1__0");
+			builder.put(grammarAccess.getGeneralQualifiedNameAccess().getGroup(), "rule__GeneralQualifiedName__Group__0");
+			builder.put(grammarAccess.getGeneralQualifiedNameAccess().getGroup_1(), "rule__GeneralQualifiedName__Group_1__0");
 			builder.put(grammarAccess.getOperationsAccess().getGroup(), "rule__Operations__Group__0");
 			builder.put(grammarAccess.getOperationsAccess().getGroup_1(), "rule__Operations__Group_1__0");
 			builder.put(grammarAccess.getSampleAccess().getGroup_0(), "rule__Sample__Group_0__0");
