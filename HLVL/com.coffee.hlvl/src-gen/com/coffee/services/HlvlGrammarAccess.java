@@ -60,14 +60,14 @@ public class HlvlGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		// * INHERITANCE:
 		// * 		Modified on August 14th to define 'extends' declaration
 		// * 		Modified on August 19th, 22nd to define element's referenciation
-		// * 		Modified on August 25th
+		// * 		Modified on August 25th, working inheritance v1
 		// */ Model:
-		//	'model' name=ID ('extends' extendedModels+=ListOfModelRef)? // HLVL-E
+		//	'model' name=ID ('extends' extendedModels=ListOfModelRef)? // HLVL-E
 		//	'elements:' elements+=ElmDeclaration*
 		//	'relations:' relations+=RelDeclaration* ('operations:' operations=Operations)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'model' name=ID ('extends' extendedModels+=ListOfModelRef)? // HLVL-E
+		//'model' name=ID ('extends' extendedModels=ListOfModelRef)? // HLVL-E
 		//'elements:' elements+=ElmDeclaration* 'relations:' relations+=RelDeclaration* ('operations:' operations=Operations)?
 		public Group getGroup() { return cGroup; }
 		
@@ -80,13 +80,13 @@ public class HlvlGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('extends' extendedModels+=ListOfModelRef)?
+		//('extends' extendedModels=ListOfModelRef)?
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//'extends'
 		public Keyword getExtendsKeyword_2_0() { return cExtendsKeyword_2_0; }
 		
-		//extendedModels+=ListOfModelRef
+		//extendedModels=ListOfModelRef
 		public Assignment getExtendedModelsAssignment_2_1() { return cExtendedModelsAssignment_2_1; }
 		
 		//ListOfModelRef
@@ -166,17 +166,21 @@ public class HlvlGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	public class ModelRefElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.coffee.Hlvl.ModelRef");
 		private final Assignment cImportURIAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cImportURISTRINGTerminalRuleCall_0 = (RuleCall)cImportURIAssignment.eContents().get(0);
+		private final CrossReference cImportURIModelCrossReference_0 = (CrossReference)cImportURIAssignment.eContents().get(0);
+		private final RuleCall cImportURIModelIDTerminalRuleCall_0_1 = (RuleCall)cImportURIModelCrossReference_0.eContents().get(1);
 		
 		//ModelRef:
-		//	importURI=STRING;
+		//	importURI=[Model];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//importURI=STRING
+		//importURI=[Model]
 		public Assignment getImportURIAssignment() { return cImportURIAssignment; }
 		
-		//STRING
-		public RuleCall getImportURISTRINGTerminalRuleCall_0() { return cImportURISTRINGTerminalRuleCall_0; }
+		//[Model]
+		public CrossReference getImportURIModelCrossReference_0() { return cImportURIModelCrossReference_0; }
+		
+		//ID
+		public RuleCall getImportURIModelIDTerminalRuleCall_0_1() { return cImportURIModelIDTerminalRuleCall_0_1; }
 	}
 	public class ElmDeclarationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.coffee.Hlvl.ElmDeclaration");
@@ -2627,9 +2631,9 @@ public class HlvlGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	// * INHERITANCE:
 	// * 		Modified on August 14th to define 'extends' declaration
 	// * 		Modified on August 19th, 22nd to define element's referenciation
-	// * 		Modified on August 25th
+	// * 		Modified on August 25th, working inheritance v1
 	// */ Model:
-	//	'model' name=ID ('extends' extendedModels+=ListOfModelRef)? // HLVL-E
+	//	'model' name=ID ('extends' extendedModels=ListOfModelRef)? // HLVL-E
 	//	'elements:' elements+=ElmDeclaration*
 	//	'relations:' relations+=RelDeclaration* ('operations:' operations=Operations)?;
 	public ModelElements getModelAccess() {
@@ -2652,7 +2656,7 @@ public class HlvlGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//ModelRef:
-	//	importURI=STRING;
+	//	importURI=[Model];
 	public ModelRefElements getModelRefAccess() {
 		return pModelRef;
 	}

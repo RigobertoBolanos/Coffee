@@ -9121,9 +9121,13 @@ rule__ModelRef__ImportURIAssignment
 	}
 :
 	(
-		{ before(grammarAccess.getModelRefAccess().getImportURISTRINGTerminalRuleCall_0()); }
-		RULE_STRING
-		{ after(grammarAccess.getModelRefAccess().getImportURISTRINGTerminalRuleCall_0()); }
+		{ before(grammarAccess.getModelRefAccess().getImportURIModelCrossReference_0()); }
+		(
+			{ before(grammarAccess.getModelRefAccess().getImportURIModelIDTerminalRuleCall_0_1()); }
+			RULE_ID
+			{ after(grammarAccess.getModelRefAccess().getImportURIModelIDTerminalRuleCall_0_1()); }
+		)
+		{ after(grammarAccess.getModelRefAccess().getImportURIModelCrossReference_0()); }
 	)
 ;
 finally {

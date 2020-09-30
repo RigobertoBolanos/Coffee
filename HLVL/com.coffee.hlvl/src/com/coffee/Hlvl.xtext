@@ -21,7 +21,7 @@ generate hlvl "http://www.coffee.com/Hlvl"
  */
 Model:
 	'model' name=ID 
-	('extends' extendedModels+=(ListOfModelRef))?// HLVL-E
+	('extends' extendedModels = (ListOfModelRef))?// HLVL-E
 	'elements:' elements+=(ElmDeclaration)*  
 	'relations:'relations+=(RelDeclaration)*
 	('operations:' operations = Operations )?
@@ -311,7 +311,7 @@ NamedItem:
 
 
 // For configuration
-
+	
 Valuation:
 	//FIXME Value for relational
 	'(' element= [ElmDeclaration] ',' value= Relational ')' //value= Value ')'

@@ -52,16 +52,26 @@ public interface Model extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Extended Models</b></em>' containment reference list.
-   * The list contents are of type {@link com.coffee.hlvl.ListOfModelRef}.
+   * Returns the value of the '<em><b>Extended Models</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Extended Models</em>' containment reference list.
+   * @return the value of the '<em>Extended Models</em>' containment reference.
+   * @see #setExtendedModels(ListOfModelRef)
    * @see com.coffee.hlvl.HlvlPackage#getModel_ExtendedModels()
    * @model containment="true"
    * @generated
    */
-  EList<ListOfModelRef> getExtendedModels();
+  ListOfModelRef getExtendedModels();
+
+  /**
+   * Sets the value of the '{@link com.coffee.hlvl.Model#getExtendedModels <em>Extended Models</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Extended Models</em>' containment reference.
+   * @see #getExtendedModels()
+   * @generated
+   */
+  void setExtendedModels(ListOfModelRef value);
 
   /**
    * Returns the value of the '<em><b>Elements</b></em>' containment reference list.

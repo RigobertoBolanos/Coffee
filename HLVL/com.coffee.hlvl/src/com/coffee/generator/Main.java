@@ -40,7 +40,7 @@ public class Main {
 	@Inject
 	private GeneratorDelegate generator;
 
-	@Inject 
+	@Inject
 	private JavaIoFileSystemAccess fileAccess;
 
 	protected void runGenerator(String string) {

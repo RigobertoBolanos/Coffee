@@ -66,14 +66,14 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getExtendedModels() <em>Extended Models</em>}' containment reference list.
+   * The cached value of the '{@link #getExtendedModels() <em>Extended Models</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getExtendedModels()
    * @generated
    * @ordered
    */
-  protected EList<ListOfModelRef> extendedModels;
+  protected ListOfModelRef extendedModels;
 
   /**
    * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
@@ -157,13 +157,48 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    */
   @Override
-  public EList<ListOfModelRef> getExtendedModels()
+  public ListOfModelRef getExtendedModels()
   {
-    if (extendedModels == null)
-    {
-      extendedModels = new EObjectContainmentEList<ListOfModelRef>(ListOfModelRef.class, this, HlvlPackage.MODEL__EXTENDED_MODELS);
-    }
     return extendedModels;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExtendedModels(ListOfModelRef newExtendedModels, NotificationChain msgs)
+  {
+    ListOfModelRef oldExtendedModels = extendedModels;
+    extendedModels = newExtendedModels;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HlvlPackage.MODEL__EXTENDED_MODELS, oldExtendedModels, newExtendedModels);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setExtendedModels(ListOfModelRef newExtendedModels)
+  {
+    if (newExtendedModels != extendedModels)
+    {
+      NotificationChain msgs = null;
+      if (extendedModels != null)
+        msgs = ((InternalEObject)extendedModels).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - HlvlPackage.MODEL__EXTENDED_MODELS, null, msgs);
+      if (newExtendedModels != null)
+        msgs = ((InternalEObject)newExtendedModels).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - HlvlPackage.MODEL__EXTENDED_MODELS, null, msgs);
+      msgs = basicSetExtendedModels(newExtendedModels, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, HlvlPackage.MODEL__EXTENDED_MODELS, newExtendedModels, newExtendedModels));
   }
 
   /**
@@ -257,7 +292,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     switch (featureID)
     {
       case HlvlPackage.MODEL__EXTENDED_MODELS:
-        return ((InternalEList<?>)getExtendedModels()).basicRemove(otherEnd, msgs);
+        return basicSetExtendedModels(null, msgs);
       case HlvlPackage.MODEL__ELEMENTS:
         return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
       case HlvlPackage.MODEL__RELATIONS:
@@ -307,8 +342,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         setName((String)newValue);
         return;
       case HlvlPackage.MODEL__EXTENDED_MODELS:
-        getExtendedModels().clear();
-        getExtendedModels().addAll((Collection<? extends ListOfModelRef>)newValue);
+        setExtendedModels((ListOfModelRef)newValue);
         return;
       case HlvlPackage.MODEL__ELEMENTS:
         getElements().clear();
@@ -339,7 +373,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         setName(NAME_EDEFAULT);
         return;
       case HlvlPackage.MODEL__EXTENDED_MODELS:
-        getExtendedModels().clear();
+        setExtendedModels((ListOfModelRef)null);
         return;
       case HlvlPackage.MODEL__ELEMENTS:
         getElements().clear();
@@ -367,7 +401,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case HlvlPackage.MODEL__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case HlvlPackage.MODEL__EXTENDED_MODELS:
-        return extendedModels != null && !extendedModels.isEmpty();
+        return extendedModels != null;
       case HlvlPackage.MODEL__ELEMENTS:
         return elements != null && !elements.isEmpty();
       case HlvlPackage.MODEL__RELATIONS:

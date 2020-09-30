@@ -113,7 +113,7 @@ ruleModel returns [EObject current=null]
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getModelRule());
 						}
-						add(
+						set(
 							$current,
 							"extendedModels",
 							lv_extendedModels_3_0,
@@ -286,19 +286,14 @@ ruleModelRef returns [EObject current=null]
 }:
 	(
 		(
-			lv_importURI_0_0=RULE_STRING
-			{
-				newLeafNode(lv_importURI_0_0, grammarAccess.getModelRefAccess().getImportURISTRINGTerminalRuleCall_0());
-			}
 			{
 				if ($current==null) {
 					$current = createModelElement(grammarAccess.getModelRefRule());
 				}
-				setWithLastConsumed(
-					$current,
-					"importURI",
-					lv_importURI_0_0,
-					"org.eclipse.xtext.common.Terminals.STRING");
+			}
+			otherlv_0=RULE_ID
+			{
+				newLeafNode(otherlv_0, grammarAccess.getModelRefAccess().getImportURIModelCrossReference_0());
 			}
 		)
 	)

@@ -890,7 +890,7 @@ public class HlvlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ModelRef returns ModelRef
 	 *
 	 * Constraint:
-	 *     importURI=STRING
+	 *     importURI=[Model|ID]
 	 */
 	protected void sequence_ModelRef(ISerializationContext context, ModelRef semanticObject) {
 		if (errorAcceptor != null) {
@@ -898,7 +898,7 @@ public class HlvlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HlvlPackage.Literals.MODEL_REF__IMPORT_URI));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getModelRefAccess().getImportURISTRINGTerminalRuleCall_0(), semanticObject.getImportURI());
+		feeder.accept(grammarAccess.getModelRefAccess().getImportURIModelIDTerminalRuleCall_0_1(), semanticObject.eGet(HlvlPackage.Literals.MODEL_REF__IMPORT_URI, false));
 		feeder.finish();
 	}
 	
@@ -908,7 +908,7 @@ public class HlvlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     (name=ID extendedModels+=ListOfModelRef? elements+=ElmDeclaration* relations+=RelDeclaration* operations=Operations?)
+	 *     (name=ID extendedModels=ListOfModelRef? elements+=ElmDeclaration* relations+=RelDeclaration* operations=Operations?)
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

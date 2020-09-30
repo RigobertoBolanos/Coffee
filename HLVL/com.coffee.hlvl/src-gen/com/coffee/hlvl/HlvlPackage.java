@@ -77,7 +77,7 @@ public interface HlvlPackage extends EPackage
   int MODEL__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Extended Models</b></em>' containment reference list.
+   * The feature id for the '<em><b>Extended Models</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -160,7 +160,7 @@ public interface HlvlPackage extends EPackage
   int MODEL_REF = 2;
 
   /**
-   * The feature id for the '<em><b>Import URI</b></em>' attribute.
+   * The feature id for the '<em><b>Import URI</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -2018,10 +2018,10 @@ public interface HlvlPackage extends EPackage
   EAttribute getModel_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.coffee.hlvl.Model#getExtendedModels <em>Extended Models</em>}'.
+   * Returns the meta object for the containment reference '{@link com.coffee.hlvl.Model#getExtendedModels <em>Extended Models</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Extended Models</em>'.
+   * @return the meta object for the containment reference '<em>Extended Models</em>'.
    * @see com.coffee.hlvl.Model#getExtendedModels()
    * @see #getModel()
    * @generated
@@ -2093,15 +2093,15 @@ public interface HlvlPackage extends EPackage
   EClass getModelRef();
 
   /**
-   * Returns the meta object for the attribute '{@link com.coffee.hlvl.ModelRef#getImportURI <em>Import URI</em>}'.
+   * Returns the meta object for the reference '{@link com.coffee.hlvl.ModelRef#getImportURI <em>Import URI</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Import URI</em>'.
+   * @return the meta object for the reference '<em>Import URI</em>'.
    * @see com.coffee.hlvl.ModelRef#getImportURI()
    * @see #getModelRef()
    * @generated
    */
-  EAttribute getModelRef_ImportURI();
+  EReference getModelRef_ImportURI();
 
   /**
    * Returns the meta object for class '{@link com.coffee.hlvl.ElmDeclaration <em>Elm Declaration</em>}'.
@@ -3631,7 +3631,7 @@ public interface HlvlPackage extends EPackage
     EAttribute MODEL__NAME = eINSTANCE.getModel_Name();
 
     /**
-     * The meta object literal for the '<em><b>Extended Models</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Extended Models</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -3691,12 +3691,12 @@ public interface HlvlPackage extends EPackage
     EClass MODEL_REF = eINSTANCE.getModelRef();
 
     /**
-     * The meta object literal for the '<em><b>Import URI</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Import URI</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute MODEL_REF__IMPORT_URI = eINSTANCE.getModelRef_ImportURI();
+    EReference MODEL_REF__IMPORT_URI = eINSTANCE.getModelRef_ImportURI();
 
     /**
      * The meta object literal for the '{@link com.coffee.hlvl.impl.ElmDeclarationImpl <em>Elm Declaration</em>}' class.
