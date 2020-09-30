@@ -49,8 +49,8 @@
     </genClasses>
     <genClasses ecoreClass="Hlvl.ecore#//Pair">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hlvl.ecore#//Pair/operator"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hlvl.ecore#//Pair/var1"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hlvl.ecore#//Pair/var2"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hlvl.ecore#//Pair/var1"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hlvl.ecore#//Pair/var2"/>
     </genClasses>
     <genClasses ecoreClass="Hlvl.ecore#//ComplexImplies">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hlvl.ecore#//ComplexImplies/exp"/>
@@ -62,7 +62,7 @@
     </genClasses>
     <genClasses ecoreClass="Hlvl.ecore#//VarList">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hlvl.ecore#//VarList/operator"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hlvl.ecore#//VarList/var1"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hlvl.ecore#//VarList/var1"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hlvl.ecore#//VarList/list"/>
     </genClasses>
     <genClasses ecoreClass="Hlvl.ecore#//Decomposition">
@@ -97,8 +97,6 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hlvl.ecore#//QualifiedName/element"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hlvl.ecore#//QualifiedName/att"/>
     </genClasses>
-    <genClasses ecoreClass="Hlvl.ecore#//ExternalElement"/>
-    <genClasses ecoreClass="Hlvl.ecore#//ReferencedElement"/>
     <genClasses ecoreClass="Hlvl.ecore#//Operations">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hlvl.ecore#//Operations/op"/>
     </genClasses>
@@ -110,7 +108,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hlvl.ecore#//ListOfIDs/values"/>
     </genClasses>
     <genClasses ecoreClass="Hlvl.ecore#//MixedListOfIDs">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hlvl.ecore#//MixedListOfIDs/values"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hlvl.ecore#//MixedListOfIDs/values"/>
     </genClasses>
     <genClasses ecoreClass="Hlvl.ecore#//ListOfRelRefs">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hlvl.ecore#//ListOfRelRefs/ids"/>

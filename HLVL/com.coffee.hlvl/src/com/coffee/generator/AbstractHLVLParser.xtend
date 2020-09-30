@@ -1,23 +1,18 @@
 package com.coffee.generator;
 
-
+import com.coffee.hlvl.Common
+import com.coffee.hlvl.ConstantDecl
+import com.coffee.hlvl.Constraint
+import com.coffee.hlvl.Decomposition
+import com.coffee.hlvl.ElmDeclaration
+import com.coffee.hlvl.Group
+import com.coffee.hlvl.Model
+import com.coffee.hlvl.Pair
+import com.coffee.hlvl.Relation
+import com.coffee.hlvl.VarList
+import com.coffee.hlvl.VariableDecl
 import java.util.HashMap
 import java.util.Map
-
-import com.coffee.hlvl.ElmDeclaration
-import com.coffee.hlvl.Relation
-import com.coffee.hlvl.Model
-import com.coffee.hlvl.ConstantDecl
-import com.coffee.hlvl.Decomposition
-import com.coffee.hlvl.VariableDecl
-import com.coffee.hlvl.Group
-import com.coffee.hlvl.VarList
-//import com.coffee.hlvl.hLVL.MultInstantiation
-//import com.coffee.hlvl.hLVL.QImplies
-import com.coffee.hlvl.Pair
-//import com.coffee.hlvl.hLVL.ComplexImplies
-import com.coffee.hlvl.Common
-import com.coffee.hlvl.Constraint
 
 /**
  * Abstract Generator, this is the class that process the model and traverses the 

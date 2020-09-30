@@ -3,8 +3,12 @@
  */
 package com.coffee.ide;
 
+import com.coffee.HlvlRuntimeModule;
 import com.coffee.HlvlStandaloneSetup;
+import com.coffee.ide.HlvlIdeModule;
+import com.google.inject.Guice;
 import com.google.inject.Injector;
+import org.eclipse.xtext.util.Modules2;
 
 /**
  * Initialization support for running Xtext languages as language servers.
@@ -13,8 +17,8 @@ import com.google.inject.Injector;
 public class HlvlIdeSetup extends HlvlStandaloneSetup {
   @Override
   public Injector createInjector() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nType mismatch: cannot convert from HlvlRuntimeModule to Module"
-      + "\nType mismatch: cannot convert from HlvlIdeModule to Module");
+    HlvlRuntimeModule _hlvlRuntimeModule = new HlvlRuntimeModule();
+    HlvlIdeModule _hlvlIdeModule = new HlvlIdeModule();
+    return Guice.createInjector(Modules2.mixin(_hlvlRuntimeModule, _hlvlIdeModule));
   }
 }

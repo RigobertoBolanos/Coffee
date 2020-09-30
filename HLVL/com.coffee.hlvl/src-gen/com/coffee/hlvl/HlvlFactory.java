@@ -249,24 +249,6 @@ public interface HlvlFactory extends EFactory
   QualifiedName createQualifiedName();
 
   /**
-   * Returns a new object of class '<em>External Element</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>External Element</em>'.
-   * @generated
-   */
-  ExternalElement createExternalElement();
-
-  /**
-   * Returns a new object of class '<em>Referenced Element</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Referenced Element</em>'.
-   * @generated
-   */
-  ReferencedElement createReferencedElement();
-
-  /**
    * Returns a new object of class '<em>Operations</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

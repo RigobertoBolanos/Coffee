@@ -47,26 +47,26 @@ public interface VarList extends Relation
   void setOperator(String value);
 
   /**
-   * Returns the value of the '<em><b>Var1</b></em>' containment reference.
+   * Returns the value of the '<em><b>Var1</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Var1</em>' containment reference.
-   * @see #setVar1(ReferencedElement)
+   * @return the value of the '<em>Var1</em>' reference.
+   * @see #setVar1(ElmDeclaration)
    * @see com.coffee.hlvl.HlvlPackage#getVarList_Var1()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  ReferencedElement getVar1();
+  ElmDeclaration getVar1();
 
   /**
-   * Sets the value of the '{@link com.coffee.hlvl.VarList#getVar1 <em>Var1</em>}' containment reference.
+   * Sets the value of the '{@link com.coffee.hlvl.VarList#getVar1 <em>Var1</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Var1</em>' containment reference.
+   * @param value the new value of the '<em>Var1</em>' reference.
    * @see #getVar1()
    * @generated
    */
-  void setVar1(ReferencedElement value);
+  void setVar1(ElmDeclaration value);
 
   /**
    * Returns the value of the '<em><b>List</b></em>' containment reference.

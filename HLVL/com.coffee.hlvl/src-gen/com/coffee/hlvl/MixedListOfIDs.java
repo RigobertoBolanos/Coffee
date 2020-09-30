@@ -26,15 +26,15 @@ import org.eclipse.emf.ecore.EObject;
 public interface MixedListOfIDs extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Values</b></em>' containment reference list.
-   * The list contents are of type {@link com.coffee.hlvl.ReferencedElement}.
+   * Returns the value of the '<em><b>Values</b></em>' reference list.
+   * The list contents are of type {@link com.coffee.hlvl.ElmDeclaration}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Values</em>' containment reference list.
+   * @return the value of the '<em>Values</em>' reference list.
    * @see com.coffee.hlvl.HlvlPackage#getMixedListOfIDs_Values()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  EList<ReferencedElement> getValues();
+  EList<ElmDeclaration> getValues();
 
 } // MixedListOfIDs

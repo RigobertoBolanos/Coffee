@@ -1012,18 +1012,15 @@ rulePair returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getPairAccess().getVar1ReferencedElementParserRuleCall_2_0());
-				}
-				lv_var1_2_0=ruleReferencedElement
-				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getPairRule());
+						$current = createModelElement(grammarAccess.getPairRule());
 					}
-					set(
-						$current,
-						"var1",
-						lv_var1_2_0,
-						"com.coffee.Hlvl.ReferencedElement");
+				}
+				{
+					newCompositeNode(grammarAccess.getPairAccess().getVar1ElmDeclarationCrossReference_2_0());
+				}
+				ruleGeneralQualifiedName
+				{
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -1035,18 +1032,15 @@ rulePair returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getPairAccess().getVar2ReferencedElementParserRuleCall_4_0());
-				}
-				lv_var2_4_0=ruleReferencedElement
-				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getPairRule());
+						$current = createModelElement(grammarAccess.getPairRule());
 					}
-					set(
-						$current,
-						"var2",
-						lv_var2_4_0,
-						"com.coffee.Hlvl.ReferencedElement");
+				}
+				{
+					newCompositeNode(grammarAccess.getPairAccess().getVar2ElmDeclarationCrossReference_4_0());
+				}
+				ruleGeneralQualifiedName
+				{
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -1286,18 +1280,15 @@ ruleVarList returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getVarListAccess().getVar1ReferencedElementParserRuleCall_2_0());
-				}
-				lv_var1_2_0=ruleReferencedElement
-				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getVarListRule());
+						$current = createModelElement(grammarAccess.getVarListRule());
 					}
-					set(
-						$current,
-						"var1",
-						lv_var1_2_0,
-						"com.coffee.Hlvl.ReferencedElement");
+				}
+				{
+					newCompositeNode(grammarAccess.getVarListAccess().getVar1ElmDeclarationCrossReference_2_0());
+				}
+				ruleGeneralQualifiedName
+				{
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -3112,15 +3103,15 @@ ruleQualifiedName returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleExternalElement
-entryRuleExternalElement returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getExternalElementRule()); }
-	iv_ruleExternalElement=ruleExternalElement
-	{ $current=$iv_ruleExternalElement.current; }
+// Entry rule entryRuleGeneralQualifiedName
+entryRuleGeneralQualifiedName returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getGeneralQualifiedNameRule()); }
+	iv_ruleGeneralQualifiedName=ruleGeneralQualifiedName
+	{ $current=$iv_ruleGeneralQualifiedName.current.getText(); }
 	EOF;
 
-// Rule ExternalElement
-ruleExternalElement returns [EObject current=null]
+// Rule GeneralQualifiedName
+ruleGeneralQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 @init {
 	enterRule();
 }
@@ -3128,53 +3119,27 @@ ruleExternalElement returns [EObject current=null]
 	leaveRule();
 }:
 	(
+		this_ID_0=RULE_ID
+		{
+			$current.merge(this_ID_0);
+		}
+		{
+			newLeafNode(this_ID_0, grammarAccess.getGeneralQualifiedNameAccess().getIDTerminalRuleCall_0());
+		}
 		(
+			kw='.'
 			{
-				$current = forceCreateModelElement(
-					grammarAccess.getExternalElementAccess().getExternalElementAction_0(),
-					$current);
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getGeneralQualifiedNameAccess().getFullStopKeyword_1_0());
 			}
-		)
-		otherlv_1='holi'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getExternalElementAccess().getHoliKeyword_1());
-		}
-	)
-;
-
-// Entry rule entryRuleReferencedElement
-entryRuleReferencedElement returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getReferencedElementRule()); }
-	iv_ruleReferencedElement=ruleReferencedElement
-	{ $current=$iv_ruleReferencedElement.current; }
-	EOF;
-
-// Rule ReferencedElement
-ruleReferencedElement returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		{
-			newCompositeNode(grammarAccess.getReferencedElementAccess().getExternalElementParserRuleCall_0());
-		}
-		this_ExternalElement_0=ruleExternalElement
-		{
-			$current = $this_ExternalElement_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getReferencedElementAccess().getElmDeclarationParserRuleCall_1());
-		}
-		this_ElmDeclaration_1=ruleElmDeclaration
-		{
-			$current = $this_ElmDeclaration_1.current;
-			afterParserOrEnumRuleCall();
-		}
+			this_ID_2=RULE_ID
+			{
+				$current.merge(this_ID_2);
+			}
+			{
+				newLeafNode(this_ID_2, grammarAccess.getGeneralQualifiedNameAccess().getIDTerminalRuleCall_1_1());
+			}
+		)*
 	)
 ;
 
@@ -3549,18 +3514,15 @@ ruleMixedListOfIDs returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getMixedListOfIDsAccess().getValuesReferencedElementParserRuleCall_1_0());
-				}
-				lv_values_1_0=ruleReferencedElement
-				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getMixedListOfIDsRule());
+						$current = createModelElement(grammarAccess.getMixedListOfIDsRule());
 					}
-					add(
-						$current,
-						"values",
-						lv_values_1_0,
-						"com.coffee.Hlvl.ReferencedElement");
+				}
+				{
+					newCompositeNode(grammarAccess.getMixedListOfIDsAccess().getValuesElmDeclarationCrossReference_1_0());
+				}
+				ruleGeneralQualifiedName
+				{
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -3575,18 +3537,15 @@ ruleMixedListOfIDs returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getMixedListOfIDsAccess().getValuesReferencedElementParserRuleCall_2_1_0());
-					}
-					lv_values_3_0=ruleReferencedElement
-					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getMixedListOfIDsRule());
+							$current = createModelElement(grammarAccess.getMixedListOfIDsRule());
 						}
-						add(
-							$current,
-							"values",
-							lv_values_3_0,
-							"com.coffee.Hlvl.ReferencedElement");
+					}
+					{
+						newCompositeNode(grammarAccess.getMixedListOfIDsAccess().getValuesElmDeclarationCrossReference_2_1_0());
+					}
+					ruleGeneralQualifiedName
+					{
 						afterParserOrEnumRuleCall();
 					}
 				)

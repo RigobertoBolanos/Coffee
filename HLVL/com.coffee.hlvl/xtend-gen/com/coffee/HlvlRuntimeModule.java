@@ -3,6 +3,7 @@
  */
 package com.coffee;
 
+import com.coffee.AbstractHlvlRuntimeModule;
 import org.eclipse.xtext.scoping.IGlobalScopeProvider;
 import org.eclipse.xtext.scoping.impl.ImportUriGlobalScopeProvider;
 
@@ -10,7 +11,7 @@ import org.eclipse.xtext.scoping.impl.ImportUriGlobalScopeProvider;
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 @SuppressWarnings("all")
-public class HlvlRuntimeModule /* implements AbstractHlvlRuntimeModule  */{
+public class HlvlRuntimeModule extends AbstractHlvlRuntimeModule {
   @Override
   public Class<? extends IGlobalScopeProvider> bindIGlobalScopeProvider() {
     return ImportUriGlobalScopeProvider.class;

@@ -152,9 +152,9 @@ rulePair:
 		'mutex'
 	)
 	'('
-	ruleReferencedElement
+	ruleGeneralQualifiedName
 	','
-	ruleReferencedElement
+	ruleGeneralQualifiedName
 	')'
 ;
 
@@ -194,7 +194,7 @@ ruleVarList:
 		'mutex'
 	)
 	'('
-	ruleReferencedElement
+	ruleGeneralQualifiedName
 	','
 	'['
 	ruleMixedListOfIDs
@@ -466,18 +466,13 @@ ruleQualifiedName:
 	RULE_ID
 ;
 
-// Rule ExternalElement
-ruleExternalElement:
-	'holi'
-;
-
-// Rule ReferencedElement
-ruleReferencedElement:
+// Rule GeneralQualifiedName
+ruleGeneralQualifiedName:
+	RULE_ID
 	(
-		ruleExternalElement
-		    |
-		ruleElmDeclaration
-	)
+		'.'
+		RULE_ID
+	)*
 ;
 
 // Rule Operations
@@ -539,10 +534,10 @@ ruleListOfIDs:
 
 // Rule MixedListOfIDs
 ruleMixedListOfIDs:
-	ruleReferencedElement
+	ruleGeneralQualifiedName
 	(
 		','+
-		ruleReferencedElement
+		ruleGeneralQualifiedName
 	)*
 ;
 

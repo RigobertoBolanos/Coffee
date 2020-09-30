@@ -90,8 +90,6 @@ public class HlvlFactoryImpl extends EFactoryImpl implements HlvlFactory
       case HlvlPackage.CONSTRAINT: return createConstraint();
       case HlvlPackage.RELATIONAL: return createRelational();
       case HlvlPackage.QUALIFIED_NAME: return createQualifiedName();
-      case HlvlPackage.EXTERNAL_ELEMENT: return createExternalElement();
-      case HlvlPackage.REFERENCED_ELEMENT: return createReferencedElement();
       case HlvlPackage.OPERATIONS: return createOperations();
       case HlvlPackage.OPERATION: return createOperation();
       case HlvlPackage.LIST_OF_VALUES: return createListOfValues();
@@ -427,30 +425,6 @@ public class HlvlFactoryImpl extends EFactoryImpl implements HlvlFactory
   {
     QualifiedNameImpl qualifiedName = new QualifiedNameImpl();
     return qualifiedName;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ExternalElement createExternalElement()
-  {
-    ExternalElementImpl externalElement = new ExternalElementImpl();
-    return externalElement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ReferencedElement createReferencedElement()
-  {
-    ReferencedElementImpl referencedElement = new ReferencedElementImpl();
-    return referencedElement;
   }
 
   /**

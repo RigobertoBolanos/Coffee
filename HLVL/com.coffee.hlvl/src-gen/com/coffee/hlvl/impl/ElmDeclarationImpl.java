@@ -6,7 +6,6 @@ package com.coffee.hlvl.impl;
 import com.coffee.hlvl.Declaration;
 import com.coffee.hlvl.ElmDeclaration;
 import com.coffee.hlvl.HlvlPackage;
-import com.coffee.hlvl.NamedItem;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -24,7 +23,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.coffee.hlvl.impl.ElmDeclarationImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.coffee.hlvl.impl.ElmDeclarationImpl#getAtt <em>Att</em>}</li>
  *   <li>{@link com.coffee.hlvl.impl.ElmDeclarationImpl#getDataType <em>Data Type</em>}</li>
  *   <li>{@link com.coffee.hlvl.impl.ElmDeclarationImpl#getDeclaration <em>Declaration</em>}</li>
@@ -33,28 +31,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class ElmDeclarationImpl extends ReferencedElementImpl implements ElmDeclaration
+public class ElmDeclarationImpl extends NamedItemImpl implements ElmDeclaration
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
   /**
    * The default value of the '{@link #getAtt() <em>Att</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -144,31 +122,6 @@ public class ElmDeclarationImpl extends ReferencedElementImpl implements ElmDecl
   protected EClass eStaticClass()
   {
     return HlvlPackage.Literals.ELM_DECLARATION;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, HlvlPackage.ELM_DECLARATION__NAME, oldName, name));
   }
 
   /**
@@ -322,8 +275,6 @@ public class ElmDeclarationImpl extends ReferencedElementImpl implements ElmDecl
   {
     switch (featureID)
     {
-      case HlvlPackage.ELM_DECLARATION__NAME:
-        return getName();
       case HlvlPackage.ELM_DECLARATION__ATT:
         return getAtt();
       case HlvlPackage.ELM_DECLARATION__DATA_TYPE:
@@ -346,9 +297,6 @@ public class ElmDeclarationImpl extends ReferencedElementImpl implements ElmDecl
   {
     switch (featureID)
     {
-      case HlvlPackage.ELM_DECLARATION__NAME:
-        setName((String)newValue);
-        return;
       case HlvlPackage.ELM_DECLARATION__ATT:
         setAtt((String)newValue);
         return;
@@ -375,9 +323,6 @@ public class ElmDeclarationImpl extends ReferencedElementImpl implements ElmDecl
   {
     switch (featureID)
     {
-      case HlvlPackage.ELM_DECLARATION__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case HlvlPackage.ELM_DECLARATION__ATT:
         setAtt(ATT_EDEFAULT);
         return;
@@ -404,8 +349,6 @@ public class ElmDeclarationImpl extends ReferencedElementImpl implements ElmDecl
   {
     switch (featureID)
     {
-      case HlvlPackage.ELM_DECLARATION__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case HlvlPackage.ELM_DECLARATION__ATT:
         return ATT_EDEFAULT == null ? att != null : !ATT_EDEFAULT.equals(att);
       case HlvlPackage.ELM_DECLARATION__DATA_TYPE:
@@ -424,52 +367,12 @@ public class ElmDeclarationImpl extends ReferencedElementImpl implements ElmDecl
    * @generated
    */
   @Override
-  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == NamedItem.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case HlvlPackage.ELM_DECLARATION__NAME: return HlvlPackage.NAMED_ITEM__NAME;
-        default: return -1;
-      }
-    }
-    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == NamedItem.class)
-    {
-      switch (baseFeatureID)
-      {
-        case HlvlPackage.NAMED_ITEM__NAME: return HlvlPackage.ELM_DECLARATION__NAME;
-        default: return -1;
-      }
-    }
-    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public String toString()
   {
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", att: ");
+    result.append(" (att: ");
     result.append(att);
     result.append(", dataType: ");
     result.append(dataType);

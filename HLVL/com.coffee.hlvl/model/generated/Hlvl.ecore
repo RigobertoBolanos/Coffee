@@ -19,7 +19,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="ModelRef">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="importURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ElmDeclaration" eSuperTypes="#//ReferencedElement #//NamedItem">
+  <eClassifiers xsi:type="ecore:EClass" name="ElmDeclaration" eSuperTypes="#//NamedItem">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="att" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="declaration" eType="#//Declaration"
@@ -55,10 +55,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Pair" eSuperTypes="#//Relation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="var1" eType="#//ReferencedElement"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="var2" eType="#//ReferencedElement"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="var1" eType="#//ElmDeclaration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="var2" eType="#//ElmDeclaration"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComplexImplies" eSuperTypes="#//Relation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Relational"
@@ -74,8 +72,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VarList" eSuperTypes="#//Relation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="var1" eType="#//ReferencedElement"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="var1" eType="#//ElmDeclaration"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="list" eType="#//MixedListOfIDs"
         containment="true"/>
   </eClassifiers>
@@ -117,8 +114,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//ElmDeclaration"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="att" eType="#//ElmDeclaration"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ExternalElement" eSuperTypes="#//ReferencedElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ReferencedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Operations">
     <eStructuralFeatures xsi:type="ecore:EReference" name="op" upperBound="-1" eType="#//Operation"
         containment="true"/>
@@ -133,8 +128,8 @@
         upperBound="-1" eType="#//ElmDeclaration"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MixedListOfIDs">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
-        eType="#//ReferencedElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="values" unique="false"
+        upperBound="-1" eType="#//ElmDeclaration"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ListOfRelRefs">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ids" unique="false" upperBound="-1"

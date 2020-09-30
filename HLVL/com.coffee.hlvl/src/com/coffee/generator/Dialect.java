@@ -25,9 +25,7 @@ public enum Dialect {
 	COMPLEX_BOOL,
 	COMPLEX_INT,
 	ATTRIBUTE,
-	MULTIPLICITY,
-	HLVL_EXTENDED_BOOLEAN,
-	HLVL_EXTENDED_INTEGER;
+	MULTIPLICITY;
 	
 	/**
 	 * instantiable is a flag for determine if the variability model has multiplicities
@@ -49,21 +47,19 @@ public enum Dialect {
 		 * A problem is of type Multiplicity iff
 		 * 1. decompositions with cardinality [n,m]
 		 * 
-		 * A problem is HLVL-EXTENDED when mecanisms for scalability are specified:
-		 * 1. extended models for inheritence
-		 * 
 		 * else it is an ATTIRBUTE
 		 */
 		// FIXME arreglar lo de los atributos
 		boolean allElementsBooleanNotAttributes = allElementsBoolean(model);
 		boolean basicRelationsNotMultiplicity = booleanRelations(model);
 
-		if (hasScalabilityMecanism(model)) { // HLVL-E
-			if (allElementsBooleanNotAttributes && basicRelationsNotMultiplicity) {
-				return Dialect.HLVL_EXTENDED_BOOLEAN;
-			} //else if (existInstantiable()) {
-			//return Dialect.HLVL_EXTENDED_INTEGER;
-		} else if (allElementsBooleanNotAttributes && basicRelationsNotMultiplicity) {
+//		if (hasScalabilityMecanism(model)) { // HLVL-E
+//			if (allElementsBooleanNotAttributes && basicRelationsNotMultiplicity) {
+//				return Dialect.HLVL_EXTENDED_BOOLEAN;
+//			} //else if (existInstantiable()) {
+//			//return Dialect.HLVL_EXTENDED_INTEGER;
+//		} 
+		if (allElementsBooleanNotAttributes && basicRelationsNotMultiplicity) {
 			return Dialect.BASIC_BOOL;
 		} else if (existInstantiable()) {
 			return Dialect.MULTIPLICITY;
@@ -140,21 +136,4 @@ public enum Dialect {
 	public static boolean existInstantiable() {
 		return instantiable;
 	}
-
-	/**
-	 * HLVL-E
-	 * Method that defines if a model specifies the HLVL-EXTENDED dialect, that is:
-	 * 1. Uses inheritance
-	 * @param model: abstract representation of the model
-	 * @return true if the model specifies one of the previous mecanism, false otherwise
-	 */
-	public static boolean hasScalabilityMecanism(Model model) {
-
-		boolean isHlvlExtended = false;
-		if (model.getExtendedModels() != null && !model.getExtendedModels().isEmpty()) {
-			isHlvlExtended = true;
-		}
-		return isHlvlExtended;
-	}
-
 }

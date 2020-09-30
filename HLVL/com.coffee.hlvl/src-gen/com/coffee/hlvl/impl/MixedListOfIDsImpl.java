@@ -3,23 +3,19 @@
  */
 package com.coffee.hlvl.impl;
 
+import com.coffee.hlvl.ElmDeclaration;
 import com.coffee.hlvl.HlvlPackage;
 import com.coffee.hlvl.MixedListOfIDs;
-import com.coffee.hlvl.ReferencedElement;
 
 import java.util.Collection;
-
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,14 +33,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class MixedListOfIDsImpl extends MinimalEObjectImpl.Container implements MixedListOfIDs
 {
   /**
-   * The cached value of the '{@link #getValues() <em>Values</em>}' containment reference list.
+   * The cached value of the '{@link #getValues() <em>Values</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getValues()
    * @generated
    * @ordered
    */
-  protected EList<ReferencedElement> values;
+  protected EList<ElmDeclaration> values;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,29 +69,13 @@ public class MixedListOfIDsImpl extends MinimalEObjectImpl.Container implements 
    * @generated
    */
   @Override
-  public EList<ReferencedElement> getValues()
+  public EList<ElmDeclaration> getValues()
   {
     if (values == null)
     {
-      values = new EObjectContainmentEList<ReferencedElement>(ReferencedElement.class, this, HlvlPackage.MIXED_LIST_OF_IDS__VALUES);
+      values = new EObjectResolvingEList<ElmDeclaration>(ElmDeclaration.class, this, HlvlPackage.MIXED_LIST_OF_IDS__VALUES);
     }
     return values;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case HlvlPackage.MIXED_LIST_OF_IDS__VALUES:
-        return ((InternalEList<?>)getValues()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -127,7 +107,7 @@ public class MixedListOfIDsImpl extends MinimalEObjectImpl.Container implements 
     {
       case HlvlPackage.MIXED_LIST_OF_IDS__VALUES:
         getValues().clear();
-        getValues().addAll((Collection<? extends ReferencedElement>)newValue);
+        getValues().addAll((Collection<? extends ElmDeclaration>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

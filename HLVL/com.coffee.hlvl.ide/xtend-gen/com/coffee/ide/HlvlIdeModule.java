@@ -3,9 +3,11 @@
  */
 package com.coffee.ide;
 
+import com.coffee.ide.AbstractHlvlIdeModule;
+
 /**
  * Use this class to register ide components.
  */
 @SuppressWarnings("all")
-public class HlvlIdeModule /* implements AbstractHlvlIdeModule  */{
+public class HlvlIdeModule extends AbstractHlvlIdeModule {
 }

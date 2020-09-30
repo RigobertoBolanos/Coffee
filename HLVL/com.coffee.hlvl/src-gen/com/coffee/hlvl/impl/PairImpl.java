@@ -3,12 +3,11 @@
  */
 package com.coffee.hlvl.impl;
 
+import com.coffee.hlvl.ElmDeclaration;
 import com.coffee.hlvl.HlvlPackage;
 import com.coffee.hlvl.Pair;
-import com.coffee.hlvl.ReferencedElement;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -53,24 +52,24 @@ public class PairImpl extends RelationImpl implements Pair
   protected String operator = OPERATOR_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getVar1() <em>Var1</em>}' containment reference.
+   * The cached value of the '{@link #getVar1() <em>Var1</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getVar1()
    * @generated
    * @ordered
    */
-  protected ReferencedElement var1;
+  protected ElmDeclaration var1;
 
   /**
-   * The cached value of the '{@link #getVar2() <em>Var2</em>}' containment reference.
+   * The cached value of the '{@link #getVar2() <em>Var2</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getVar2()
    * @generated
    * @ordered
    */
-  protected ReferencedElement var2;
+  protected ElmDeclaration var2;
 
   /**
    * <!-- begin-user-doc -->
@@ -124,7 +123,27 @@ public class PairImpl extends RelationImpl implements Pair
    * @generated
    */
   @Override
-  public ReferencedElement getVar1()
+  public ElmDeclaration getVar1()
+  {
+    if (var1 != null && var1.eIsProxy())
+    {
+      InternalEObject oldVar1 = (InternalEObject)var1;
+      var1 = (ElmDeclaration)eResolveProxy(oldVar1);
+      if (var1 != oldVar1)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, HlvlPackage.PAIR__VAR1, oldVar1, var1));
+      }
+    }
+    return var1;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ElmDeclaration basicGetVar1()
   {
     return var1;
   }
@@ -134,16 +153,13 @@ public class PairImpl extends RelationImpl implements Pair
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetVar1(ReferencedElement newVar1, NotificationChain msgs)
+  @Override
+  public void setVar1(ElmDeclaration newVar1)
   {
-    ReferencedElement oldVar1 = var1;
+    ElmDeclaration oldVar1 = var1;
     var1 = newVar1;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HlvlPackage.PAIR__VAR1, oldVar1, newVar1);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
+      eNotify(new ENotificationImpl(this, Notification.SET, HlvlPackage.PAIR__VAR1, oldVar1, var1));
   }
 
   /**
@@ -152,20 +168,19 @@ public class PairImpl extends RelationImpl implements Pair
    * @generated
    */
   @Override
-  public void setVar1(ReferencedElement newVar1)
+  public ElmDeclaration getVar2()
   {
-    if (newVar1 != var1)
+    if (var2 != null && var2.eIsProxy())
     {
-      NotificationChain msgs = null;
-      if (var1 != null)
-        msgs = ((InternalEObject)var1).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - HlvlPackage.PAIR__VAR1, null, msgs);
-      if (newVar1 != null)
-        msgs = ((InternalEObject)newVar1).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - HlvlPackage.PAIR__VAR1, null, msgs);
-      msgs = basicSetVar1(newVar1, msgs);
-      if (msgs != null) msgs.dispatch();
+      InternalEObject oldVar2 = (InternalEObject)var2;
+      var2 = (ElmDeclaration)eResolveProxy(oldVar2);
+      if (var2 != oldVar2)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, HlvlPackage.PAIR__VAR2, oldVar2, var2));
+      }
     }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, HlvlPackage.PAIR__VAR1, newVar1, newVar1));
+    return var2;
   }
 
   /**
@@ -173,8 +188,7 @@ public class PairImpl extends RelationImpl implements Pair
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public ReferencedElement getVar2()
+  public ElmDeclaration basicGetVar2()
   {
     return var2;
   }
@@ -184,56 +198,13 @@ public class PairImpl extends RelationImpl implements Pair
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetVar2(ReferencedElement newVar2, NotificationChain msgs)
+  @Override
+  public void setVar2(ElmDeclaration newVar2)
   {
-    ReferencedElement oldVar2 = var2;
+    ElmDeclaration oldVar2 = var2;
     var2 = newVar2;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HlvlPackage.PAIR__VAR2, oldVar2, newVar2);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setVar2(ReferencedElement newVar2)
-  {
-    if (newVar2 != var2)
-    {
-      NotificationChain msgs = null;
-      if (var2 != null)
-        msgs = ((InternalEObject)var2).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - HlvlPackage.PAIR__VAR2, null, msgs);
-      if (newVar2 != null)
-        msgs = ((InternalEObject)newVar2).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - HlvlPackage.PAIR__VAR2, null, msgs);
-      msgs = basicSetVar2(newVar2, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, HlvlPackage.PAIR__VAR2, newVar2, newVar2));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case HlvlPackage.PAIR__VAR1:
-        return basicSetVar1(null, msgs);
-      case HlvlPackage.PAIR__VAR2:
-        return basicSetVar2(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, HlvlPackage.PAIR__VAR2, oldVar2, var2));
   }
 
   /**
@@ -249,9 +220,11 @@ public class PairImpl extends RelationImpl implements Pair
       case HlvlPackage.PAIR__OPERATOR:
         return getOperator();
       case HlvlPackage.PAIR__VAR1:
-        return getVar1();
+        if (resolve) return getVar1();
+        return basicGetVar1();
       case HlvlPackage.PAIR__VAR2:
-        return getVar2();
+        if (resolve) return getVar2();
+        return basicGetVar2();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -270,10 +243,10 @@ public class PairImpl extends RelationImpl implements Pair
         setOperator((String)newValue);
         return;
       case HlvlPackage.PAIR__VAR1:
-        setVar1((ReferencedElement)newValue);
+        setVar1((ElmDeclaration)newValue);
         return;
       case HlvlPackage.PAIR__VAR2:
-        setVar2((ReferencedElement)newValue);
+        setVar2((ElmDeclaration)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -293,10 +266,10 @@ public class PairImpl extends RelationImpl implements Pair
         setOperator(OPERATOR_EDEFAULT);
         return;
       case HlvlPackage.PAIR__VAR1:
-        setVar1((ReferencedElement)null);
+        setVar1((ElmDeclaration)null);
         return;
       case HlvlPackage.PAIR__VAR2:
-        setVar2((ReferencedElement)null);
+        setVar2((ElmDeclaration)null);
         return;
     }
     super.eUnset(featureID);

@@ -19,7 +19,6 @@ import com.coffee.hlvl.ElmDeclaration;
 import com.coffee.hlvl.Entailed;
 import com.coffee.hlvl.Enumeration;
 import com.coffee.hlvl.Equality;
-import com.coffee.hlvl.ExternalElement;
 import com.coffee.hlvl.Group;
 import com.coffee.hlvl.HlvlFactory;
 import com.coffee.hlvl.HlvlPackage;
@@ -50,7 +49,6 @@ import com.coffee.hlvl.Pair;
 import com.coffee.hlvl.Plus;
 import com.coffee.hlvl.QualifiedName;
 import com.coffee.hlvl.Range;
-import com.coffee.hlvl.ReferencedElement;
 import com.coffee.hlvl.RelDeclaration;
 import com.coffee.hlvl.Relation;
 import com.coffee.hlvl.Relational;
@@ -254,20 +252,6 @@ public class HlvlPackageImpl extends EPackageImpl implements HlvlPackage
    * @generated
    */
   private EClass qualifiedNameEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass externalElementEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass referencedElementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1332,28 +1316,6 @@ public class HlvlPackageImpl extends EPackageImpl implements HlvlPackage
    * @generated
    */
   @Override
-  public EClass getExternalElement()
-  {
-    return externalElementEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getReferencedElement()
-  {
-    return referencedElementEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getOperations()
   {
     return operationsEClass;
@@ -2354,10 +2316,6 @@ public class HlvlPackageImpl extends EPackageImpl implements HlvlPackage
     createEReference(qualifiedNameEClass, QUALIFIED_NAME__ELEMENT);
     createEReference(qualifiedNameEClass, QUALIFIED_NAME__ATT);
 
-    externalElementEClass = createEClass(EXTERNAL_ELEMENT);
-
-    referencedElementEClass = createEClass(REFERENCED_ELEMENT);
-
     operationsEClass = createEClass(OPERATIONS);
     createEReference(operationsEClass, OPERATIONS__OP);
 
@@ -2500,7 +2458,6 @@ public class HlvlPackageImpl extends EPackageImpl implements HlvlPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    elmDeclarationEClass.getESuperTypes().add(this.getReferencedElement());
     elmDeclarationEClass.getESuperTypes().add(this.getNamedItem());
     constantDeclEClass.getESuperTypes().add(this.getDeclaration());
     variableDeclEClass.getESuperTypes().add(this.getDeclaration());
@@ -2517,7 +2474,6 @@ public class HlvlPackageImpl extends EPackageImpl implements HlvlPackage
     visibilityEClass.getESuperTypes().add(this.getRelation());
     orderEClass.getESuperTypes().add(this.getRelation());
     constraintEClass.getESuperTypes().add(this.getRelation());
-    externalElementEClass.getESuperTypes().add(this.getReferencedElement());
     iffEClass.getESuperTypes().add(this.getRelational());
     impliesEClass.getESuperTypes().add(this.getRelational());
     orEClass.getESuperTypes().add(this.getRelational());
@@ -2588,8 +2544,8 @@ public class HlvlPackageImpl extends EPackageImpl implements HlvlPackage
 
     initEClass(pairEClass, Pair.class, "Pair", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPair_Operator(), ecorePackage.getEString(), "operator", null, 0, 1, Pair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPair_Var1(), this.getReferencedElement(), null, "var1", null, 0, 1, Pair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPair_Var2(), this.getReferencedElement(), null, "var2", null, 0, 1, Pair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPair_Var1(), this.getElmDeclaration(), null, "var1", null, 0, 1, Pair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPair_Var2(), this.getElmDeclaration(), null, "var2", null, 0, 1, Pair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(complexImpliesEClass, ComplexImplies.class, "ComplexImplies", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getComplexImplies_Exp(), this.getRelational(), null, "exp", null, 0, 1, ComplexImplies.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2601,7 +2557,7 @@ public class HlvlPackageImpl extends EPackageImpl implements HlvlPackage
 
     initEClass(varListEClass, VarList.class, "VarList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getVarList_Operator(), ecorePackage.getEString(), "operator", null, 0, 1, VarList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getVarList_Var1(), this.getReferencedElement(), null, "var1", null, 0, 1, VarList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVarList_Var1(), this.getElmDeclaration(), null, "var1", null, 0, 1, VarList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getVarList_List(), this.getMixedListOfIDs(), null, "list", null, 0, 1, VarList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(decompositionEClass, Decomposition.class, "Decomposition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2637,10 +2593,6 @@ public class HlvlPackageImpl extends EPackageImpl implements HlvlPackage
     initEReference(getQualifiedName_Element(), this.getElmDeclaration(), null, "element", null, 0, 1, QualifiedName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getQualifiedName_Att(), this.getElmDeclaration(), null, "att", null, 0, 1, QualifiedName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(externalElementEClass, ExternalElement.class, "ExternalElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(referencedElementEClass, ReferencedElement.class, "ReferencedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
     initEClass(operationsEClass, Operations.class, "Operations", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOperations_Op(), this.getOperation(), null, "op", null, 0, -1, Operations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2653,7 +2605,7 @@ public class HlvlPackageImpl extends EPackageImpl implements HlvlPackage
     initEReference(getListOfIDs_Values(), this.getElmDeclaration(), null, "values", null, 0, -1, ListOfIDs.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mixedListOfIDsEClass, MixedListOfIDs.class, "MixedListOfIDs", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMixedListOfIDs_Values(), this.getReferencedElement(), null, "values", null, 0, -1, MixedListOfIDs.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMixedListOfIDs_Values(), this.getElmDeclaration(), null, "values", null, 0, -1, MixedListOfIDs.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(listOfRelRefsEClass, ListOfRelRefs.class, "ListOfRelRefs", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getListOfRelRefs_Ids(), this.getRelDeclaration(), null, "ids", null, 0, -1, ListOfRelRefs.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

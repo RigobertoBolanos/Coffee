@@ -201,16 +201,6 @@ public class HlvlAdapterFactory extends AdapterFactoryImpl
         return createQualifiedNameAdapter();
       }
       @Override
-      public Adapter caseExternalElement(ExternalElement object)
-      {
-        return createExternalElementAdapter();
-      }
-      @Override
-      public Adapter caseReferencedElement(ReferencedElement object)
-      {
-        return createReferencedElementAdapter();
-      }
-      @Override
       public Adapter caseOperations(Operations object)
       {
         return createOperationsAdapter();
@@ -763,36 +753,6 @@ public class HlvlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createQualifiedNameAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link com.coffee.hlvl.ExternalElement <em>External Element</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see com.coffee.hlvl.ExternalElement
-   * @generated
-   */
-  public Adapter createExternalElementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link com.coffee.hlvl.ReferencedElement <em>Referenced Element</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see com.coffee.hlvl.ReferencedElement
-   * @generated
-   */
-  public Adapter createReferencedElementAdapter()
   {
     return null;
   }
